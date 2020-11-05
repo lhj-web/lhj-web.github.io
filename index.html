@@ -173,28 +173,9 @@
 
 <p>如果想要对服务器正常访问，还要对服务器绑定端口号，计算机中每个进程都会对应一个端口号，浏览器的默认端口号为<strong>80</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server.listen(<span class="number">80</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Server is running...&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="url的基本认识"><a href="#url的基本认识" class="headerlink" title="url的基本认识"></a>url的基本认识</h3><p>url(统一资源定位符)也就是在浏览器地址栏的内容，在对服务器进行事件监听时当用户输入url请求时可以获取到，并对其进行操作</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> url=req.url;</span><br><span class="line">    <span class="function"><span class="title">if</span>(<span class="params">url===<span class="string">&#x27;/&#x27;</span></span>)</span>&#123;</span><br><span class="line">        res.end(<span class="string">&#x27;hello world&#x27;</span>);</span><br><span class="line">    &#125; </span><br></pre></td></tr></table></figure>
-
-<h2 id="核心模块fs"><a href="#核心模块fs" class="headerlink" title="核心模块fs"></a>核心模块fs</h2><h3 id="基本语法-1"><a href="#基本语法-1" class="headerlink" title="基本语法"></a>基本语法</h3><p>fs是node中的<strong>文件操作系统</strong>，主要用来读取和写入文件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>); <span class="comment">//导入模块</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//异步读取文件</span></span><br><span class="line">fs.readFile(<span class="string">&#x27;./xxx&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123; <span class="comment">//err 表示读取出错 data表示读取成功的数据</span></span><br><span class="line">    <span class="function"><span class="title">if</span>(<span class="params">err</span>)</span> &#123;</span><br><span class="line">        res.end(<span class="string">&#x27;读取错误&#x27;</span>)；</span><br><span class="line">    &#125;</span><br><span class="line">    res.end(data);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>写入文件：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//异步写入文件</span></span><br><span class="line">fs.writeFile(<span class="string">&#x27;./写入文件路径&#x27;</span>, <span class="string">&#x27;写入内容&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">if</span>(<span class="params">err</span>)</span> &#123;</span><br><span class="line">        res.end(<span class="string">&#x27;erro&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    res.end(<span class="string">&#x27;success&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>同步写入文件的话就是没有回调函数，并在fs.readFile后面加上了<code>Sync</code>。</p>
-<h2 id="模拟Apache"><a href="#模拟Apache" class="headerlink" title="模拟Apache"></a>模拟Apache</h2><p>根据以上两种核心模块我们可以模拟出<font color="red">Apache</font>服务器的基本行为。</p>
-<p>首先导入两种核心模块,然后创建服务器，通过设定好服务器文件基本路径并将请求的url赋值给filePath以实现灵活读取文件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = http.createServer();</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">&#x27;requeset&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> url = req.url;</span><br><span class="line">    <span class="keyword">var</span> dir = <span class="string">&#x27;服务器文件路径&#x27;</span>;</span><br><span class="line">    <span class="keyword">var</span> filePath = <span class="string">&#x27;&#x27;</span>; <span class="comment">//初始界面的路径</span></span><br><span class="line">    <span class="keyword">if</span> (url !== <span class="string">&#x27;/&#x27;</span>) &#123;</span><br><span class="line">        filePath = url;</span><br><span class="line">    &#125;</span><br><span class="line">    fs.readFile(dir+filePath, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">        <span class="function"><span class="title">if</span>(<span class="params">err</span>)</span> &#123;</span><br><span class="line">            res.end(<span class="number">404</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        res.end(data);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">80</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;Server is running...&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
+        
+          <a class="article-more-a" href="/archives/b9a1e88c.html#more">more >></a>
+        
       
 
       
@@ -291,30 +272,9 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node XXX.js</span><br></pre></td></tr></table></figure>
 
 <p>得到输出结果<code>hello world</code>。</p>
-<h3 id="npm介绍"><a href="#npm介绍" class="headerlink" title="npm介绍"></a>npm介绍</h3><p>由于node中没有模块化，所以npm作为一种包管理工具来辅佐node，就如同软件仓库/管家的作用一样，帮你把各种软件收纳存储起来，以方便下载。想要下载所需的包时只需在放置包位置的路径下在cmd输入</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i XXX包名 -s //-s安装到依赖环境中</span><br><span class="line">npm r xxx包名 //删除</span><br></pre></td></tr></table></figure>
-
-<h4 id="cnpm介绍"><a href="#cnpm介绍" class="headerlink" title="cnpm介绍"></a>cnpm介绍</h4><p>由于npm所在服务器位于国外，所以有时会遇到被墙的问题，而且当下载的包比较大时，由于下载速度较慢，会造成等待时间较长的问题，所以可以在<a target="_blank" rel="noopener external nofollow noreferrer" href="https://developer.aliyun.com/mirror/NPM?from=tnpm">淘宝镜像</a>中下载<font color="red">cnpm</font>,安装包名时将 npm替换成<font color="red">cnpm</font>就能解决上述问题。</p>
-<h3 id="模块化系统"><a href="#模块化系统" class="headerlink" title="模块化系统"></a>模块化系统</h3><p>node的模块化系统分为三部分：<em>核心模块</em>、<em>导入模块</em>、<em>自定义模块</em>。</p>
-<p>核心模块就是node中附带的模块，是操作node的核心，导入模块便是从npm下载下来的模块，自定义模块就是自己创建写入的js文件。</p>
-<h4 id="核心模块"><a href="#核心模块" class="headerlink" title="核心模块"></a>核心模块</h4><p>node中的核心模块有很多，如<code>http</code>模块、<code>fs</code>模块等，先创建一个js文件，想要导入他们直接写入</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>); </span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<h4 id="导入模块"><a href="#导入模块" class="headerlink" title="导入模块"></a>导入模块</h4><p>使用导入模块的时候必须现在cmd中用c/npm下载该模块，然后导入使用，比如</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i math -s</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> math = <span class="built_in">require</span>(<span class="string">&#x27;math&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<h4 id="自定义模块"><a href="#自定义模块" class="headerlink" title="自定义模块"></a>自定义模块</h4><p>当我想要自己写一个计算加法和乘法的模块后，创建cal.js文件后写入</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exports</span>.add = <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> a+b;			<span class="comment">// exports表示暴露，模块就像写在在函数里一样，里面定义的变量要将其暴露出来</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">exports</span>.mul = <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a*b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>然后在另一个文件中导入使用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cal = <span class="built_in">require</span>(<span class="string">&#x27;./cal.js&#x27;</span>); <span class="comment">//注意导入自定义模块的路径必须加上./</span></span><br><span class="line"><span class="keyword">var</span> ret = cal.add(<span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line"><span class="built_in">console</span>.log(ret)</span><br><span class="line"><span class="comment">//8</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="关于自定义文件的暴露问题"><a href="#关于自定义文件的暴露问题" class="headerlink" title="关于自定义文件的暴露问题"></a>关于自定义文件的暴露问题</h4><p>有两种方式，一种是<code>exports.变量名</code>，另一种是<code>moudule.exports = &#123;&#125;</code>,前者其实是后者的一个方法，他们俩都存储了相同的地址值，指向同一个对象。只是为了方便快捷，后者导出的是整个模块函数对象，而前者只是将对应的模块函数导出。</p>
-
+        
+          <a class="article-more-a" href="/archives/b4da5a3.html#more">more >></a>
+        
       
 
       

@@ -22,6 +22,8 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">node XXX.js</span><br></pre></td></tr></table></figure>
 
 <p>得到输出结果<code>hello world</code>。</p>
+<a id="more"></a>
+
 <h3 id="npm介绍"><a href="#npm介绍" class="headerlink" title="npm介绍"></a>npm介绍</h3><p>由于node中没有模块化，所以npm作为一种包管理工具来辅佐node，就如同软件仓库/管家的作用一样，帮你把各种软件收纳存储起来，以方便下载。想要下载所需的包时只需在放置包位置的路径下在cmd输入</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i XXX包名 -s //-s安装到依赖环境中</span><br><span class="line">npm r xxx包名 //删除</span><br></pre></td></tr></table></figure>
 
@@ -59,6 +61,8 @@
 
 <p>如果想要对服务器正常访问，还要对服务器绑定端口号，计算机中每个进程都会对应一个端口号，浏览器的默认端口号为<strong>80</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">server.listen(<span class="number">80</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Server is running...&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
 
 <h3 id="url的基本认识"><a href="#url的基本认识" class="headerlink" title="url的基本认识"></a>url的基本认识</h3><p>url(统一资源定位符)也就是在浏览器地址栏的内容，在对服务器进行事件监听时当用户输入url请求时可以获取到，并对其进行操作</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> url=req.url;</span><br><span class="line">    <span class="function"><span class="title">if</span>(<span class="params">url===<span class="string">&#x27;/&#x27;</span></span>)</span>&#123;</span><br><span class="line">        res.end(<span class="string">&#x27;hello world&#x27;</span>);</span><br><span class="line">    &#125; </span><br></pre></td></tr></table></figure>
