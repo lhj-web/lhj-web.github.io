@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://lhj-web.github.io">
-  <title>Archives: 2020/10 | 小刘童鞋的博客</title>
+  <title>node基础(一) | 小刘童鞋的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="富强、民主、文明、和谐、自由、平等、公正、法治、爱国、敬业、诚信、友善">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小刘童鞋的博客">
-<meta property="og:url" content="https://lhj-web.github.io/archives/2020/10/index.html">
+  <meta name="description" content="[toc]  node介绍  node基础语法   node介绍随着计算机技术的快速发展，谷歌推出了V8引擎 ，为node.js的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的运行环境，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node基础(一)">
+<meta property="og:url" content="https://lhj-web.github.io/archives/b4da5a3.html">
 <meta property="og:site_name" content="小刘童鞋的博客">
-<meta property="og:description" content="富强、民主、文明、和谐、自由、平等、公正、法治、爱国、敬业、诚信、友善">
+<meta property="og:description" content="[toc]  node介绍  node基础语法   node介绍随着计算机技术的快速发展，谷歌推出了V8引擎 ，为node.js的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的运行环境，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-05T05:05:20.000Z">
+<meta property="article:modified_time" content="2020-11-05T12:05:32.313Z">
 <meta property="article:author" content="小刘童鞋">
-<meta property="article:tag" content="前端，js，jQuery，vue，react，angular，node，mongodb，开发者，程序猿，开源，编程，代码，it网站，html，css，html5，css3，用户体验">
+<meta property="article:tag" content="node.js">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="小刘童鞋的博客" type="application/atom+xml">
@@ -140,98 +142,277 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-node基础教程-一" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/5158de64.html" class="archive-article-date">
-  	<time datetime="2020-10-24T09:04:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/5158de64.html">python图书管理系统</a>
+    <h1 class="article-title" itemprop="name">
+      node基础(一)
     </h1>
   
 
-        <div class="article-info info-on-right">
+        
+        <a href="/archives/b4da5a3.html" class="archive-article-date">
+  	<time datetime="2020-11-05T05:05:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-05</time>
+</a>
+        
           
+          
+        
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+          
+          
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[toc]</p>
+<ol>
+<li><p>node介绍</p>
+</li>
+<li><p>node基础语法</p>
+</li>
+</ol>
+<h2 id="node介绍"><a href="#node介绍" class="headerlink" title="node介绍"></a>node介绍</h2><p>随着计算机技术的快速发展，谷歌推出了<strong>V8</strong>引擎 ，为<code>node.js</code>的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的<strong>运行环境</strong>，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，完成中小型项目，进而实现全栈。</p>
+<h2 id="node基础语法"><a href="#node基础语法" class="headerlink" title="node基础语法"></a>node基础语法</h2><h3 id="node安装"><a href="#node安装" class="headerlink" title="node安装"></a>node安装</h3><p>首先在官网进行下载<a target="_blank" rel="noopener external nofollow noreferrer" href="https://nodejs.org/en/">node</a>,官网提供了两种版本，分别为奇数版和偶数版，建议下载偶数版，因为<strong>偶数版</strong>是稳定版，也就是长期支持维护的版本，使用起来更加安全。下载完成后，安装一路默认即可，因为新版node在安装的时候会默认添加到<strong>环境变量</strong>中，所以不需要重新配置。打开cmd后输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<p>即可查询当前node版本，来判断是否安装成功。</p>
+<h3 id="输出hello-world"><a href="#输出hello-world" class="headerlink" title="输出hello world"></a>输出hello world</h3><p>在任意的路径下创建一个js文件，写入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="comment">// hello world</span></span><br></pre></td></tr></table></figure>
+
+<p>保存后，打开<strong>该路径下</strong>的cmd，输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node XXX.js</span><br></pre></td></tr></table></figure>
+
+<p>得到输出结果<code>hello world</code>。</p>
+<h3 id="npm介绍"><a href="#npm介绍" class="headerlink" title="npm介绍"></a>npm介绍</h3><p>由于node中没有模块化，所以npm作为一种包管理工具来辅佐node，就如同软件仓库/管家的作用一样，帮你把各种软件收纳存储起来，以方便下载。想要下载所需的包时只需在放置包位置的路径下在cmd输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i XXX包名 -s //-s安装到依赖环境中</span><br><span class="line">npm r xxx包名 //删除</span><br></pre></td></tr></table></figure>
+
+<h4 id="cnpm介绍"><a href="#cnpm介绍" class="headerlink" title="cnpm介绍"></a>cnpm介绍</h4><p>由于npm所在服务器位于国外，所以有时会遇到被墙的问题，而且当下载的包比较大时，由于下载速度较慢，会造成等待时间较长的问题，所以可以在<a target="_blank" rel="noopener external nofollow noreferrer" href="https://developer.aliyun.com/mirror/NPM?from=tnpm">淘宝镜像</a>中下载<font color="red">cnpm</font>,安装包名时将 npm替换成<font color="red">cnpm</font>就能解决上述问题。</p>
+<h3 id="模块化系统"><a href="#模块化系统" class="headerlink" title="模块化系统"></a>模块化系统</h3><p>node的模块化系统分为三部分：<em>核心模块</em>、<em>导入模块</em>、<em>自定义模块</em>。</p>
+<p>核心模块就是node中附带的模块，是操作node的核心，导入模块便是从npm下载下来的模块，自定义模块就是自己创建写入的js文件。</p>
+<h4 id="核心模块"><a href="#核心模块" class="headerlink" title="核心模块"></a>核心模块</h4><p>node中的核心模块有很多，如<code>http</code>模块、<code>fs</code>模块等，先创建一个js文件，想要导入他们直接写入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>); </span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="导入模块"><a href="#导入模块" class="headerlink" title="导入模块"></a>导入模块</h4><p>使用导入模块的时候必须现在cmd中用c/npm下载该模块，然后导入使用，比如</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i math -s</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> math = <span class="built_in">require</span>(<span class="string">&#x27;math&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="自定义模块"><a href="#自定义模块" class="headerlink" title="自定义模块"></a>自定义模块</h4><p>当我想要自己写一个计算加法和乘法的模块后，创建cal.js文件后写入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exports</span>.add = <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> a+b;			<span class="comment">// exports表示暴露，模块就像写在在函数里一样，里面定义的变量要将其暴露出来</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">exports</span>.mul = <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a*b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>然后在另一个文件中导入使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cal = <span class="built_in">require</span>(<span class="string">&#x27;./cal.js&#x27;</span>); <span class="comment">//注意导入自定义模块的路径必须加上./</span></span><br><span class="line"><span class="keyword">var</span> ret = cal.add(<span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line"><span class="built_in">console</span>.log(ret)</span><br><span class="line"><span class="comment">//8</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="关于自定义文件的暴露问题"><a href="#关于自定义文件的暴露问题" class="headerlink" title="关于自定义文件的暴露问题"></a>关于自定义文件的暴露问题</h4><p>有两种方式，一种是<code>exports.变量名</code>，另一种是<code>moudule.exports = &#123;&#125;</code>,前者其实是后者的一个方法，他们俩都存储了相同的地址值，指向同一个对象。只是为了方便快捷，后者导出的是整个模块函数对象，而前者只是将对应的模块函数导出。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" rel="external nofollow noreferrer" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/IMG_3762.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/IMG_3761.JPG">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" rel="external nofollow noreferrer" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" rel="external nofollow noreferrer" class="js-tag article-tag-list-link color3">node.js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" rel="external nofollow noreferrer" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" rel="external nofollow noreferrer" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" rel="external nofollow noreferrer" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" rel="external nofollow noreferrer" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" rel="external nofollow noreferrer" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" rel="external nofollow noreferrer" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" rel="external nofollow noreferrer" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" rel="external nofollow noreferrer" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" rel="external nofollow noreferrer" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" rel="external nofollow noreferrer"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lhj-web.github.io/archives/b4da5a3.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/75b91cd4.html" class="archive-article-date">
-  	<time datetime="2020-10-24T06:21:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-24</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/archives/b9a1e88c.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          node基础教程(二)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/archives/5158de64.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python图书管理系统</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" rel="external nofollow noreferrer" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/75b91cd4.html">原生JS实现无缝轮播图</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="node基础教程-一" data-title="node基础(一)" data-url="https://lhj-web.github.io/archives/b4da5a3.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "https://lhj-web.github.io/archives/b4da5a3.html", 
+    sourceId: "node基础教程-一",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" rel="external nofollow noreferrer" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
+  <div id="SOHUCS" sid="node基础教程-一" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyv7yWaDz",
+        conf: "5b0dc209260c78e069495b23a523a73e"
+    });
+</script>
+</script>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -267,8 +448,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
