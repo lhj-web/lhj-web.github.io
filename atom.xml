@@ -6,7 +6,7 @@
   <link href="https://lhj-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://lhj-web.github.io/"/>
-  <updated>2020-11-07T09:45:10.794Z</updated>
+  <updated>2020-11-07T11:20:19.185Z</updated>
   <id>https://lhj-web.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>node基础教程(三)</title>
+    <title>node基础(三)</title>
     <link href="https://lhj-web.github.io/archives/c752c8a7.html"/>
     <id>https://lhj-web.github.io/archives/c752c8a7.html</id>
     <published>2020-11-06T05:08:13.000Z</published>
-    <updated>2020-11-07T09:45:10.794Z</updated>
+    <updated>2020-11-07T11:20:19.185Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Express框架&quot;&gt;&lt;a href=&quot;#Express框架&quot; class=&quot;headerlink&quot; title=&quot;Express框架&quot;&gt;&lt;/a&gt;Express框架&lt;/h1&gt;&lt;h2 id=&quot;express-安装&quot;&gt;&lt;a href=&quot;#express-安装&quot; class=&quot;headerlink&quot; title=&quot;express 安装&quot;&gt;&lt;/a&gt;express 安装&lt;/h2&gt;&lt;p&gt;node也有许多框架，如express、koa等，使用框架可以大大减少我们的代码量，从而提高开发效率，这里只介绍 &lt;strong&gt;express&lt;/strong&gt; 框架&lt;/p&gt;
@@ -39,11 +39,11 @@
   </entry>
   
   <entry>
-    <title>node基础教程(二)</title>
+    <title>node基础(二)</title>
     <link href="https://lhj-web.github.io/archives/b9a1e88c.html"/>
     <id>https://lhj-web.github.io/archives/b9a1e88c.html</id>
     <published>2020-11-05T12:06:25.000Z</published>
-    <updated>2020-11-07T09:44:59.405Z</updated>
+    <updated>2020-11-07T11:20:15.551Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;核心模块http&quot;&gt;&lt;a href=&quot;#核心模块http&quot; class=&quot;headerlink&quot; title=&quot;核心模块http&quot;&gt;&lt;/a&gt;核心模块http&lt;/h2&gt;&lt;h3 id=&quot;基本语法&quot;&gt;&lt;a href=&quot;#基本语法&quot; class=&quot;headerlink&quot; title=&quot;基本语法&quot;&gt;&lt;/a&gt;基本语法&lt;/h3&gt;&lt;p&gt;​    &lt;code&gt;http&lt;/code&gt;核心模块主要用于创建和操作服务器，接受请求时可以传入请求和响应两个参数。&lt;/p&gt;
