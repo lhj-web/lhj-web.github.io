@@ -3,8 +3,7 @@
   <entry>
     <title>node基础(一)</title>
     <url>/archives/b4da5a3.html</url>
-    <content><![CDATA[<p>[toc]</p>
-<h2 id="node介绍"><a href="#node介绍" class="headerlink" title="node介绍"></a>node介绍</h2><p>随着计算机技术的快速发展，谷歌推出了 <strong>V8</strong> 引擎 ，为 <code>node.js</code> 的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的 <strong>运行环境</strong> ，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，完成中小型项目，进而实现全栈。</p>
+    <content><![CDATA[<h2 id="node介绍"><a href="#node介绍" class="headerlink" title="node介绍"></a>node介绍</h2><p>随着计算机技术的快速发展，谷歌推出了 <strong>V8</strong> 引擎 ，为 <code>node.js</code> 的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的 <strong>运行环境</strong> ，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，完成中小型项目，进而实现全栈。</p>
 <h2 id="node基础语法"><a href="#node基础语法" class="headerlink" title="node基础语法"></a>node基础语法</h2><h3 id="node安装"><a href="#node安装" class="headerlink" title="node安装"></a>node安装</h3><p>首先在官网进行下载 <a href="https://nodejs.org/en/">node</a> ,官网提供了两种版本，分别为奇数版和偶数版，建议下载偶数版，因为 <strong>偶数版</strong> 是稳定版，也就是长期支持维护的版本，使用起来更加安全。下载完成后，安装一路默认即可，因为新版node在安装的时候会默认添加到 <strong>环境变量</strong> 中，所以不需要重新配置。打开cmd后输入：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
 
@@ -65,48 +64,9 @@
       </tags>
   </entry>
   <entry>
-    <title>node基础教程(三)</title>
-    <url>/archives/c752c8a7.html</url>
-    <content><![CDATA[<h1 id="Express框架"><a href="#Express框架" class="headerlink" title="Express框架"></a>Express框架</h1><h2 id="express-安装"><a href="#express-安装" class="headerlink" title="express 安装"></a>express 安装</h2><p>node也有许多框架，如express、koa等，使用框架可以大大减少我们的代码量，从而提高开发效率，这里只介绍 <strong>express</strong> 框架</p>
-<p>首先安装在c/npm中安装express，安装成功后可以在node_moudules文件中查看是否存在</p>
-<h2 id="express基本使用"><a href="#express基本使用" class="headerlink" title="express基本使用"></a>express基本使用</h2><p>首先我们用express创建一个服务器：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h3 id="提供静态资源"><a href="#提供静态资源" class="headerlink" title="提供静态资源"></a>提供静态资源</h3><p>express提供了一种方法，可以让你的静态资源得以访问，使用express.static内置中间件函数可以设置提供静态资源的路径</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.use(<span class="string">&#x27;设置请求的url地址&#x27;</span>, express.static(<span class="string">&#x27;./静态资源路径&#x27;</span>));</span><br></pre></td></tr></table></figure>
-
-
-
-<p>并且在想要渲染的文件中所引入的文件路径可以直接写入，例如我想要渲染的html文件引入了public文件夹中的</p>
-<p>css文件夹的main.css文件，那么此时我就可以在 <code>link</code> 标签中的href写入 <code>/public/css/main.css</code>，不论你想</p>
-<p>要渲染的文件在你的包中哪个文件夹里，都可以直接引入。</p>
-<h3 id="express使用模板引擎"><a href="#express使用模板引擎" class="headerlink" title="express使用模板引擎"></a>express使用模板引擎</h3><p>express想要使用模板引擎需要用npm下载两个包：<em>art-template</em>和<em>express-art-template</em>。</p>
-<p>通过<code>app.engine()</code>可以实现被渲染文件的后缀，比如</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.engine(<span class="string">&#x27;html&#x27;</span>, <span class="built_in">require</span>(<span class="string">&#x27;express-art-template&#x27;</span>))</span><br></pre></td></tr></table></figure>
-
-
-
-<p>此时，渲染文件类型将被指定为.html文件。</p>
-<h3 id="关于get和post请求"><a href="#关于get和post请求" class="headerlink" title="关于get和post请求"></a>关于get和post请求</h3><p><strong>get</strong> 和 <strong>post</strong>请求区别在与get请求中传递的参数值会显示在地址栏中，而且长度有限，post请求则不会在地址栏</p>
-<p>中显示，并且长度不受限制，相对来讲更加安全，但get请求能减少web服务器的负担，因此两者都不可或缺。</p>
-<h4 id="get请求"><a href="#get请求" class="headerlink" title="get请求"></a>get请求</h4><p>get请求在express的语法：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">express().get(<span class="string">&#x27;./请求地址&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="post请求"><a href="#post请求" class="headerlink" title="post请求"></a>post请求</h4><p>post请求需要中间件</p>
-]]></content>
-      <tags>
-        <tag>node.js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>node基础教程(二)</title>
     <url>/archives/b9a1e88c.html</url>
-    <content><![CDATA[<p>[toc]</p>
-<h2 id="核心模块http"><a href="#核心模块http" class="headerlink" title="核心模块http"></a>核心模块http</h2><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><p>​    <code>http</code>核心模块主要用于创建和操作服务器，接受请求时可以传入请求和响应两个参数。</p>
+    <content><![CDATA[<h2 id="核心模块http"><a href="#核心模块http" class="headerlink" title="核心模块http"></a>核心模块http</h2><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><p>​    <code>http</code>核心模块主要用于创建和操作服务器，接受请求时可以传入请求和响应两个参数。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>); <span class="comment">//导入模块</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = http.creatServer(); <span class="comment">//创建一个服务器</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对服务器进行事件监听</span></span><br><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123; <span class="comment">//req:request(请求) res: response(响应)</span></span><br><span class="line">    res.setHeader(<span class="string">&#x27;content-type&#x27;</span>, <span class="string">&#x27;text/plain; utf-8&#x27;</span>); <span class="comment">//设置请求头，防止相应界面乱码</span></span><br><span class="line">	res.end(<span class="string">&#x27;hello world&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>如果想要对服务器正常访问，还要对服务器绑定端口号，计算机中每个进程都会对应一个端口号，浏览器的默认端口号为 <strong>80</strong> </p>
@@ -161,6 +121,44 @@
 
 
 
+]]></content>
+      <tags>
+        <tag>node.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node基础教程(三)</title>
+    <url>/archives/c752c8a7.html</url>
+    <content><![CDATA[<h1 id="Express框架"><a href="#Express框架" class="headerlink" title="Express框架"></a>Express框架</h1><h2 id="express-安装"><a href="#express-安装" class="headerlink" title="express 安装"></a>express 安装</h2><p>node也有许多框架，如express、koa等，使用框架可以大大减少我们的代码量，从而提高开发效率，这里只介绍 <strong>express</strong> 框架</p>
+<p>首先安装在c/npm中安装express，安装成功后可以在node_moudules文件中查看是否存在</p>
+<h2 id="express基本使用"><a href="#express基本使用" class="headerlink" title="express基本使用"></a>express基本使用</h2><p>首先我们用express创建一个服务器：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h3 id="提供静态资源"><a href="#提供静态资源" class="headerlink" title="提供静态资源"></a>提供静态资源</h3><p>express提供了一种方法，可以让你的静态资源得以访问，使用express.static内置中间件函数可以设置提供静态资源的路径</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.use(<span class="string">&#x27;设置请求的url地址&#x27;</span>, express.static(<span class="string">&#x27;./静态资源路径&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+
+
+<p>并且在想要渲染的文件中所引入的文件路径可以直接写入，例如我想要渲染的html文件引入了public文件夹中的</p>
+<p>css文件夹的main.css文件，那么此时我就可以在 <code>link</code> 标签中的href写入 <code>/public/css/main.css</code>，不论你想</p>
+<p>要渲染的文件在你的包中哪个文件夹里，都可以直接引入。</p>
+<h3 id="express使用模板引擎"><a href="#express使用模板引擎" class="headerlink" title="express使用模板引擎"></a>express使用模板引擎</h3><p>express想要使用模板引擎需要用npm下载两个包：<em>art-template</em>和<em>express-art-template</em>。</p>
+<p>通过<code>app.engine()</code>可以实现被渲染文件的后缀，比如</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.engine(<span class="string">&#x27;html&#x27;</span>, <span class="built_in">require</span>(<span class="string">&#x27;express-art-template&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+<p>此时，渲染文件类型将被指定为.html文件。</p>
+<h3 id="关于get和post请求"><a href="#关于get和post请求" class="headerlink" title="关于get和post请求"></a>关于get和post请求</h3><p><strong>get</strong> 和 <strong>post</strong>请求区别在与get请求中传递的参数值会显示在地址栏中，而且长度有限，post请求则不会在地址栏</p>
+<p>中显示，并且长度不受限制，相对来讲更加安全，但get请求能减少web服务器的负担，因此两者都不可或缺。</p>
+<h4 id="get请求"><a href="#get请求" class="headerlink" title="get请求"></a>get请求</h4><p>get请求在express的语法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">express().get(<span class="string">&#x27;./请求地址&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="post请求"><a href="#post请求" class="headerlink" title="post请求"></a>post请求</h4><p>post请求需要中间件</p>
 ]]></content>
       <tags>
         <tag>node.js</tag>
