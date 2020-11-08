@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>MongoDB(一)</title>
+    <url>/archives/d69f1e.html</url>
+    <content><![CDATA[<h2 id="MongoDB基本介绍"><a href="#MongoDB基本介绍" class="headerlink" title="MongoDB基本介绍"></a>MongoDB基本介绍</h2><p>MongoDB是一种非关系型数据库，相对关系型数据库来说比较灵活，其实它也可以算是介于关系型数据库和非关系型数据库之间的一种数据库，因为它是最像关系型数据库的非关系数据库，它支持的数据结构十分松散，是类似json的 <code>bson</code>格式。</p>
+<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><p>在 <a href="https://www.mongodb.com/try">官网</a> 导航栏上找到software，选择第一个免费的社区版下载安装，安装完成后要配置环境变量，路径是在其文件的<code>Bin</code> 目录。</p>
+<a id="more"></a>
+
+<h3 id="启动数据库"><a href="#启动数据库" class="headerlink" title="启动数据库"></a>启动数据库</h3><p>要启动数据库，必须要在安装其盘符的根目录下打开cmd，输入 <code>mongod</code> 即可，最后有<code>Waiting for </code></p>
+<p><code>connections</code>出现就证明数据库已启动，然后连接该数据库只需打开任意路径下的cmd输入 <code>mongo</code> 就可以连接</p>
+<p>成功。</p>
+<h2 id="MongoDB基本语法"><a href="#MongoDB基本语法" class="headerlink" title="MongoDB基本语法"></a>MongoDB基本语法</h2><p>首先介绍下该数据库的基本组成，每个数据库由 <code>集合</code> 组成，而集合里又放着<code>文档</code>，示意图如下：</p>
+ <img src="images/~4I}QAT%]I]N4AGJA)(6]%K.png">
+
+
+
+<h3 id="常用shell指令"><a href="#常用shell指令" class="headerlink" title="常用shell指令"></a>常用shell指令</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">show dbs //显示所有数据库</span><br><span class="line"></span><br><span class="line">use 数据库名 //进入指定的数据库 注意：即使没有该数据库，由于MongoDB的灵活性，依然可以进入但不会创建</span><br><span class="line"></span><br><span class="line">db //显示当前所处的数据库</span><br><span class="line"></span><br><span class="line">show collections //显示当前数据库的所有集合</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="CRUD-增删改查"><a href="#CRUD-增删改查" class="headerlink" title="CRUD(增删改查)"></a>CRUD(增删改查)</h3><h4 id="增加文档"><a href="#增加文档" class="headerlink" title="增加文档"></a>增加文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.insert(doc) // 中间是集合名称 集合会隐式创建</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.insertOne(doc) //插入单个文档</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.insertMany([]) //插入多个文档</span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>insert()</code>里如果传的是一个对象，那么功能与insertOne是一致的，同理，传一个数组，数组里存储着多</p>
+<p>个对象，那么就与insertMany相同，因为inset()方法是较早版本所出，所以兼容性较好。 </p>
+<h4 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find() //查询所有文档，返回类型为数组</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.find().limit(number) //查询指定数量的文档</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.find().count() //统计文档数量</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.findOne() //查询符合条件的单个文档，返回类型为对象</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.findMany() //查询符合条件的多个文档</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>find()</code> 方法和上面用法一致，既可以查询单个也可以查询多个文档，若没有参数传入，则直接查询该集合内的</p>
+<p>所有文档。</p>
+<h4 id="修改文档"><a href="#修改文档" class="headerlink" title="修改文档"></a>修改文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.update(&#123;目标文档&#125;, &#123;更改内容&#125;) //该方法修改后的文档会覆盖修改前</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.update(&#123;目标文档&#125;, &#123;$set: &#123;更改内容&#125;&#125;) //该方法只会修改指定的文档属性,没有的属性会自动添加</span><br><span class="line">db.&lt;collections&gt;.update(&#123;目标文档&#125;, &#123;$unset: &#123;更改内容&#125;) //删除指定属性的文档</span><br><span class="line"></span><br><span class="line">//update()默认修改单个文档，若想修改多个，只需在后面加入一个对象</span><br><span class="line">(&#123;目标文档&#125;, &#123;$set: &#123;更改内容&#125;, &#123;multi: true&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>与之前一样，也存在<code>updateOne()</code>和<code>updateMany()</code> 。</p>
+<h4 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.remove(&#123;&#125;) //默认删除所有符合条件的文档 删除单个需传递第二个参数true</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.drop() //remove方法性能较差，删除速度较慢，而drop直接清空</span><br><span class="line">db.&lt;collections&gt;.deleteOne()</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.deleteMany()</span><br></pre></td></tr></table></figure>
+
+
+
+<p>remove({})里必须 <font color="red">传参</font>，否则报错。</p>
+<h2 id="可视化工具"><a href="#可视化工具" class="headerlink" title="可视化工具"></a>可视化工具</h2><p>MongoDB的可视化工具有很多，如NoSql、自带的Compass等，里面只是样式发生改变，功能大致相同，需要</p>
+<p>的话可以自行下载安装。</p>
+]]></content>
+      <categories>
+        <category>非关系型数据库</category>
+      </categories>
+      <tags>
+        <tag>MongoDB</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>node基础(一)</title>
     <url>/archives/b4da5a3.html</url>
     <content><![CDATA[<h2 id="node介绍"><a href="#node介绍" class="headerlink" title="node介绍"></a>node介绍</h2><p>随着计算机技术的快速发展，谷歌推出了 <strong>V8</strong> 引擎 ，为 <code>node.js</code> 的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的 <strong>运行环境</strong> ，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，完成中小型项目，进而实现全栈。</p>
@@ -208,7 +257,7 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>程序设计</tag>
       </tags>
   </entry>
   <entry>
@@ -236,7 +285,7 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
+        <tag>轮播图</tag>
       </tags>
   </entry>
 </search>

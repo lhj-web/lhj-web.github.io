@@ -6,7 +6,7 @@
   <link href="https://lhj-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://lhj-web.github.io/"/>
-  <updated>2020-11-08T09:40:56.358Z</updated>
+  <updated>2020-11-08T14:08:36.288Z</updated>
   <id>https://lhj-web.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MongoDB(一)</title>
+    <link href="https://lhj-web.github.io/archives/d69f1e.html"/>
+    <id>https://lhj-web.github.io/archives/d69f1e.html</id>
+    <published>2020-11-08T11:24:53.000Z</published>
+    <updated>2020-11-08T14:08:36.288Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;MongoDB基本介绍&quot;&gt;&lt;a href=&quot;#MongoDB基本介绍&quot; class=&quot;headerlink&quot; title=&quot;MongoDB基本介绍&quot;&gt;&lt;/a&gt;MongoDB基本介绍&lt;/h2&gt;&lt;p&gt;MongoDB是一种非关系型数据库，相对关系型数据库来说比较灵活，其实它也可以算是介于关系型数据库和非关系型数据库之间的一种数据库，因为它是最像关系型数据库的非关系数据库，它支持的数据结构十分松散，是类似json的 &lt;code&gt;bson&lt;/code&gt;格式。&lt;/p&gt;
+&lt;h3 id=&quot;下载安装&quot;&gt;&lt;a href=&quot;#下载安装&quot; class=&quot;headerlink&quot; title=&quot;下载安装&quot;&gt;&lt;/a&gt;下载安装&lt;/h3&gt;&lt;p&gt;在 &lt;a href=&quot;https://www.mongodb.com/try&quot;&gt;官网&lt;/a&gt; 导航栏上找到software，选择第一个免费的社区版下载安装，安装完成后要配置环境变量，路径是在其文件的&lt;code&gt;Bin&lt;/code&gt; 目录。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="非关系型数据库" scheme="https://lhj-web.github.io/categories/%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="MongoDB" scheme="https://lhj-web.github.io/tags/MongoDB/"/>
+    
+  </entry>
   
   <entry>
     <title>node基础(三)</title>
@@ -100,7 +120,7 @@
     <link href="https://lhj-web.github.io/archives/5158de64.html"/>
     <id>https://lhj-web.github.io/archives/5158de64.html</id>
     <published>2020-10-24T09:04:03.000Z</published>
-    <updated>2020-11-07T09:45:05.583Z</updated>
+    <updated>2020-11-08T12:39:37.913Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;图书管理系统&quot;&gt;&lt;a href=&quot;#图书管理系统&quot; class=&quot;headerlink&quot; title=&quot;图书管理系统&quot;&gt;&lt;/a&gt;图书管理系统&lt;/h1&gt;&lt;p&gt;本程序是用python语言编写，主要涉及到python中库的调用、对数组和函数的灵活运用等知识，是一个简单的程序设计。功能有用户页面和后台管理员系统。&lt;/p&gt;
@@ -112,7 +132,7 @@
     <category term="Python" scheme="https://lhj-web.github.io/categories/Python/"/>
     
     
-    <category term="python" scheme="https://lhj-web.github.io/tags/python/"/>
+    <category term="程序设计" scheme="https://lhj-web.github.io/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
@@ -121,7 +141,7 @@
     <link href="https://lhj-web.github.io/archives/75b91cd4.html"/>
     <id>https://lhj-web.github.io/archives/75b91cd4.html</id>
     <published>2020-10-24T06:21:32.000Z</published>
-    <updated>2020-11-08T01:24:39.339Z</updated>
+    <updated>2020-11-08T12:38:37.535Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;第一部分&quot;&gt;&lt;a href=&quot;#第一部分&quot; class=&quot;headerlink&quot; title=&quot;第一部分&quot;&gt;&lt;/a&gt;第一部分&lt;/h1&gt;&lt;p&gt;现在不论是pc端还是移动端，里面很重要的一个特效就是&lt;strong&gt;轮播图&lt;/strong&gt;，可以说是必不可少的。下面是html和css代码：&lt;/p&gt;</summary>
@@ -131,7 +151,7 @@
     <category term="JavaScript" scheme="https://lhj-web.github.io/categories/JavaScript/"/>
     
     
-    <category term="JavaScript" scheme="https://lhj-web.github.io/tags/JavaScript/"/>
+    <category term="轮播图" scheme="https://lhj-web.github.io/tags/%E8%BD%AE%E6%92%AD%E5%9B%BE/"/>
     
   </entry>
   
