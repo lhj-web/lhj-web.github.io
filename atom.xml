@@ -6,7 +6,7 @@
   <link href="https://lhj-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://lhj-web.github.io/"/>
-  <updated>2020-11-07T11:20:19.185Z</updated>
+  <updated>2020-11-08T09:40:56.358Z</updated>
   <id>https://lhj-web.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://lhj-web.github.io/archives/c752c8a7.html"/>
     <id>https://lhj-web.github.io/archives/c752c8a7.html</id>
     <published>2020-11-06T05:08:13.000Z</published>
-    <updated>2020-11-07T11:20:19.185Z</updated>
+    <updated>2020-11-08T09:40:56.358Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Express框架&quot;&gt;&lt;a href=&quot;#Express框架&quot; class=&quot;headerlink&quot; title=&quot;Express框架&quot;&gt;&lt;/a&gt;Express框架&lt;/h1&gt;&lt;h2 id=&quot;express-安装&quot;&gt;&lt;a href=&quot;#express-安装&quot; class=&quot;headerlink&quot; title=&quot;express 安装&quot;&gt;&lt;/a&gt;express 安装&lt;/h2&gt;&lt;p&gt;node也有许多框架，如express、koa等，使用框架可以大大减少我们的代码量，从而提高开发效率，这里只介绍 &lt;strong&gt;express&lt;/strong&gt; 框架&lt;/p&gt;
