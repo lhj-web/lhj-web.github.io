@@ -10,7 +10,7 @@
 <h3 id="启动数据库"><a href="#启动数据库" class="headerlink" title="启动数据库"></a>启动数据库</h3><p>要启动数据库，必须要在安装其盘符的根目录下打开cmd，输入 <code>mongod</code> 即可，最后有<code>Waiting for </code></p>
 <p><code>connections</code>出现就证明数据库已启动，然后连接该数据库只需打开任意路径下的cmd输入 <code>mongo</code> 就可以连接成功。</p>
 <h2 id="MongoDB基本语法"><a href="#MongoDB基本语法" class="headerlink" title="MongoDB基本语法"></a>MongoDB基本语法</h2><p>首先介绍下该数据库的基本组成，每个数据库由 <code>集合</code> 组成，而集合里又放着<code>文档</code>，示意图如下：</p>
- <img src="/images/~4I}QAT%]I]N4AGJA)(6]%K.png">
+ <img src="/images/shiyitu.png">
 
 
 

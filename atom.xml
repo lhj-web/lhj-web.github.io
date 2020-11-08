@@ -6,7 +6,7 @@
   <link href="https://lhj-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://lhj-web.github.io/"/>
-  <updated>2020-11-08T14:18:36.193Z</updated>
+  <updated>2020-11-08T14:28:54.913Z</updated>
   <id>https://lhj-web.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://lhj-web.github.io/archives/d69f1e.html"/>
     <id>https://lhj-web.github.io/archives/d69f1e.html</id>
     <published>2020-11-08T11:24:53.000Z</published>
-    <updated>2020-11-08T14:18:36.193Z</updated>
+    <updated>2020-11-08T14:28:54.913Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;MongoDB基本介绍&quot;&gt;&lt;a href=&quot;#MongoDB基本介绍&quot; class=&quot;headerlink&quot; title=&quot;MongoDB基本介绍&quot;&gt;&lt;/a&gt;MongoDB基本介绍&lt;/h2&gt;&lt;p&gt;MongoDB是一种非关系型数据库，相对关系型数据库来说比较灵活，其实它也可以算是介于关系型数据库和非关系型数据库之间的一种数据库，因为它是最像关系型数据库的非关系数据库，它支持的数据结构十分松散，是类似json的 &lt;code&gt;bson&lt;/code&gt;格式。&lt;/p&gt;
