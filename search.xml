@@ -37,6 +37,10 @@
 
 
 <p>remove({})里必须 <font color="red">传参</font>，否则报错。</p>
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.replace(&#123;旧&#125;, &#123;新&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="可视化工具"><a href="#可视化工具" class="headerlink" title="可视化工具"></a>可视化工具</h2><p>MongoDB的可视化工具有很多，如NoSql、自带的Compass等，里面只是样式发生改变，功能大致相同，需要</p>
 <p>的话可以自行下载安装。</p>
 ]]></content>
