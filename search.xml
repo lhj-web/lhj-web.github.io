@@ -8,10 +8,9 @@
 <a id="more"></a>
 
 <h3 id="启动数据库"><a href="#启动数据库" class="headerlink" title="启动数据库"></a>启动数据库</h3><p>要启动数据库，必须要在安装其盘符的根目录下打开cmd，输入 <code>mongod</code> 即可，最后有<code>Waiting for </code></p>
-<p><code>connections</code>出现就证明数据库已启动，然后连接该数据库只需打开任意路径下的cmd输入 <code>mongo</code> 就可以连接</p>
-<p>成功。</p>
+<p><code>connections</code>出现就证明数据库已启动，然后连接该数据库只需打开任意路径下的cmd输入 <code>mongo</code> 就可以连接成功。</p>
 <h2 id="MongoDB基本语法"><a href="#MongoDB基本语法" class="headerlink" title="MongoDB基本语法"></a>MongoDB基本语法</h2><p>首先介绍下该数据库的基本组成，每个数据库由 <code>集合</code> 组成，而集合里又放着<code>文档</code>，示意图如下：</p>
- <img src="images/~4I}QAT%]I]N4AGJA)(6]%K.png">
+ <img src="/images/~4I}QAT%]I]N4AGJA)(6]%K.png">
 
 
 
@@ -21,8 +20,7 @@
 
 <h3 id="CRUD-增删改查"><a href="#CRUD-增删改查" class="headerlink" title="CRUD(增删改查)"></a>CRUD(增删改查)</h3><h4 id="增加文档"><a href="#增加文档" class="headerlink" title="增加文档"></a>增加文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.insert(doc) // 中间是集合名称 集合会隐式创建</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.insertOne(doc) //插入单个文档</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.insertMany([]) //插入多个文档</span><br></pre></td></tr></table></figure>
 
-<p>其中 <code>insert()</code>里如果传的是一个对象，那么功能与insertOne是一致的，同理，传一个数组，数组里存储着多</p>
-<p>个对象，那么就与insertMany相同，因为inset()方法是较早版本所出，所以兼容性较好。 </p>
+<p>其中 <code>insert()</code>里如果传的是一个对象，那么功能与insertOne是一致的，同理，传一个数组，数组里存储着多个对象，那么就与insertMany相同，因为inset()方法是较早版本所出，所以兼容性较好。 </p>
 <h4 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find() //查询所有文档，返回类型为数组</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.find().limit(number) //查询指定数量的文档</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.find().count() //统计文档数量</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.findOne() //查询符合条件的单个文档，返回类型为对象</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.findMany() //查询符合条件的多个文档</span><br></pre></td></tr></table></figure>
 
 
@@ -75,10 +73,7 @@
 
 
 
-<h4 id="package-json介绍"><a href="#package-json介绍" class="headerlink" title="package.json介绍"></a>package.json介绍</h4><p>当你下载一个包后，打开这个包你会发现里面有一个 <code>package.json</code> 文件，这其实就是这个包的说明文件，里面</p>
-<p>是关于这个包的一些配置文件，所以在写node的时候要遵循模块化的规则，先定义一个 <code>package.json</code> 文件，</p>
-<p>写入基本信息。关于-s安装到依赖环境，在 <code>package.json</code> 文件中会显示依赖和你所依赖的包的版本，当你下载</p>
-<p>别人的包时，只需在这个包中打开cmd输入 <code>npm i</code>  ，就能将其所需要的包都下载下来，节省操作空间。</p>
+<h4 id="package-json介绍"><a href="#package-json介绍" class="headerlink" title="package.json介绍"></a>package.json介绍</h4><p>当你下载一个包后，打开这个包你会发现里面有一个 <code>package.json</code> 文件，这其实就是这个包的说明文件，里面是关于这个包的一些配置文件，所以在写node的时候要遵循模块化的规则，先定义一个 <code>package.json</code> 文件，写入基本信息。关于-s安装到依赖环境，在 <code>package.json</code> 文件中会显示依赖和你所依赖的包的版本，当你下载别人的包时，只需在这个包中打开cmd输入 <code>npm i</code>  ，就能将其所需要的包都下载下来，节省操作空间。</p>
 <h4 id="cnpm介绍"><a href="#cnpm介绍" class="headerlink" title="cnpm介绍"></a>cnpm介绍</h4><p>由于npm所在服务器位于国外，所以有时会遇到被墙的问题，而且当下载的包比较大时，由于下载速度较慢，会造成等待时间较长的问题，所以可以在 <a href="https://developer.aliyun.com/mirror/NPM?from=tnpm">淘宝镜像</a> 中下载 <font color="red">cnpm</font> ,安装包名时将 npm替换成 <font color="red">cnpm</font> 就能解决上述问题。</p>
 <h3 id="模块化系统"><a href="#模块化系统" class="headerlink" title="模块化系统"></a>模块化系统</h3><p>node的模块化系统分为三部分：<em>核心模块</em>、<em>导入模块</em>、<em>自定义模块</em>。</p>
 <p>核心模块就是node中附带的模块，是操作node的核心，导入模块便是从npm下载下来的模块，自定义模块就是自己创建写入的js文件。</p>
@@ -130,9 +125,7 @@
 
 
 
-<p>并且在想要渲染的文件中所引入的文件路径可以直接写入，例如我想要渲染的html文件引入了public文件夹中的</p>
-<p>css文件夹的main.css文件，那么此时我就可以在 <code>link</code> 标签中的href写入 <code>/public/css/main.css</code>，不论你想</p>
-<p>要渲染的文件在你的包中哪个文件夹里，都可以直接引入。</p>
+<p>并且在想要渲染的文件中所引入的文件路径可以直接写入，例如我想要渲染的html文件引入了public文件夹中的css文件夹的main.css文件，那么此时我就可以在 <code>link</code> 标签中的href写入 <code>/public/css/main.css</code>，不论你想要渲染的文件在你的包中哪个文件夹里，都可以直接引入。</p>
 <h3 id="express使用模板引擎"><a href="#express使用模板引擎" class="headerlink" title="express使用模板引擎"></a>express使用模板引擎</h3><p>express想要使用模板引擎需要用npm下载两个包：<em>art-template</em>和<em>express-art-template</em>。</p>
 <p>通过<code>app.engine()</code>可以实现被渲染文件的后缀，比如</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.engine(<span class="string">&#x27;html&#x27;</span>, <span class="built_in">require</span>(<span class="string">&#x27;express-art-template&#x27;</span>))</span><br></pre></td></tr></table></figure>
@@ -140,8 +133,7 @@
 
 
 <p>此时，渲染文件类型将被指定为.html文件。</p>
-<h3 id="关于get和post请求"><a href="#关于get和post请求" class="headerlink" title="关于get和post请求"></a>关于get和post请求</h3><p><strong>get</strong> 和 <strong>post</strong>请求区别在与get请求中传递的参数值会显示在地址栏中，而且长度有限，post请求则不会在地址栏</p>
-<p>中显示，并且长度不受限制，相对来讲更加安全，但get请求能减少web服务器的负担，因此两者都不可或缺。</p>
+<h3 id="关于get和post请求"><a href="#关于get和post请求" class="headerlink" title="关于get和post请求"></a>关于get和post请求</h3><p><strong>get</strong> 和 <strong>post</strong>请求区别在与get请求中传递的参数值会显示在地址栏中，而且长度有限，post请求则不会在地址栏中显示，并且长度不受限制，相对来讲更加安全，但get请求能减少web服务器的负担，因此两者都不可或缺。</p>
 <h4 id="get请求"><a href="#get请求" class="headerlink" title="get请求"></a>get请求</h4><p>get请求在express的语法：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">express().get(<span class="string">&#x27;./请求地址&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 

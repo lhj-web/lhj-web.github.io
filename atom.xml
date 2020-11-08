@@ -6,7 +6,7 @@
   <link href="https://lhj-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://lhj-web.github.io/"/>
-  <updated>2020-11-08T14:08:36.288Z</updated>
+  <updated>2020-11-08T14:18:36.193Z</updated>
   <id>https://lhj-web.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://lhj-web.github.io/archives/d69f1e.html"/>
     <id>https://lhj-web.github.io/archives/d69f1e.html</id>
     <published>2020-11-08T11:24:53.000Z</published>
-    <updated>2020-11-08T14:08:36.288Z</updated>
+    <updated>2020-11-08T14:18:36.193Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;MongoDB基本介绍&quot;&gt;&lt;a href=&quot;#MongoDB基本介绍&quot; class=&quot;headerlink&quot; title=&quot;MongoDB基本介绍&quot;&gt;&lt;/a&gt;MongoDB基本介绍&lt;/h2&gt;&lt;p&gt;MongoDB是一种非关系型数据库，相对关系型数据库来说比较灵活，其实它也可以算是介于关系型数据库和非关系型数据库之间的一种数据库，因为它是最像关系型数据库的非关系数据库，它支持的数据结构十分松散，是类似json的 &lt;code&gt;bson&lt;/code&gt;格式。&lt;/p&gt;
@@ -41,7 +41,7 @@
     <link href="https://lhj-web.github.io/archives/c752c8a7.html"/>
     <id>https://lhj-web.github.io/archives/c752c8a7.html</id>
     <published>2020-11-06T05:08:13.000Z</published>
-    <updated>2020-11-08T09:40:56.358Z</updated>
+    <updated>2020-11-08T14:17:26.282Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Express框架&quot;&gt;&lt;a href=&quot;#Express框架&quot; class=&quot;headerlink&quot; title=&quot;Express框架&quot;&gt;&lt;/a&gt;Express框架&lt;/h1&gt;&lt;h2 id=&quot;express-安装&quot;&gt;&lt;a href=&quot;#express-安装&quot; class=&quot;headerlink&quot; title=&quot;express 安装&quot;&gt;&lt;/a&gt;express 安装&lt;/h2&gt;&lt;p&gt;node也有许多框架，如express、koa等，使用框架可以大大减少我们的代码量，从而提高开发效率，这里只介绍 &lt;strong&gt;express&lt;/strong&gt; 框架&lt;/p&gt;
@@ -86,7 +86,7 @@
     <link href="https://lhj-web.github.io/archives/b4da5a3.html"/>
     <id>https://lhj-web.github.io/archives/b4da5a3.html</id>
     <published>2020-11-05T05:05:20.000Z</published>
-    <updated>2020-11-07T09:45:08.950Z</updated>
+    <updated>2020-11-08T14:18:12.800Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;node介绍&quot;&gt;&lt;a href=&quot;#node介绍&quot; class=&quot;headerlink&quot; title=&quot;node介绍&quot;&gt;&lt;/a&gt;node介绍&lt;/h2&gt;&lt;p&gt;随着计算机技术的快速发展，谷歌推出了 &lt;strong&gt;V8&lt;/strong&gt; 引擎 ，为 &lt;code&gt;node.js&lt;/code&gt; 的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的 &lt;strong&gt;运行环境&lt;/strong&gt; ，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，完成中小型项目，进而实现全栈。&lt;/p&gt;
