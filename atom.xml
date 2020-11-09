@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>淼淼的个人博客</title>
+  <title>小刘童鞋的博客</title>
   <icon>https://lhj-web.github.io/icon.png</icon>
   <subtitle>已是人海孤鸿，你是清晨朝暮</subtitle>
   <link href="https://lhj-web.github.io/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>https://lhj-web.github.io/</id>
   
   <author>
-    <name>淼淼</name>
+    <name>小刘童鞋</name>
     
   </author>
   
