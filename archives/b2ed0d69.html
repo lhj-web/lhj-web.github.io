@@ -24,19 +24,21 @@
     var CONFIG = {"hostname":"lhj-web.github.io","root":"/","scheme":"Gemini","version":"8.0.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="人之所以能，是相信能。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小刘童鞋的博客">
-<meta property="og:url" content="https://lhj-web.github.io/tags/node-js/index.html">
+  <meta name="description" content="mongoose基本介绍mongoose是对node环境下的MongoDB数据库操作的封装，将数据库内的数据转换成js对象以供使用。 下载安装1npm i mongoose --save    连接数据库12345var mongoose &#x3D; require(&amp;#x27;mongoose&amp;#x27;);mongoose.connect(&amp;#x27;mongodb:&#x2F;&#x2F;localhost&#x2F;test&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongoose基础">
+<meta property="og:url" content="https://lhj-web.github.io/archives/b2ed0d69.html">
 <meta property="og:site_name" content="小刘童鞋的博客">
-<meta property="og:description" content="人之所以能，是相信能。">
+<meta property="og:description" content="mongoose基本介绍mongoose是对node环境下的MongoDB数据库操作的封装，将数据库内的数据转换成js对象以供使用。 下载安装1npm i mongoose --save    连接数据库12345var mongoose &#x3D; require(&amp;#x27;mongoose&amp;#x27;);mongoose.connect(&amp;#x27;mongodb:&#x2F;&#x2F;localhost&#x2F;test&amp;">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-10T07:46:40.000Z">
+<meta property="article:modified_time" content="2020-11-10T14:12:27.827Z">
 <meta property="article:author" content="小刘童鞋">
-<meta property="article:tag" content="前端，js，jQuery，vue，react，angular，node，mongodb，开发者，程序猿，开源，编程，代码，it网站，html，css，html5，css3，用户体验">
+<meta property="article:tag" content="mongoose笔记">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://lhj-web.github.io/tags/node-js/">
+<link rel="canonical" href="https://lhj-web.github.io/archives/b2ed0d69.html">
 
 
 <script class="page-configurations">
@@ -44,12 +46,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: node.js | 小刘童鞋的博客</title>
+  <title>mongoose基础 | 小刘童鞋的博客</title>
   
 
 
@@ -142,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">5</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -152,7 +154,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">7</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a>
 
   </li>
         <li class="menu-item menu-item-commonweal">
@@ -204,7 +206,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -217,6 +219,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mongoose%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">mongoose基本介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">下载安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.2.</span> <span class="nav-text">连接数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model%E6%96%B9%E6%B3%95CRUD"><span class="nav-number">2.</span> <span class="nav-text">Model方法CRUD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%96%87%E6%A1%A3"><span class="nav-number">2.1.</span> <span class="nav-text">插入文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E6%96%87%E6%A1%A3"><span class="nav-number">2.2.</span> <span class="nav-text">查找文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%96%87%E6%A1%A3"><span class="nav-number">2.3.</span> <span class="nav-text">修改文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E6%A1%A3"><span class="nav-number">2.4.</span> <span class="nav-text">删除文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E6%96%87%E6%A1%A3%E6%95%B0%E9%87%8F"><span class="nav-number">2.5.</span> <span class="nav-text">统计文档数量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Document%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95CRUD"><span class="nav-number">3.</span> <span class="nav-text">Document对象方法CRUD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAdocument"><span class="nav-number">3.1.</span> <span class="nav-text">创建document</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98"><span class="nav-number">3.2.</span> <span class="nav-text">保存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9"><span class="nav-number">3.3.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E4%B8%8E%E8%BD%AC%E6%8D%A2"><span class="nav-number">3.4.</span> <span class="nav-text">删除与转换</span></a></li></ol></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -232,7 +235,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -245,7 +248,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -532,6 +535,10 @@ if(canvas.getContext){
             
             
           <li>
+            <a href="/archives/b2ed0d69.html" title="mongoose基础" target="_blank">mongoose基础</a>
+          </li>
+        
+          <li>
             <a href="/archives/afe7047c.html" title="MongoDB(二)" target="_blank">MongoDB(二)</a>
           </li>
         
@@ -545,10 +552,6 @@ if(canvas.getContext){
         
           <li>
             <a href="/archives/b9a1e88c.html" title="node基础(二)" target="_blank">node基础(二)</a>
-          </li>
-        
-          <li>
-            <a href="/archives/b4da5a3.html" title="node基础(一)" target="_blank">node基础(一)</a>
           </li>
         
       </ul>
@@ -577,98 +580,203 @@ if(canvas.getContext){
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
       
 
       
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">node.js
-          <small>标签</small>
-        </h2>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lhj-web.github.io/archives/b2ed0d69.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/IMG_3764(20201025-085802).JPG">
+      <meta itemprop="name" content="小刘童鞋">
+      <meta itemprop="description" content="人之所以能，是相信能。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小刘童鞋的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          mongoose基础
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-11-10 15:46:40 / 修改时间：22:12:27" itemprop="dateCreated datePublished" datetime="2020-11-10T15:46:40+08:00">2020-11-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/archives/b2ed0d69.html" class="post-meta-item leancloud_visitors" data-flag-title="mongoose基础" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/archives/b2ed0d69.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/b2ed0d69.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
       </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="mongoose基本介绍"><a href="#mongoose基本介绍" class="headerlink" title="mongoose基本介绍"></a>mongoose基本介绍</h2><p>mongoose是对node环境下的MongoDB数据库操作的封装，将数据库内的数据转换成js对象以供使用。</p>
+<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i mongoose --save</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">&#x27;mongoose&#x27;</span>);</span><br><span class="line">mongoose.connect(<span class="string">&#x27;mongodb://localhost/test&#x27;</span>, &#123;<span class="attr">useNewUrlParser</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">mongoose.connection.once(<span class="string">&#x27;open&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//连接状态监听</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;数据库已连接&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Model方法CRUD"><a href="#Model方法CRUD" class="headerlink" title="Model方法CRUD"></a>Model方法CRUD</h2><h3 id="插入文档"><a href="#插入文档" class="headerlink" title="插入文档"></a>插入文档</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Schema = mongoose.Schema;</span><br><span class="line"><span class="comment">//创建schema对象</span></span><br><span class="line"><span class="keyword">var</span> stuSchema = <span class="keyword">new</span> Schema(&#123;</span><br><span class="line">    name: <span class="built_in">String</span>,</span><br><span class="line">    age: <span class="built_in">Number</span>,</span><br><span class="line">    gender: &#123;</span><br><span class="line">        type: <span class="built_in">String</span>,</span><br><span class="line">        <span class="keyword">default</span>: <span class="string">&quot;female&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    address: <span class="built_in">String</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//通过schema创建model</span></span><br><span class="line"><span class="keyword">var</span> stuModel = mongoose.model(<span class="string">&#x27;students&#x27;</span>, stuSchema);</span><br><span class="line"><span class="comment">//向数据库插入文档</span></span><br><span class="line">stuModel.create(&#123; <span class="comment">//插入多个传个数组</span></span><br><span class="line">    name: <span class="string">&quot;张三&quot;</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    gender: <span class="string">&quot;male&quot;</span>,</span><br><span class="line">    address: <span class="string">&quot;一班&quot;</span></span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;插入成功&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="查找文档"><a href="#查找文档" class="headerlink" title="查找文档"></a>查找文档</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stuModel.find(&#123;<span class="attr">name</span>:<span class="string">&quot;张三&quot;</span>&#125;, <span class="string">&#x27;投影&#x27;</span>, &#123;查询条件(skip、limit)&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(doc);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在mongoose还提供了通过id查找文档的方法: <code>stuModel.findById()</code></p>
+<h3 id="修改文档"><a href="#修改文档" class="headerlink" title="修改文档"></a>修改文档</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stuModel.update(&#123;<span class="attr">name</span>: <span class="string">&quot;张三&quot;</span>&#125;, &#123;<span class="attr">$set</span>:&#123;<span class="attr">age</span>: <span class="number">20</span>&#125;&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h3><p>删除文档也与在MongoDB中的操作几乎一致只不过最后一个参数为会回调函数。</p>
+<h3 id="统计文档数量"><a href="#统计文档数量" class="headerlink" title="统计文档数量"></a>统计文档数量</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stuModel.count(&#123;&#125;, [callback])</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Document对象方法CRUD"><a href="#Document对象方法CRUD" class="headerlink" title="Document对象方法CRUD"></a>Document对象方法CRUD</h2><h3 id="创建document"><a href="#创建document" class="headerlink" title="创建document"></a>创建document</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stu = <span class="keyword">new</span> stuModel(&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="保存"><a href="#保存" class="headerlink" title="保存"></a>保存</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stu.save([callback])</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stuModel.findOne(&#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">    doc.age = <span class="number">20</span>;</span><br><span class="line">    doc.save();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="删除与转换"><a href="#删除与转换" class="headerlink" title="删除与转换"></a>删除与转换</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">stuModel.findOne(&#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">   doc.remove(&#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">&#x27;删除成功~&#x27;</span>)</span><br><span class="line">       &#125;</span><br><span class="line">   <span class="keyword">var</span> doc = doc.toJSON(); </span><br><span class="line">   <span class="keyword">var</span> doc1 = doc.toObject();</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-11-06T13:08:13+08:00"
-              content="2020-11-06">
-          11-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/archives/c752c8a7.html" itemprop="url">
-            <span itemprop="name">node基础(三)</span>
-          </a>
-      </div>
-
+    
+    
+    
       
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-11-05T20:06:25+08:00"
-              content="2020-11-05">
-          11-05
-        </time>
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>谢谢你请我吃糖果</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/IMG_3761.JPG" alt="小刘童鞋 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/IMG_3762.JPG" alt="小刘童鞋 支付宝">
+        <span>支付宝</span>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/archives/b9a1e88c.html" itemprop="url">
-            <span itemprop="name">node基础(二)</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-11-05T13:05:20+08:00"
-              content="2020-11-05">
-          11-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/archives/b4da5a3.html" itemprop="url">
-            <span itemprop="name">node基础(一)</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
+</div>
 
-  
+          <div class="post-tags">
+              <a href="/tags/mongoose%E7%AC%94%E8%AE%B0/" rel="tag"># mongoose笔记</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/archives/afe7047c.html" rel="prev" title="MongoDB(二)">
+                  <i class="fa fa-chevron-left"></i> MongoDB(二)
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
 
 
 
       
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -715,13 +823,13 @@ if(canvas.getContext){
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">22k</span>
+    <span title="站点总字数">23k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">20 分钟</span>
+    <span title="站点阅读时长">21 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -792,7 +900,7 @@ NexT.utils.loadComments('#valine-comments', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
     new Valine(Object.assign({"enable":true,"appId":"sEEmXpAfRITvepsPMAm6Y3lP-gzGzoHsz","appKey":"Krj6XkanXaogUG8yQLp23QWw","serverURLs":"https://seemxpaf.lc-cn-n1-shared.com","placeholder":"说点什么吧~~~","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-cn","visitor":true,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[]}, {
       el: '#valine-comments',
-      path: "/tags/node-js/",
+      path: "/archives/b2ed0d69.html",
       serverURLs: "https://seemxpaf.lc-cn-n1-shared.com"
     }));
   }, window.Valine);

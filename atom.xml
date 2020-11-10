@@ -6,7 +6,7 @@
   <link href="https://lhj-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://lhj-web.github.io/"/>
-  <updated>2020-11-10T06:44:24.268Z</updated>
+  <updated>2020-11-10T14:12:27.827Z</updated>
   <id>https://lhj-web.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>mongoose基础</title>
+    <link href="https://lhj-web.github.io/archives/b2ed0d69.html"/>
+    <id>https://lhj-web.github.io/archives/b2ed0d69.html</id>
+    <published>2020-11-10T07:46:40.000Z</published>
+    <updated>2020-11-10T14:12:27.827Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;mongoose基本介绍&quot;&gt;&lt;a href=&quot;#mongoose基本介绍&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="MongoDB" scheme="https://lhj-web.github.io/categories/MongoDB/"/>
+    
+    
+    <category term="mongoose笔记" scheme="https://lhj-web.github.io/tags/mongoose%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MongoDB(二)</title>
     <link href="https://lhj-web.github.io/archives/afe7047c.html"/>
     <id>https://lhj-web.github.io/archives/afe7047c.html</id>
     <published>2020-11-09T12:39:01.000Z</published>
-    <updated>2020-11-10T06:44:24.268Z</updated>
+    <updated>2020-11-10T06:50:28.816Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;内嵌式文档&quot;&gt;&lt;a href=&quot;#内嵌式文档&quot; class=&quot;headerlink&quot; title=&quot;内嵌式文档&quot;&gt;&lt;/a&gt;内嵌式文档&lt;/h2&gt;&lt;h3 id=&quot;创建内嵌式文档&quot;&gt;&lt;a href=&quot;#创建内嵌式文档&quot; class=&quot;headerlink&quot; title=&quot;创建内嵌式文档&quot;&gt;&lt;/a&gt;创建内嵌式文档&lt;/h3&gt;&lt;p&gt;有时文档一个属性值也可能有多个多个属性，这是该属性值可以是一个文档，也就是文档里内嵌一个文档，则该文档被称为 &lt;strong&gt;内嵌式文档&lt;/strong&gt; ，例如我们先创建一个内嵌式文档：&lt;/p&gt;
@@ -31,10 +56,10 @@
     
     
     
-    <category term="非关系型数据库" scheme="https://lhj-web.github.io/categories/%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <category term="MongoDB" scheme="https://lhj-web.github.io/categories/MongoDB/"/>
     
     
-    <category term="MongoDB" scheme="https://lhj-web.github.io/tags/MongoDB/"/>
+    <category term="MongoDB笔记" scheme="https://lhj-web.github.io/tags/MongoDB%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -43,7 +68,7 @@
     <link href="https://lhj-web.github.io/archives/d69f1e.html"/>
     <id>https://lhj-web.github.io/archives/d69f1e.html</id>
     <published>2020-11-08T11:24:53.000Z</published>
-    <updated>2020-11-09T13:24:42.871Z</updated>
+    <updated>2020-11-10T06:50:34.232Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;MongoDB基本介绍&quot;&gt;&lt;a href=&quot;#MongoDB基本介绍&quot; class=&quot;headerlink&quot; title=&quot;MongoDB基本介绍&quot;&gt;&lt;/a&gt;MongoDB基本介绍&lt;/h2&gt;&lt;p&gt;MongoDB是一种非关系型数据库，相对关系型数据库来说比较灵活，其实它也可以算是介于关系型数据库和非关系型数据库之间的一种数据库，因为它是最像关系型数据库的非关系数据库，它支持的数据结构十分松散，是类似json的 &lt;code&gt;bson&lt;/code&gt;格式。&lt;/p&gt;
@@ -51,10 +76,10 @@
     
     
     
-    <category term="非关系型数据库" scheme="https://lhj-web.github.io/categories/%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <category term="MongoDB" scheme="https://lhj-web.github.io/categories/MongoDB/"/>
     
     
-    <category term="MongoDB" scheme="https://lhj-web.github.io/tags/MongoDB/"/>
+    <category term="MongoDB笔记" scheme="https://lhj-web.github.io/tags/MongoDB%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -63,7 +88,7 @@
     <link href="https://lhj-web.github.io/archives/c752c8a7.html"/>
     <id>https://lhj-web.github.io/archives/c752c8a7.html</id>
     <published>2020-11-06T05:08:13.000Z</published>
-    <updated>2020-11-08T14:17:26.282Z</updated>
+    <updated>2020-11-10T06:51:25.124Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Express框架&quot;&gt;&lt;a href=&quot;#Express框架&quot; class=&quot;headerlink&quot; title=&quot;Express框架&quot;&gt;&lt;/a&gt;Express框架&lt;/h1&gt;&lt;h2 id=&quot;express-安装&quot;&gt;&lt;a href=&quot;#express-安装&quot; class=&quot;headerlink&quot; title=&quot;express 安装&quot;&gt;&lt;/a&gt;express 安装&lt;/h2&gt;&lt;p&gt;node也有许多框架，如express、koa等，使用框架可以大大减少我们的代码量，从而提高开发效率，这里只介绍 &lt;strong&gt;express&lt;/strong&gt; 框架&lt;/p&gt;
@@ -73,10 +98,10 @@
     
     
     
-    <category term="node" scheme="https://lhj-web.github.io/categories/node/"/>
+    <category term="node.js" scheme="https://lhj-web.github.io/categories/node-js/"/>
     
     
-    <category term="node.js" scheme="https://lhj-web.github.io/tags/node-js/"/>
+    <category term="node.js笔记" scheme="https://lhj-web.github.io/tags/node-js%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -85,7 +110,7 @@
     <link href="https://lhj-web.github.io/archives/b9a1e88c.html"/>
     <id>https://lhj-web.github.io/archives/b9a1e88c.html</id>
     <published>2020-11-05T12:06:25.000Z</published>
-    <updated>2020-11-07T11:20:15.551Z</updated>
+    <updated>2020-11-10T06:51:03.141Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;核心模块http&quot;&gt;&lt;a href=&quot;#核心模块http&quot; class=&quot;headerlink&quot; title=&quot;核心模块http&quot;&gt;&lt;/a&gt;核心模块http&lt;/h2&gt;&lt;h3 id=&quot;基本语法&quot;&gt;&lt;a href=&quot;#基本语法&quot; class=&quot;headerlink&quot; title=&quot;基本语法&quot;&gt;&lt;/a&gt;基本语法&lt;/h3&gt;&lt;p&gt;​    &lt;code&gt;http&lt;/code&gt;核心模块主要用于创建和操作服务器，接受请求时可以传入请求和响应两个参数。&lt;/p&gt;
@@ -96,10 +121,10 @@
     
     
     
-    <category term="node" scheme="https://lhj-web.github.io/categories/node/"/>
+    <category term="node.js" scheme="https://lhj-web.github.io/categories/node-js/"/>
     
     
-    <category term="node.js" scheme="https://lhj-web.github.io/tags/node-js/"/>
+    <category term="node.js笔记" scheme="https://lhj-web.github.io/tags/node-js%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -108,17 +133,17 @@
     <link href="https://lhj-web.github.io/archives/b4da5a3.html"/>
     <id>https://lhj-web.github.io/archives/b4da5a3.html</id>
     <published>2020-11-05T05:05:20.000Z</published>
-    <updated>2020-11-09T13:37:51.106Z</updated>
+    <updated>2020-11-10T06:50:52.807Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;node介绍&quot;&gt;&lt;a href=&quot;#node介绍&quot; class=&quot;headerlink&quot; title=&quot;node介绍&quot;&gt;&lt;/a&gt;node介绍&lt;/h2&gt;&lt;p&gt;随着计算机技术的快速发展，谷歌推出了 &lt;strong&gt;V8&lt;/strong&gt; 引擎 ，为 &lt;code&gt;node.js&lt;/code&gt; 的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的 &lt;strong&gt;运行环境&lt;/strong&gt; ，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，完成中小型项目，进而实现全栈。&lt;/p&gt;</summary>
     
     
     
-    <category term="node" scheme="https://lhj-web.github.io/categories/node/"/>
+    <category term="node.js" scheme="https://lhj-web.github.io/categories/node-js/"/>
     
     
-    <category term="node.js" scheme="https://lhj-web.github.io/tags/node-js/"/>
+    <category term="node.js笔记" scheme="https://lhj-web.github.io/tags/node-js%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -148,7 +173,7 @@
     <link href="https://lhj-web.github.io/archives/75b91cd4.html"/>
     <id>https://lhj-web.github.io/archives/75b91cd4.html</id>
     <published>2020-10-24T06:21:32.000Z</published>
-    <updated>2020-11-08T12:38:37.535Z</updated>
+    <updated>2020-11-10T08:51:03.357Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;第一部分&quot;&gt;&lt;a href=&quot;#第一部分&quot; class=&quot;headerlink&quot; title=&quot;第一部分&quot;&gt;&lt;/a&gt;第一部分&lt;/h1&gt;&lt;p&gt;现在不论是pc端还是移动端，里面很重要的一个特效就是&lt;strong&gt;轮播图&lt;/strong&gt;，可以说是必不可少的。下面是html和css代码：&lt;/p&gt;</summary>
