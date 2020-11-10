@@ -6,7 +6,7 @@
   <link href="https://lhj-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://lhj-web.github.io/"/>
-  <updated>2020-11-08T14:32:30.752Z</updated>
+  <updated>2020-11-10T06:44:24.268Z</updated>
   <id>https://lhj-web.github.io/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>MongoDB(二)</title>
+    <link href="https://lhj-web.github.io/archives/afe7047c.html"/>
+    <id>https://lhj-web.github.io/archives/afe7047c.html</id>
+    <published>2020-11-09T12:39:01.000Z</published>
+    <updated>2020-11-10T06:44:24.268Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;内嵌式文档&quot;&gt;&lt;a href=&quot;#内嵌式文档&quot; class=&quot;headerlink&quot; title=&quot;内嵌式文档&quot;&gt;&lt;/a&gt;内嵌式文档&lt;/h2&gt;&lt;h3 id=&quot;创建内嵌式文档&quot;&gt;&lt;a href=&quot;#创建内嵌式文档&quot; class=&quot;headerlink&quot; title=&quot;创建内嵌式文档&quot;&gt;&lt;/a&gt;创建内嵌式文档&lt;/h3&gt;&lt;p&gt;有时文档一个属性值也可能有多个多个属性，这是该属性值可以是一个文档，也就是文档里内嵌一个文档，则该文档被称为 &lt;strong&gt;内嵌式文档&lt;/strong&gt; ，例如我们先创建一个内嵌式文档：&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;db.&amp;lt;collections&amp;gt;.insert(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	name: &amp;quot;张三&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	gender: &amp;quot;男&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	age: 18,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	hobbies: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		sports: [&amp;quot;打篮球&amp;quot;, &amp;quot;跑步&amp;quot;, &amp;quot;健身&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;此时，该文档里 &lt;code&gt;hobbies&lt;/code&gt; 属性值为一个文档，那么插入的这个文档就是内嵌式文档。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="非关系型数据库" scheme="https://lhj-web.github.io/categories/%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="MongoDB" scheme="https://lhj-web.github.io/tags/MongoDB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MongoDB(一)</title>
     <link href="https://lhj-web.github.io/archives/d69f1e.html"/>
     <id>https://lhj-web.github.io/archives/d69f1e.html</id>
     <published>2020-11-08T11:24:53.000Z</published>
-    <updated>2020-11-08T14:32:30.752Z</updated>
+    <updated>2020-11-09T13:24:42.871Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;MongoDB基本介绍&quot;&gt;&lt;a href=&quot;#MongoDB基本介绍&quot; class=&quot;headerlink&quot; title=&quot;MongoDB基本介绍&quot;&gt;&lt;/a&gt;MongoDB基本介绍&lt;/h2&gt;&lt;p&gt;MongoDB是一种非关系型数据库，相对关系型数据库来说比较灵活，其实它也可以算是介于关系型数据库和非关系型数据库之间的一种数据库，因为它是最像关系型数据库的非关系数据库，它支持的数据结构十分松散，是类似json的 &lt;code&gt;bson&lt;/code&gt;格式。&lt;/p&gt;
@@ -86,25 +108,10 @@
     <link href="https://lhj-web.github.io/archives/b4da5a3.html"/>
     <id>https://lhj-web.github.io/archives/b4da5a3.html</id>
     <published>2020-11-05T05:05:20.000Z</published>
-    <updated>2020-11-08T14:18:12.800Z</updated>
+    <updated>2020-11-09T13:37:51.106Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;node介绍&quot;&gt;&lt;a href=&quot;#node介绍&quot; class=&quot;headerlink&quot; title=&quot;node介绍&quot;&gt;&lt;/a&gt;node介绍&lt;/h2&gt;&lt;p&gt;随着计算机技术的快速发展，谷歌推出了 &lt;strong&gt;V8&lt;/strong&gt; 引擎 ，为 &lt;code&gt;node.js&lt;/code&gt; 的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的 &lt;strong&gt;运行环境&lt;/strong&gt; ，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，完成中小型项目，进而实现全栈。&lt;/p&gt;
-&lt;h2 id=&quot;node基础语法&quot;&gt;&lt;a href=&quot;#node基础语法&quot; class=&quot;headerlink&quot; title=&quot;node基础语法&quot;&gt;&lt;/a&gt;node基础语法&lt;/h2&gt;&lt;h3 id=&quot;node安装&quot;&gt;&lt;a href=&quot;#node安装&quot; class=&quot;headerlink&quot; title=&quot;node安装&quot;&gt;&lt;/a&gt;node安装&lt;/h3&gt;&lt;p&gt;首先在官网进行下载 &lt;a href=&quot;https://nodejs.org/en/&quot;&gt;node&lt;/a&gt; ,官网提供了两种版本，分别为奇数版和偶数版，建议下载偶数版，因为 &lt;strong&gt;偶数版&lt;/strong&gt; 是稳定版，也就是长期支持维护的版本，使用起来更加安全。下载完成后，安装一路默认即可，因为新版node在安装的时候会默认添加到 &lt;strong&gt;环境变量&lt;/strong&gt; 中，所以不需要重新配置。打开cmd后输入：&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;node -v&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;即可查询当前node版本，来判断是否安装成功。&lt;/p&gt;
-&lt;h3 id=&quot;输出hello-world&quot;&gt;&lt;a href=&quot;#输出hello-world&quot; class=&quot;headerlink&quot; title=&quot;输出hello world&quot;&gt;&lt;/a&gt;输出hello world&lt;/h3&gt;&lt;p&gt;在任意的路径下创建一个js文件，写入&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; a = &lt;span class=&quot;string&quot;&gt;&amp;#x27;hello world&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(a);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// hello world&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;保存后，打开 &lt;strong&gt;该路径下&lt;/strong&gt; 的cmd，输入&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;node XXX.js&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;得到输出结果 &lt;code&gt;hello world&lt;/code&gt; 。&lt;/p&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;node介绍&quot;&gt;&lt;a href=&quot;#node介绍&quot; class=&quot;headerlink&quot; title=&quot;node介绍&quot;&gt;&lt;/a&gt;node介绍&lt;/h2&gt;&lt;p&gt;随着计算机技术的快速发展，谷歌推出了 &lt;strong&gt;V8&lt;/strong&gt; 引擎 ，为 &lt;code&gt;node.js&lt;/code&gt; 的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的 &lt;strong&gt;运行环境&lt;/strong&gt; ，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，完成中小型项目，进而实现全栈。&lt;/p&gt;</summary>
     
     
     

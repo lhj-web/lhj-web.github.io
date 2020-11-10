@@ -41,8 +41,62 @@
 
 
 
-<h2 id="可视化工具"><a href="#可视化工具" class="headerlink" title="可视化工具"></a>可视化工具</h2><p>MongoDB的可视化工具有很多，如NoSql、自带的Compass等，里面只是样式发生改变，功能大致相同，需要</p>
-<p>的话可以自行下载安装。</p>
+<h2 id="可视化工具"><a href="#可视化工具" class="headerlink" title="可视化工具"></a>可视化工具</h2><p>MongoDB的可视化工具有很多，如NoSql、自带的Compass等，里面只是样式发生改变，功能大致相同，需要的话可以自行下载安装。</p>
+]]></content>
+      <categories>
+        <category>非关系型数据库</category>
+      </categories>
+      <tags>
+        <tag>MongoDB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MongoDB(二)</title>
+    <url>/archives/afe7047c.html</url>
+    <content><![CDATA[<h2 id="内嵌式文档"><a href="#内嵌式文档" class="headerlink" title="内嵌式文档"></a>内嵌式文档</h2><h3 id="创建内嵌式文档"><a href="#创建内嵌式文档" class="headerlink" title="创建内嵌式文档"></a>创建内嵌式文档</h3><p>有时文档一个属性值也可能有多个多个属性，这是该属性值可以是一个文档，也就是文档里内嵌一个文档，则该文档被称为 <strong>内嵌式文档</strong> ，例如我们先创建一个内嵌式文档：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.insert(&#123;</span><br><span class="line">	name: &quot;张三&quot;,</span><br><span class="line">	gender: &quot;男&quot;,</span><br><span class="line">	age: 18,</span><br><span class="line">	hobbies: &#123;</span><br><span class="line">		sports: [&quot;打篮球&quot;, &quot;跑步&quot;, &quot;健身&quot;]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>此时，该文档里 <code>hobbies</code> 属性值为一个文档，那么插入的这个文档就是内嵌式文档。</p>
+<a id="more"></a>
+
+<h3 id="查找内嵌式文档"><a href="#查找内嵌式文档" class="headerlink" title="查找内嵌式文档"></a>查找内嵌式文档</h3><p>根据内嵌的文档来查找该文档：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find(&#123;&quot;hobbies.sports&quot;: &quot;打篮球&quot;&#125;) //hobbies.sports必须加引号</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="向内嵌式文档数组添加新的值"><a href="#向内嵌式文档数组添加新的值" class="headerlink" title="向内嵌式文档数组添加新的值"></a>向内嵌式文档数组添加新的值</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.update(&#123;name: &quot;张三&quot;&#125;, &#123;$push: &#123;&quot;hobbies.sports&quot;: &quot;打篮球&quot;&#125;&#125;)</span><br><span class="line">//push添加的值在原数组中可以存在</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.update(&#123;name: &quot;张三&quot;&#125;, &#123;$addToSet:&#123;&quot;hobbies.sports&quot;: &quot;踢足球&quot;&#125;&#125;)</span><br><span class="line">//adToSet只能添加原数组不存在的值</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="操作大数额的集合"><a href="#操作大数额的集合" class="headerlink" title="操作大数额的集合"></a>操作大数额的集合</h2><p>通常数据库存储的数据都是成千上万的，面对庞大的数据，操作就不能局限于单个数据的方法。</p>
+<h3 id="添加文档"><a href="#添加文档" class="headerlink" title="添加文档"></a>添加文档</h3><p>在往集合添加文档的时候，有时添加的数额很大，此时为了提高效率，就要用到<strong>for循环</strong>。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">var arr = []</span><br><span class="line">for (var i = 0; i&lt;20000; i++) &#123;</span><br><span class="line">	arr.push(&#123;number: i&#125;)</span><br><span class="line">&#125;</span><br><span class="line">db.&lt;collections&gt;.insert(arr)</span><br></pre></td></tr></table></figure>
+
+<p>不要在for循环里进行插入操作，那样效率会很低。</p>
+<h3 id="查找文档"><a href="#查找文档" class="headerlink" title="查找文档"></a>查找文档</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find(&#123;number: 5000&#125;) </span><br><span class="line">db.&lt;collections&gt;.find(&#123;number: &#123;$gt: 5000&#125;&#125;) //gt: greater than 查找数额大于5000的文档</span><br><span class="line">db.&lt;collections&gt;.find(&#123;number: &#123;$gte: 5000&#125;&#125;) // &gt;=5000</span><br><span class="line">db.&lt;collections&gt;.find(&#123;number: &#123;$lt: 5000&#125;&#125;) // &lt;5000  lt: less than</span><br><span class="line">db.&lt;collections&gt;.find(&#123;number: &#123;$gt: 5000, $lt: 8000&#125;&#125;) //  5000&lt;num&lt;8000</span><br><span class="line">//查找小于5000或大于8000</span><br><span class="line">db.&lt;collections&gt;.find(&#123;$or:[&#123;number:&#123;$lt: 5000&#125;&#125;,&#123;number: &#123;$gt: 8000&#125;&#125;]&#125;)</span><br><span class="line">db.&lt;collections&gt;.find(&#123;&#125;).limit(10) //查询前10条</span><br><span class="line">db.&lt;collections&gt;.find(&#123;&#125;).skip(10).limit(10) // 查询前11-20条 skip：跳过 </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="更改文档"><a href="#更改文档" class="headerlink" title="更改文档"></a>更改文档</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">//将小于5000的文档number属性值在原来的基础上增加400</span><br><span class="line">db.&lt;collections&gt;.updateMany(&#123;number:&#123;$lt:5000&#125;&#125;, &#123;$inc:&#123;number: 400&#125;&#125;)</span><br><span class="line">//减400为-400</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>默认的数据库排序是按照_id升序排列，有时候我们想按照自己的方式进行排序，比如我想按照number的大小进行排序：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find(&#123;&#125;).sort(&#123;number: 1&#125;) //-1便是降序</span><br><span class="line">db.&lt;collections&gt;.find(&#123;&#125;).sort(&#123;number: 1, num1: 1&#125;) //可以通过多个属性进行排序，但前提是第一个属性排序过程中如果有相同的，才会按照第二个属性决定谁在前谁在后</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="投影"><a href="#投影" class="headerlink" title="投影"></a>投影</h3><p>在查找文档式，想要只显示指定的某一或某些属性，就需要用到投影：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find(&#123;&#125;, &#123;number:1&#125;) //此时所有文档只会显示number属性</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="文档之间的关系"><a href="#文档之间的关系" class="headerlink" title="文档之间的关系"></a>文档之间的关系</h2><p>文档之间点的关系可以是一对一、一对多、多对一或者多对多，一对一用的比较少，最主要的是一对多，即把一个文档的id值作为另外一个集合内多个文档的属性值，在查寻时可以根据id查找符合条件的文档。</p>
+<p>多对多即一个集合内多个文档的id可以作为另一个集合的某个文档的属性值，此时用数组存储。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections1&gt;.insert(&#123;name: &quot;张三&quot;&#125;)</span><br><span class="line"></span><br><span class="line">db.&lt;collections2&gt;.insert([&#123;name: &quot;李四&quot;, user_id: 张三的id&#125;, &#123;name: &quot;王五&quot;, user_id: 张三的id&#125;])</span><br><span class="line">//查询</span><br><span class="line">var id = db.&lt;collections1&gt;.findOne(&#123;name: &quot;张三&quot;&#125;)._id </span><br><span class="line">db.&lt;collections2&gt;.find(&#123;user_id: id&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
 ]]></content>
       <categories>
         <category>非关系型数据库</category>
@@ -55,6 +109,8 @@
     <title>node基础(一)</title>
     <url>/archives/b4da5a3.html</url>
     <content><![CDATA[<h2 id="node介绍"><a href="#node介绍" class="headerlink" title="node介绍"></a>node介绍</h2><p>随着计算机技术的快速发展，谷歌推出了 <strong>V8</strong> 引擎 ，为 <code>node.js</code> 的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的 <strong>运行环境</strong> ，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，完成中小型项目，进而实现全栈。</p>
+<a id="more"></a>
+
 <h2 id="node基础语法"><a href="#node基础语法" class="headerlink" title="node基础语法"></a>node基础语法</h2><h3 id="node安装"><a href="#node安装" class="headerlink" title="node安装"></a>node安装</h3><p>首先在官网进行下载 <a href="https://nodejs.org/en/">node</a> ,官网提供了两种版本，分别为奇数版和偶数版，建议下载偶数版，因为 <strong>偶数版</strong> 是稳定版，也就是长期支持维护的版本，使用起来更加安全。下载完成后，安装一路默认即可，因为新版node在安装的时候会默认添加到 <strong>环境变量</strong> 中，所以不需要重新配置。打开cmd后输入：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
 
@@ -70,8 +126,6 @@
 
 
 <p>得到输出结果 <code>hello world</code> 。</p>
-<a id="more"></a>
-
 <h3 id="npm介绍"><a href="#npm介绍" class="headerlink" title="npm介绍"></a>npm介绍</h3><p>由于node中没有模块化，所以npm作为一种包管理工具来辅佐node，就如同软件仓库/管家的作用一样，帮你把各种软件收纳存储起来，以方便下载。想要下载所需的包时只需在放置包位置的路径下在cmd输入</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i XXX包名 -s //-s安装到依赖环境中</span><br><span class="line">npm r xxx包名 //删除</span><br></pre></td></tr></table></figure>
 
