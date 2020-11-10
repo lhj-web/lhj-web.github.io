@@ -111,7 +111,7 @@
     <content><![CDATA[<h2 id="mongoose基本介绍"><a href="#mongoose基本介绍" class="headerlink" title="mongoose基本介绍"></a>mongoose基本介绍</h2><p>mongoose是对node环境下的MongoDB数据库操作的封装，将数据库内的数据转换成js对象以供使用。</p>
 <h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i mongoose --save</span><br></pre></td></tr></table></figure>
 
-
+<a id="more"></a>
 
 <h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">&#x27;mongoose&#x27;</span>);</span><br><span class="line">mongoose.connect(<span class="string">&#x27;mongodb://localhost/test&#x27;</span>, &#123;<span class="attr">useNewUrlParser</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">mongoose.connection.once(<span class="string">&#x27;open&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//连接状态监听</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;数据库已连接&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 

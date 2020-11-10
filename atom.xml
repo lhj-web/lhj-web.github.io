@@ -6,7 +6,7 @@
   <link href="https://lhj-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://lhj-web.github.io/"/>
-  <updated>2020-11-10T14:12:27.827Z</updated>
+  <updated>2020-11-10T14:18:43.822Z</updated>
   <id>https://lhj-web.github.io/</id>
   
   <author>
@@ -21,16 +21,11 @@
     <link href="https://lhj-web.github.io/archives/b2ed0d69.html"/>
     <id>https://lhj-web.github.io/archives/b2ed0d69.html</id>
     <published>2020-11-10T07:46:40.000Z</published>
-    <updated>2020-11-10T14:12:27.827Z</updated>
+    <updated>2020-11-10T14:18:43.822Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;mongoose基本介绍&quot;&gt;&lt;a href=&quot;#mongoose基本介绍&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;mongoose基本介绍&quot;&gt;&lt;a href=&quot;#mongoose基本介绍&quot; class=&quot;headerlink&quot; title=&quot;mongoose基本介绍&quot;&gt;&lt;/a&gt;mongoose基本介绍&lt;/h2&gt;&lt;p&gt;mongoose是对node环境下的MongoDB数据库操作的封装，将数据库内的数据转换成js对象以供使用。&lt;/p&gt;
+&lt;h3 id=&quot;下载安装&quot;&gt;&lt;a href=&quot;#下载安装&quot; class=&quot;headerlink&quot; title=&quot;下载安装&quot;&gt;&lt;/a&gt;下载安装&lt;/h3&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i mongoose --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
