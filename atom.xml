@@ -6,7 +6,7 @@
   <link href="https://lhj-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://lhj-web.github.io/"/>
-  <updated>2020-11-14T12:03:05.257Z</updated>
+  <updated>2020-11-14T12:20:02.833Z</updated>
   <id>https://lhj-web.github.io/</id>
   
   <author>
@@ -21,16 +21,11 @@
     <link href="https://lhj-web.github.io/archives/f53a216.html"/>
     <id>https://lhj-web.github.io/archives/f53a216.html</id>
     <published>2020-11-14T08:42:04.000Z</published>
-    <updated>2020-11-14T12:03:05.257Z</updated>
+    <updated>2020-11-14T12:20:02.833Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;迭代器-Iterator&quot;&gt;&lt;a href=&quot;#迭代器-Iterator&quot; class=&quot;headerlink&quot; title=&quot;迭代器(Iterator)&quot;&gt;&lt;/a&gt;迭代器(Iterator)&lt;/h2&gt;&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot;</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;迭代器-Iterator&quot;&gt;&lt;a href=&quot;#迭代器-Iterator&quot; class=&quot;headerlink&quot; title=&quot;迭代器(Iterator)&quot;&gt;&lt;/a&gt;迭代器(Iterator)&lt;/h2&gt;&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;迭代器是一种接口，为各种不同的数据结构提供统一的访问机制，任何数据结构只要部署&lt;code&gt;Iterator&lt;/code&gt;,就可以完成遍历操作。&lt;/p&gt;
+&lt;p&gt;ES6创建了一种新的遍历命令&lt;code&gt;for ...of&lt;/code&gt;循环，Iterator接口主要供其消费。&lt;/p&gt;</summary>
     
     
     
@@ -46,17 +41,11 @@
     <link href="https://lhj-web.github.io/archives/71a0823d.html"/>
     <id>https://lhj-web.github.io/archives/71a0823d.html</id>
     <published>2020-11-14T05:59:12.000Z</published>
-    <updated>2020-11-14T08:54:20.793Z</updated>
+    <updated>2020-11-14T12:20:58.826Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;h2 id=&quot;给函数形参赋初始值&quot;&gt;&lt;a href=&quot;#给函数形参赋初始值&quot; class=&quot;headerlink&quot; title=&quot;给函数形参赋初始值&quot;&gt;&lt;/a&gt;给函数形参赋初始值&lt;/h2&gt;&lt;p&gt;ES6可以给函数形参赋初始值：&lt;/p&gt;
-&lt;figure</summary>
-        
-      
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;fn&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;a,b,c=&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; a+b+c;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; a = fn(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(a);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 15&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
@@ -72,16 +61,18 @@
     <link href="https://lhj-web.github.io/archives/de91195f.html"/>
     <id>https://lhj-web.github.io/archives/de91195f.html</id>
     <published>2020-11-13T06:35:48.000Z</published>
-    <updated>2020-11-14T08:03:37.241Z</updated>
+    <updated>2020-11-14T12:20:35.064Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;声明变量&quot;&gt;&lt;a href=&quot;#声明变量&quot; class=&quot;headerlink&quot; title=&quot;声明变量&quot;&gt;&lt;/a&gt;声明变量&lt;/h2&gt;&lt;h3 id=&quot;let&quot;&gt;&lt;a href=&quot;#let&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;声明变量&quot;&gt;&lt;a href=&quot;#声明变量&quot; class=&quot;headerlink&quot; title=&quot;声明变量&quot;&gt;&lt;/a&gt;声明变量&lt;/h2&gt;&lt;h3 id=&quot;let&quot;&gt;&lt;a href=&quot;#let&quot; class=&quot;headerlink&quot; title=&quot;let&quot;&gt;&lt;/a&gt;let&lt;/h3&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; a;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; a,b,c;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;, b = &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;, c = &lt;span class=&quot;number&quot;&gt;300&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;let与var的区别：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;var 可重复声明，let不能，声明同一变量两次会报错&lt;/li&gt;
+&lt;li&gt;let在块级作用域中声明的变量只能在代码块中有效，不能在全局中使用，而var可以。&lt;/li&gt;
+&lt;li&gt;let不存在变量提升，不能先定义再赋值。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;注意&lt;/code&gt;: let虽然是在块级作用域中有效，但并不影响作用域链。&lt;/p&gt;</summary>
     
     
     
