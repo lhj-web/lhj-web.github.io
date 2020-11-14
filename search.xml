@@ -1,53 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>MongoDB(一)</title>
-    <url>/archives/d69f1e.html</url>
-    <content><![CDATA[<h2 id="MongoDB基本介绍"><a href="#MongoDB基本介绍" class="headerlink" title="MongoDB基本介绍"></a>MongoDB基本介绍</h2><p>MongoDB是一种非关系型数据库，相对关系型数据库来说比较灵活，其实它也可以算是介于关系型数据库和非关系型数据库之间的一种数据库，因为它是最像关系型数据库的非关系数据库，它支持的数据结构十分松散，是类似json的 <code>bson</code>格式。</p>
-<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><p>在 <a href="https://www.mongodb.com/try">官网</a> 导航栏上找到software，选择第一个免费的社区版下载安装，安装完成后要配置环境变量，路径是在其文件的<code>Bin</code> 目录。</p>
-<a id="more"></a>
-
-<h3 id="启动数据库"><a href="#启动数据库" class="headerlink" title="启动数据库"></a>启动数据库</h3><p>要启动数据库，必须要在安装其盘符的根目录下打开cmd，输入 <code>mongod</code> 即可，最后有<code>Waiting for </code></p>
-<p><code>connections</code>出现就证明数据库已启动，然后连接该数据库只需打开任意路径下的cmd输入 <code>mongo</code> 就可以连接成功。</p>
-<h2 id="MongoDB基本语法"><a href="#MongoDB基本语法" class="headerlink" title="MongoDB基本语法"></a>MongoDB基本语法</h2><p>首先介绍下该数据库的基本组成，每个数据库由 <code>集合</code> 组成，而集合里又放着<code>文档</code>，示意图如下：</p>
- <img src="/images/shiyitu.png">
+    <title>ES6(三)</title>
+    <url>/archives/f53a216.html</url>
+    <content><![CDATA[<h2 id="迭代器-Iterator"><a href="#迭代器-Iterator" class="headerlink" title="迭代器(Iterator)"></a>迭代器(Iterator)</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>迭代器是一种接口，为各种不同的数据结构提供统一的访问机制，任何数据结构只要部署<code>Iterator</code>,就可以完成遍历操作。</p>
+<p>ES6创建了一种新的遍历命令<code>for ...of</code>循环，Iterator接口主要供其消费。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> students = [<span class="string">&#x27;zhangsan&#x27;</span>, <span class="string">&#x27;lisi&#x27;</span>, <span class="string">&#x27;wangwu&#x27;</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> v <span class="keyword">of</span> students) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(v);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="常用shell指令"><a href="#常用shell指令" class="headerlink" title="常用shell指令"></a>常用shell指令</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">show dbs //显示所有数据库</span><br><span class="line"></span><br><span class="line">use 数据库名 //进入指定的数据库 注意：即使没有该数据库，由于MongoDB的灵活性，依然可以进入但不会创建</span><br><span class="line"></span><br><span class="line">db //显示当前所处的数据库</span><br><span class="line"></span><br><span class="line">show collections //显示当前数据库的所有集合</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ol>
+<li>创建一个指针对象，指向当前数据结构的起始位置</li>
+<li>第一次调用对象的next方法，指针自动指向数据结构的第一个成员</li>
+<li>若不断调用next方法，指针会一直后移直至最后一个成员</li>
+<li>每调用一个next方法就会返回一个包含 <code>value</code> 和<code>done</code>属性的对象</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> iterator = students[<span class="built_in">Symbol</span>.iterator]();</span><br><span class="line"><span class="built_in">console</span>.log(iterator.next());</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="CRUD-增删改查"><a href="#CRUD-增删改查" class="headerlink" title="CRUD(增删改查)"></a>CRUD(增删改查)</h3><h4 id="增加文档"><a href="#增加文档" class="headerlink" title="增加文档"></a>增加文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.insert(doc) // 中间是集合名称 集合会隐式创建</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.insertOne(doc) //插入单个文档</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.insertMany([]) //插入多个文档</span><br></pre></td></tr></table></figure>
-
-<p>其中 <code>insert()</code>里如果传的是一个对象，那么功能与insertOne是一致的，同理，传一个数组，数组里存储着多个对象，那么就与insertMany相同，因为inset()方法是较早版本所出，所以兼容性较好。 </p>
-<h4 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find() //查询所有文档，返回类型为数组</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.find().limit(number) //查询指定数量的文档</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.find().count() //统计文档数量</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.findOne() //查询符合条件的单个文档，返回类型为对象</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.findMany() //查询符合条件的多个文档</span><br></pre></td></tr></table></figure>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>自定义遍历数据</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123;</span><br><span class="line">    name: <span class="string">&quot;zhangsan&quot;</span>,</span><br><span class="line">    hobbies: [</span><br><span class="line">        <span class="string">&quot;打篮球&quot;</span>,</span><br><span class="line">        <span class="string">&quot;健身&quot;</span>,</span><br><span class="line">        <span class="string">&quot;lol&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    [<span class="built_in">Symbol</span>.iterator]()&#123;</span><br><span class="line">        <span class="keyword">let</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            next:<span class="function">() =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (index &lt; <span class="built_in">this</span>.hobbies.length) &#123;</span><br><span class="line">                    <span class="keyword">const</span> result = &#123; <span class="attr">value</span>: <span class="built_in">this</span>.hobbies[index], <span class="attr">done</span>: <span class="literal">false</span> &#125;;</span><br><span class="line">                    index++;</span><br><span class="line">                    <span class="keyword">return</span> result;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                   	<span class="keyword">return</span> &#123; <span class="attr">value</span>: <span class="literal">undefined</span>, <span class="attr">done</span>: <span class="literal">true</span>&#125; </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">for</span>(<span class="params"><span class="keyword">let</span> i <span class="keyword">of</span> user</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-<p><code>find()</code> 方法和上面用法一致，既可以查询单个也可以查询多个文档，若没有参数传入，则直接查询该集合内的</p>
-<p>所有文档。</p>
-<h4 id="修改文档"><a href="#修改文档" class="headerlink" title="修改文档"></a>修改文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.update(&#123;目标文档&#125;, &#123;更改内容&#125;) //该方法修改后的文档会覆盖修改前</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.update(&#123;目标文档&#125;, &#123;$set: &#123;更改内容&#125;&#125;) //该方法只会修改指定的文档属性,没有的属性会自动添加</span><br><span class="line">db.&lt;collections&gt;.update(&#123;目标文档&#125;, &#123;$unset: &#123;更改内容&#125;) //删除指定属性的文档</span><br><span class="line"></span><br><span class="line">//update()默认修改单个文档，若想修改多个，只需在后面加入一个对象</span><br><span class="line">(&#123;目标文档&#125;, &#123;$set: &#123;更改内容&#125;, &#123;multi: true&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><h3 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h3><p>生成器其实就是一个特殊的函数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> * <span class="title">gen</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">111</span>);</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">&#x27;hello&#x27;</span>; <span class="comment">//yield相当于分隔符，两个分成三块，通过调用迭代器的next方法让函数执行分三步走</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="number">222</span>);    </span><br><span class="line">    <span class="keyword">yield</span> <span class="string">&#x27;world&#x27;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">333</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> iterator = gen(); <span class="comment">//可以传参</span></span><br><span class="line">iterator.next(); <span class="comment">// 111 next里也可以传实参 </span></span><br><span class="line">iterator.next(); <span class="comment">//222</span></span><br><span class="line">iterator.next(); <span class="comment">//333</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">for</span>(<span class="params"><span class="keyword">let</span> i <span class="keyword">of</span> gen()</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i) <span class="comment">//返回yield后面表达式或自变量结果的值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>next第一次调用返还的的整体传参的值，第二次则为第一个yield语句整体返回的结果。</p>
+<h3 id="实例1"><a href="#实例1" class="headerlink" title="实例1"></a>实例1</h3><p>1s后输出111，2s后输出222，3s后输出333</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">one</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    setTimeOut(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">111</span>);</span><br><span class="line">        iterator.next();</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">two</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    setTimeOut(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">222</span>);</span><br><span class="line">        iterator.next();</span><br><span class="line">    &#125;, <span class="number">2000</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">three</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    setTimeOut(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log();</span><br><span class="line">        iterator.next();</span><br><span class="line">    &#125;, <span class="number">3000</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> * <span class="title">gen</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">yield</span> one();</span><br><span class="line">    <span class="keyword">yield</span> two();</span><br><span class="line">    <span class="keyword">yield</span> three();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> iterator = gen();</span><br><span class="line">iterator.next();</span><br></pre></td></tr></table></figure>
 
 
 
-<p>与之前一样，也存在<code>updateOne()</code>和<code>updateMany()</code> 。</p>
-<h4 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.remove(&#123;&#125;) //默认删除所有符合条件的文档 删除单个需传递第二个参数true</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.drop() //remove方法性能较差，删除速度较慢，而drop直接清空</span><br><span class="line">db.&lt;collections&gt;.deleteOne()</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.deleteMany()</span><br></pre></td></tr></table></figure>
+<h3 id="实例2"><a href="#实例2" class="headerlink" title="实例2"></a>实例2</h3><p>模拟获取用户数据、订单数据和商品数据</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUsers</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    setTimeOut(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> data = <span class="string">&#x27;用户数据&#x27;</span>;</span><br><span class="line">      iterator.next(data);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getOrders</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    setTimeOut(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> data = <span class="string">&#x27;订单数据&#x27;</span>;</span><br><span class="line">      iterator.next(data);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getGoods</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    setTimeOut(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> data = <span class="string">&#x27;商品数据&#x27;</span>;</span><br><span class="line">      iterator.next(data);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> * <span class="title">gen</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> users = <span class="keyword">yield</span> getUsers();</span><br><span class="line">    <span class="built_in">console</span>.log(users);</span><br><span class="line">    <span class="keyword">let</span> orders = <span class="keyword">yield</span> getOrders();</span><br><span class="line">    <span class="built_in">console</span>.log(orders);</span><br><span class="line">    <span class="keyword">let</span> goods = <span class="keyword">yield</span> getGoods();</span><br><span class="line">    <span class="built_in">console</span>.log(goods)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> iterator = gen();</span><br><span class="line">iterator.next();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-
-<p>remove({})里必须 <font color="red">传参</font>，否则报错。</p>
-<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.replace(&#123;旧&#125;, &#123;新&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="可视化工具"><a href="#可视化工具" class="headerlink" title="可视化工具"></a>可视化工具</h2><p>MongoDB的可视化工具有很多，如NoSql、自带的Compass等，里面只是样式发生改变，功能大致相同，需要的话可以自行下载安装。</p>
 ]]></content>
       <categories>
-        <category>MongoDB</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>MongoDB笔记</tag>
+        <tag>ES6笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6(二)</title>
+    <url>/archives/71a0823d.html</url>
+    <content><![CDATA[<h2 id="给函数形参赋初始值"><a href="#给函数形参赋初始值" class="headerlink" title="给函数形参赋初始值"></a>给函数形参赋初始值</h2><p>ES6可以给函数形参赋初始值：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params">a,b,c=<span class="number">10</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b+c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = fn(<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="comment">// 15</span></span><br></pre></td></tr></table></figure>
+
+<p>与解构赋值相结合：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">connect</span> (<span class="params">&#123;host = <span class="string">&quot;127.0.0.1&quot;</span>, username, password, port&#125;</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(host) <span class="comment">//127.0.0.1</span></span><br><span class="line">    <span class="built_in">console</span>.log(username) <span class="comment">//zhangsan</span></span><br><span class="line">    <span class="built_in">console</span>.log(password) <span class="comment">//root</span></span><br><span class="line">    <span class="built_in">console</span>.log(port) <span class="comment">//8080</span></span><br><span class="line">&#125;</span><br><span class="line">connect(&#123;</span><br><span class="line">    username: <span class="string">&quot;zhangsan&quot;</span>,</span><br><span class="line">    password: <span class="string">&quot;root&quot;</span>,</span><br><span class="line">    port: <span class="number">8080</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="rest参数"><a href="#rest参数" class="headerlink" title="rest参数"></a>rest参数</h2><p>ES5中获取函数实参的方式是通过arguments来返回一个对象，而rest参数获取实参返回的是一个数组：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(args)</span><br><span class="line">&#125;</span><br><span class="line">fn(<span class="string">&#x27;zhangsan&#x27;</span>, <span class="string">&#x27;lisi&#x27;</span>, <span class="string">&#x27;wangwu&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意： rest参数必须放到最后</p>
+<h2 id="扩展运算符-…"><a href="#扩展运算符-…" class="headerlink" title="扩展运算符 …"></a>扩展运算符 …</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&#x27;zhangsan&#x27;</span>, <span class="string">&#x27;lisi&#x27;</span>, <span class="string">&#x27;wangwu&#x27;</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line">fn(...arr);</span><br><span class="line"><span class="comment">//0: &quot;zhangsan&quot;</span></span><br><span class="line"><span class="comment">//1: &quot;lisi&quot;</span></span><br><span class="line"><span class="comment">//2: &quot;wangwu&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h4 id="合并数组"><a href="#合并数组" class="headerlink" title="合并数组"></a>合并数组</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&#x27;zhangsan&#x27;</span>, <span class="string">&#x27;lisi&#x27;</span>, <span class="string">&#x27;wnagwu&#x27;</span>];</span><br><span class="line"><span class="keyword">const</span> arr1 = [<span class="string">&#x27;ni&#x27;</span>, <span class="string">&#x27;wo&#x27;</span>, <span class="string">&#x27;ta&#x27;</span>];</span><br><span class="line"><span class="keyword">const</span> res = [...arr, ...arr1];</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="克隆数组"><a href="#克隆数组" class="headerlink" title="克隆数组"></a>克隆数组</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&#x27;zhangsan&#x27;</span>, <span class="string">&#x27;lisi&#x27;</span>, <span class="string">&#x27;wnagwu&#x27;</span>];</span><br><span class="line"><span class="keyword">const</span> clone = [...arr];</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="将伪数组转换为真数组"><a href="#将伪数组转换为真数组" class="headerlink" title="将伪数组转换为真数组"></a>将伪数组转换为真数组</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> divs = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> divArr = [...divs];</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h2><p>ES6中引入了新的原始数据类型Symbol，表示独一无二的值，是js的第七种数据类型，是一种类似于字符串的数据类型。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<li>Symbol的值是唯一的，用来解决命名冲突的问题。</li>
+<li>Symbol值不能与其他数据进行运算</li>
+<li>Symbol定义的对象属性不能使用 <code>for...in</code> 进行循环遍历，但是可以使用 <code>Reflect.ownKeys</code> 来获取对象的所有键名。</li>
+</ol>
+<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建1</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="built_in">Symbol</span>(); <span class="comment">//通过函数创建</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">Symbol</span>(<span class="string">&#x27;hello&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> b1 = Symobol(<span class="string">&#x27;hello&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(b === b1); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建2 通过函数对象创建</span></span><br><span class="line"><span class="keyword">let</span> c = <span class="built_in">Symbol</span>.for(<span class="string">&#x27;hello&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> d = <span class="built_in">Symbol</span>.for(<span class="string">&#x27;hello&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(c === d); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="应用-1"><a href="#应用-1" class="headerlink" title="应用"></a>应用</h3><p>向对象中添加方法：当一个对象里面的结构较为复杂时，不便于我们查找，而直接添加会产生一定的风险，因为不能确保添加的方法属性名是否存在该对象中，所以用Symbol添加方法会简单有效和安全。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> game = &#123;</span><br><span class="line">    name: <span class="string">&quot;DNF&quot;</span>,</span><br><span class="line">    up:	funciton () &#123;</span><br><span class="line">    	<span class="built_in">console</span>.log(<span class="string">&#x27;上移&#x27;</span>)；</span><br><span class="line">	&#125;,</span><br><span class="line">    down: funciton () &#123;</span><br><span class="line">    	<span class="built_in">console</span>.log(<span class="string">&#x27;下移&#x27;</span>)；</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> methods = &#123;</span><br><span class="line">    up: <span class="built_in">Symbol</span>(),</span><br><span class="line">    down: <span class="built_in">Symbol</span>()</span><br><span class="line">&#125;</span><br><span class="line">game[methods.up] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">game[methods.down] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>另一种添加方式</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">		<span class="keyword">let</span> say = <span class="built_in">Symbol</span>();</span><br><span class="line">        <span class="keyword">let</span> cj = <span class="built_in">Symbol</span>();</span><br><span class="line">        <span class="keyword">let</span> game = &#123;</span><br><span class="line">            name: <span class="string">&quot;lol&quot;</span>,</span><br><span class="line">            [say]: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;开语音&#x27;</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            [cj]: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;刷野&#x27;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line">        game[say]();</span><br><span class="line">        game[cj]();</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>ES6笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6(一)</title>
+    <url>/archives/de91195f.html</url>
+    <content><![CDATA[<h2 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h2><h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a;</span><br><span class="line"><span class="keyword">let</span> a,b,c;</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">100</span>, b = <span class="number">200</span>, c = <span class="number">300</span>;</span><br></pre></td></tr></table></figure>
+
+<p>let与var的区别：</p>
+<ol>
+<li>var 可重复声明，let不能，声明同一变量两次会报错</li>
+<li>let在块级作用域中声明的变量只能在代码块中有效，不能在全局中使用，而var可以。</li>
+<li>let不存在变量提升，不能先定义再赋值。</li>
+</ol>
+<p><code>注意</code>: let虽然是在块级作用域中有效，但并不影响作用域链。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line">    funciton fn () &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(a)</span><br><span class="line">    &#125;</span><br><span class="line">    fn();</span><br><span class="line">    <span class="comment">// hello</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p>const用于声明常量，一般常量大写，而且在块级作用域中声明的也一样不能在全局中使用，常量初始赋值后不能在进行修改，但在对对象和数组的元素进行修改时，不算是对常量的修改，例如</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> STUDENTS = [<span class="string">&#x27;zhangsan&#x27;</span>, <span class="string">&#x27;lisi&#x27;</span>, <span class="string">&#x27;wangwu&#x27;</span>];</span><br><span class="line">STUDENTS.push(<span class="string">&#x27;xiaoming&#x27;</span>);</span><br><span class="line"><span class="comment">//由于此时常量的地址值未发生改变，还是那个数组，所以不会报错</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h2><p>允许按照一定模式从数组和对象中提取值，对变量进行赋值，这就是结构赋值。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组</span></span><br><span class="line"><span class="keyword">const</span> STUDENTS = [<span class="string">&#x27;zhangsan&#x27;</span>, <span class="string">&#x27;lisi&#x27;</span>, <span class="string">&#x27;wangwu&#x27;</span>];</span><br><span class="line"><span class="keyword">let</span> [ni, wo, ta] = STUDENTS;</span><br><span class="line"><span class="built_in">console</span>.log(ni);</span><br><span class="line"><span class="built_in">console</span>.log(wo);</span><br><span class="line"><span class="built_in">console</span>.log(ta);</span><br><span class="line"><span class="comment">// zhangsan lisi wangwu</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对象</span></span><br><span class="line"><span class="keyword">const</span> zhang = &#123;</span><br><span class="line">    name: <span class="string">&quot;张三&quot;</span>,</span><br><span class="line">    age: <span class="string">&quot;不详&quot;</span>,</span><br><span class="line">    hobbies: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;喜欢写代码&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> &#123;name, age, hobbies&#125; = zhang;</span><br><span class="line"><span class="built_in">console</span>.log(name) <span class="comment">//张三</span></span><br><span class="line"><span class="built_in">console</span>.log(age) <span class="comment">//不详</span></span><br><span class="line"><span class="built_in">console</span>.log(hobbies) <span class="comment">//function（）&#123;console.log((&#x27;喜欢写代码&#x27;))&#125;</span></span><br><span class="line">hobbies(); <span class="comment">//喜欢写代码</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h2><p>使用模板字符串可以支持换行</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">`&lt;ul&gt;</span></span><br><span class="line"><span class="string">				&lt;li&gt;hello&lt;/li&gt;</span></span><br><span class="line"><span class="string">				&lt;li&gt;world&lt;/li&gt;</span></span><br><span class="line"><span class="string">			&lt;/ul&gt;`</span></span><br></pre></td></tr></table></figure>
+
+<p>用于变量拼接：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">`张三`</span>；</span><br><span class="line"><span class="keyword">let</span> out = <span class="string">`<span class="subst">$&#123;str&#125;</span>是一名程序员`</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="对象的简写"><a href="#对象的简写" class="headerlink" title="对象的简写"></a>对象的简写</h2><p>ES6允许在大括号里面，直接写入变量和函数，作为对象的属性和方法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&#x27;张三&#x27;</span>；</span><br><span class="line"><span class="keyword">let</span> hobbies = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;lol&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> student = &#123;</span><br><span class="line">    name,</span><br><span class="line">    hobbies</span><br><span class="line">    <span class="function"><span class="title">improve</span>(<span class="params"></span>)</span>&#123;&#125; <span class="comment">//函数简写</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>ES6使用箭头函数来 定义函数</p>
+<p><del>let fn = funciton () {}</del></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> fn = <span class="function">() =&gt;</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ol>
+<li>this是静态的，始终指向函数声明时所在作用域的下的this值。</li>
+<li>不能作为构造函数化对象</li>
+<li>不能使用arguments变量</li>
+<li>当形参只有一个时，可以省略小括号；当只有一条语句时，可以省略花括号和return，此时执行结果就是函数的返回值</li>
+</ol>
+<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//从数组中返回偶数的元素</span></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">9</span>];</span><br><span class="line"><span class="keyword">const</span> res = arr.filter(<span class="function"><span class="params">item</span> =&gt;</span> item % <span class="number">2</span> === <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(res)</span><br><span class="line"><span class="comment">//[2,8]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li>箭头函数适合于跟 <code>this</code> 无关的的回调：定时器、数组的方法回调等。</li>
+<li>不适合与this有关的回调：dom事件回调、对象方法</li>
+</ol>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>ES6笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -106,53 +222,53 @@
       </tags>
   </entry>
   <entry>
-    <title>mongoose基础</title>
-    <url>/archives/b2ed0d69.html</url>
-    <content><![CDATA[<h2 id="mongoose基本介绍"><a href="#mongoose基本介绍" class="headerlink" title="mongoose基本介绍"></a>mongoose基本介绍</h2><p>mongoose是对node环境下的MongoDB数据库操作的封装，将数据库内的数据转换成js对象以供使用。</p>
-<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i mongoose --save</span><br></pre></td></tr></table></figure>
-
+    <title>MongoDB(一)</title>
+    <url>/archives/d69f1e.html</url>
+    <content><![CDATA[<h2 id="MongoDB基本介绍"><a href="#MongoDB基本介绍" class="headerlink" title="MongoDB基本介绍"></a>MongoDB基本介绍</h2><p>MongoDB是一种非关系型数据库，相对关系型数据库来说比较灵活，其实它也可以算是介于关系型数据库和非关系型数据库之间的一种数据库，因为它是最像关系型数据库的非关系数据库，它支持的数据结构十分松散，是类似json的 <code>bson</code>格式。</p>
+<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><p>在 <a href="https://www.mongodb.com/try">官网</a> 导航栏上找到software，选择第一个免费的社区版下载安装，安装完成后要配置环境变量，路径是在其文件的<code>Bin</code> 目录。</p>
 <a id="more"></a>
 
-<h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">&#x27;mongoose&#x27;</span>);</span><br><span class="line">mongoose.connect(<span class="string">&#x27;mongodb://localhost/test&#x27;</span>, &#123;<span class="attr">useNewUrlParser</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">mongoose.connection.once(<span class="string">&#x27;open&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//连接状态监听</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;数据库已连接&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="启动数据库"><a href="#启动数据库" class="headerlink" title="启动数据库"></a>启动数据库</h3><p>要启动数据库，必须要在安装其盘符的根目录下打开cmd，输入 <code>mongod</code> 即可，最后有<code>Waiting for </code></p>
+<p><code>connections</code>出现就证明数据库已启动，然后连接该数据库只需打开任意路径下的cmd输入 <code>mongo</code> 就可以连接成功。</p>
+<h2 id="MongoDB基本语法"><a href="#MongoDB基本语法" class="headerlink" title="MongoDB基本语法"></a>MongoDB基本语法</h2><p>首先介绍下该数据库的基本组成，每个数据库由 <code>集合</code> 组成，而集合里又放着<code>文档</code>，示意图如下：</p>
+ <img src="/images/shiyitu.png">
 
 
 
-<h2 id="Model方法CRUD"><a href="#Model方法CRUD" class="headerlink" title="Model方法CRUD"></a>Model方法CRUD</h2><h3 id="插入文档"><a href="#插入文档" class="headerlink" title="插入文档"></a>插入文档</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Schema = mongoose.Schema;</span><br><span class="line"><span class="comment">//创建schema对象</span></span><br><span class="line"><span class="keyword">var</span> stuSchema = <span class="keyword">new</span> Schema(&#123;</span><br><span class="line">    name: <span class="built_in">String</span>,</span><br><span class="line">    age: <span class="built_in">Number</span>,</span><br><span class="line">    gender: &#123;</span><br><span class="line">        type: <span class="built_in">String</span>,</span><br><span class="line">        <span class="keyword">default</span>: <span class="string">&quot;female&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    address: <span class="built_in">String</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//通过schema创建model</span></span><br><span class="line"><span class="keyword">var</span> stuModel = mongoose.model(<span class="string">&#x27;students&#x27;</span>, stuSchema);</span><br><span class="line"><span class="comment">//向数据库插入文档</span></span><br><span class="line">stuModel.create(&#123; <span class="comment">//插入多个传个数组</span></span><br><span class="line">    name: <span class="string">&quot;张三&quot;</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    gender: <span class="string">&quot;male&quot;</span>,</span><br><span class="line">    address: <span class="string">&quot;一班&quot;</span></span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;插入成功&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="常用shell指令"><a href="#常用shell指令" class="headerlink" title="常用shell指令"></a>常用shell指令</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">show dbs //显示所有数据库</span><br><span class="line"></span><br><span class="line">use 数据库名 //进入指定的数据库 注意：即使没有该数据库，由于MongoDB的灵活性，依然可以进入但不会创建</span><br><span class="line"></span><br><span class="line">db //显示当前所处的数据库</span><br><span class="line"></span><br><span class="line">show collections //显示当前数据库的所有集合</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="查找文档"><a href="#查找文档" class="headerlink" title="查找文档"></a>查找文档</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.find(&#123;<span class="attr">name</span>:<span class="string">&quot;张三&quot;</span>&#125;, <span class="string">&#x27;投影&#x27;</span>, &#123;查询条件(skip、limit)&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(doc);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="CRUD-增删改查"><a href="#CRUD-增删改查" class="headerlink" title="CRUD(增删改查)"></a>CRUD(增删改查)</h3><h4 id="增加文档"><a href="#增加文档" class="headerlink" title="增加文档"></a>增加文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.insert(doc) // 中间是集合名称 集合会隐式创建</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.insertOne(doc) //插入单个文档</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.insertMany([]) //插入多个文档</span><br></pre></td></tr></table></figure>
 
-<p>在mongoose还提供了通过id查找文档的方法: <code>stuModel.findById()</code></p>
-<h3 id="修改文档"><a href="#修改文档" class="headerlink" title="修改文档"></a>修改文档</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.update(&#123;<span class="attr">name</span>: <span class="string">&quot;张三&quot;</span>&#125;, &#123;<span class="attr">$set</span>:&#123;<span class="attr">age</span>: <span class="number">20</span>&#125;&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h3><p>删除文档也与在MongoDB中的操作几乎一致只不过最后一个参数为会回调函数。</p>
-<h3 id="统计文档数量"><a href="#统计文档数量" class="headerlink" title="统计文档数量"></a>统计文档数量</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.count(&#123;&#125;, [callback])</span><br></pre></td></tr></table></figure>
+<p>其中 <code>insert()</code>里如果传的是一个对象，那么功能与insertOne是一致的，同理，传一个数组，数组里存储着多个对象，那么就与insertMany相同，因为inset()方法是较早版本所出，所以兼容性较好。 </p>
+<h4 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find() //查询所有文档，返回类型为数组</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.find().limit(number) //查询指定数量的文档</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.find().count() //统计文档数量</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.findOne() //查询符合条件的单个文档，返回类型为对象</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.findMany() //查询符合条件的多个文档</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="Document对象方法CRUD"><a href="#Document对象方法CRUD" class="headerlink" title="Document对象方法CRUD"></a>Document对象方法CRUD</h2><h3 id="创建document"><a href="#创建document" class="headerlink" title="创建document"></a>创建document</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> stu = <span class="keyword">new</span> stuModel(&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<p><code>find()</code> 方法和上面用法一致，既可以查询单个也可以查询多个文档，若没有参数传入，则直接查询该集合内的</p>
+<p>所有文档。</p>
+<h4 id="修改文档"><a href="#修改文档" class="headerlink" title="修改文档"></a>修改文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.update(&#123;目标文档&#125;, &#123;更改内容&#125;) //该方法修改后的文档会覆盖修改前</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.update(&#123;目标文档&#125;, &#123;$set: &#123;更改内容&#125;&#125;) //该方法只会修改指定的文档属性,没有的属性会自动添加</span><br><span class="line">db.&lt;collections&gt;.update(&#123;目标文档&#125;, &#123;$unset: &#123;更改内容&#125;) //删除指定属性的文档</span><br><span class="line"></span><br><span class="line">//update()默认修改单个文档，若想修改多个，只需在后面加入一个对象</span><br><span class="line">(&#123;目标文档&#125;, &#123;$set: &#123;更改内容&#125;, &#123;multi: true&#125;)</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="保存"><a href="#保存" class="headerlink" title="保存"></a>保存</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stu.save([callback])</span><br></pre></td></tr></table></figure>
+<p>与之前一样，也存在<code>updateOne()</code>和<code>updateMany()</code> 。</p>
+<h4 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.remove(&#123;&#125;) //默认删除所有符合条件的文档 删除单个需传递第二个参数true</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.drop() //remove方法性能较差，删除速度较慢，而drop直接清空</span><br><span class="line">db.&lt;collections&gt;.deleteOne()</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.deleteMany()</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.findOne(&#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">    doc.age = <span class="number">20</span>;</span><br><span class="line">    doc.save();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>remove({})里必须 <font color="red">传参</font>，否则报错。</p>
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.replace(&#123;旧&#125;, &#123;新&#125;)</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="删除与转换"><a href="#删除与转换" class="headerlink" title="删除与转换"></a>删除与转换</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.findOne(&#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">   doc.remove(&#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">&#x27;删除成功~&#x27;</span>)</span><br><span class="line">       &#125;</span><br><span class="line">   <span class="keyword">var</span> doc = doc.toJSON(); </span><br><span class="line">   <span class="keyword">var</span> doc1 = doc.toObject();</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
+<h2 id="可视化工具"><a href="#可视化工具" class="headerlink" title="可视化工具"></a>可视化工具</h2><p>MongoDB的可视化工具有很多，如NoSql、自带的Compass等，里面只是样式发生改变，功能大致相同，需要的话可以自行下载安装。</p>
 ]]></content>
       <categories>
         <category>MongoDB</category>
       </categories>
       <tags>
-        <tag>mongoose笔记</tag>
+        <tag>MongoDB笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -216,6 +332,56 @@
       </categories>
       <tags>
         <tag>node.js笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mongoose基础</title>
+    <url>/archives/b2ed0d69.html</url>
+    <content><![CDATA[<h2 id="mongoose基本介绍"><a href="#mongoose基本介绍" class="headerlink" title="mongoose基本介绍"></a>mongoose基本介绍</h2><p>mongoose是对node环境下的MongoDB数据库操作的封装，将数据库内的数据转换成js对象以供使用。</p>
+<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i mongoose --save</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">&#x27;mongoose&#x27;</span>);</span><br><span class="line">mongoose.connect(<span class="string">&#x27;mongodb://localhost/test&#x27;</span>, &#123;<span class="attr">useNewUrlParser</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">mongoose.connection.once(<span class="string">&#x27;open&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//连接状态监听</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;数据库已连接&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Model方法CRUD"><a href="#Model方法CRUD" class="headerlink" title="Model方法CRUD"></a>Model方法CRUD</h2><h3 id="插入文档"><a href="#插入文档" class="headerlink" title="插入文档"></a>插入文档</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Schema = mongoose.Schema;</span><br><span class="line"><span class="comment">//创建schema对象</span></span><br><span class="line"><span class="keyword">var</span> stuSchema = <span class="keyword">new</span> Schema(&#123;</span><br><span class="line">    name: <span class="built_in">String</span>,</span><br><span class="line">    age: <span class="built_in">Number</span>,</span><br><span class="line">    gender: &#123;</span><br><span class="line">        type: <span class="built_in">String</span>,</span><br><span class="line">        <span class="keyword">default</span>: <span class="string">&quot;female&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    address: <span class="built_in">String</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//通过schema创建model</span></span><br><span class="line"><span class="keyword">var</span> stuModel = mongoose.model(<span class="string">&#x27;students&#x27;</span>, stuSchema);</span><br><span class="line"><span class="comment">//向数据库插入文档</span></span><br><span class="line">stuModel.create(&#123; <span class="comment">//插入多个传个数组</span></span><br><span class="line">    name: <span class="string">&quot;张三&quot;</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    gender: <span class="string">&quot;male&quot;</span>,</span><br><span class="line">    address: <span class="string">&quot;一班&quot;</span></span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;插入成功&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="查找文档"><a href="#查找文档" class="headerlink" title="查找文档"></a>查找文档</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.find(&#123;<span class="attr">name</span>:<span class="string">&quot;张三&quot;</span>&#125;, <span class="string">&#x27;投影&#x27;</span>, &#123;查询条件(skip、limit)&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(doc);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在mongoose还提供了通过id查找文档的方法: <code>stuModel.findById()</code></p>
+<h3 id="修改文档"><a href="#修改文档" class="headerlink" title="修改文档"></a>修改文档</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.update(&#123;<span class="attr">name</span>: <span class="string">&quot;张三&quot;</span>&#125;, &#123;<span class="attr">$set</span>:&#123;<span class="attr">age</span>: <span class="number">20</span>&#125;&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h3><p>删除文档也与在MongoDB中的操作几乎一致只不过最后一个参数为会回调函数。</p>
+<h3 id="统计文档数量"><a href="#统计文档数量" class="headerlink" title="统计文档数量"></a>统计文档数量</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.count(&#123;&#125;, [callback])</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Document对象方法CRUD"><a href="#Document对象方法CRUD" class="headerlink" title="Document对象方法CRUD"></a>Document对象方法CRUD</h2><h3 id="创建document"><a href="#创建document" class="headerlink" title="创建document"></a>创建document</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> stu = <span class="keyword">new</span> stuModel(&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="保存"><a href="#保存" class="headerlink" title="保存"></a>保存</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stu.save([callback])</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.findOne(&#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">    doc.age = <span class="number">20</span>;</span><br><span class="line">    doc.save();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="删除与转换"><a href="#删除与转换" class="headerlink" title="删除与转换"></a>删除与转换</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.findOne(&#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">   doc.remove(&#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">&#x27;删除成功~&#x27;</span>)</span><br><span class="line">       &#125;</span><br><span class="line">   <span class="keyword">var</span> doc = doc.toJSON(); </span><br><span class="line">   <span class="keyword">var</span> doc1 = doc.toObject();</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>MongoDB</category>
+      </categories>
+      <tags>
+        <tag>mongoose笔记</tag>
       </tags>
   </entry>
   <entry>

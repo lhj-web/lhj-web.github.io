@@ -6,7 +6,7 @@
   <link href="https://lhj-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://lhj-web.github.io/"/>
-  <updated>2020-11-10T14:18:43.822Z</updated>
+  <updated>2020-11-14T12:03:05.257Z</updated>
   <id>https://lhj-web.github.io/</id>
   
   <author>
@@ -15,6 +15,82 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ES6(三)</title>
+    <link href="https://lhj-web.github.io/archives/f53a216.html"/>
+    <id>https://lhj-web.github.io/archives/f53a216.html</id>
+    <published>2020-11-14T08:42:04.000Z</published>
+    <updated>2020-11-14T12:03:05.257Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;迭代器-Iterator&quot;&gt;&lt;a href=&quot;#迭代器-Iterator&quot; class=&quot;headerlink&quot; title=&quot;迭代器(Iterator)&quot;&gt;&lt;/a&gt;迭代器(Iterator)&lt;/h2&gt;&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://lhj-web.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="ES6笔记" scheme="https://lhj-web.github.io/tags/ES6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6(二)</title>
+    <link href="https://lhj-web.github.io/archives/71a0823d.html"/>
+    <id>https://lhj-web.github.io/archives/71a0823d.html</id>
+    <published>2020-11-14T05:59:12.000Z</published>
+    <updated>2020-11-14T08:54:20.793Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;给函数形参赋初始值&quot;&gt;&lt;a href=&quot;#给函数形参赋初始值&quot; class=&quot;headerlink&quot; title=&quot;给函数形参赋初始值&quot;&gt;&lt;/a&gt;给函数形参赋初始值&lt;/h2&gt;&lt;p&gt;ES6可以给函数形参赋初始值：&lt;/p&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://lhj-web.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="ES6笔记" scheme="https://lhj-web.github.io/tags/ES6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6(一)</title>
+    <link href="https://lhj-web.github.io/archives/de91195f.html"/>
+    <id>https://lhj-web.github.io/archives/de91195f.html</id>
+    <published>2020-11-13T06:35:48.000Z</published>
+    <updated>2020-11-14T08:03:37.241Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;声明变量&quot;&gt;&lt;a href=&quot;#声明变量&quot; class=&quot;headerlink&quot; title=&quot;声明变量&quot;&gt;&lt;/a&gt;声明变量&lt;/h2&gt;&lt;h3 id=&quot;let&quot;&gt;&lt;a href=&quot;#let&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://lhj-web.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="ES6笔记" scheme="https://lhj-web.github.io/tags/ES6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>mongoose基础</title>

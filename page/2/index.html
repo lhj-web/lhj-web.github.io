@@ -24,34 +24,32 @@
     var CONFIG = {"hostname":"lhj-web.github.io","root":"/","scheme":"Gemini","version":"8.0.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="核心模块http基本语法​    http核心模块主要用于创建和操作服务器，接受请求时可以传入请求和响应两个参数。 12345678910var http &#x3D; require(&amp;#x27;http&amp;#x27;); &#x2F;&#x2F;导入模块var server &#x3D; http.creatServer(); &#x2F;&#x2F;创建一个服务器&#x2F;&#x2F;对服务器进行事件监听server.on(&amp;#x27;request&amp;#x27;, fu">
-<meta property="og:type" content="article">
-<meta property="og:title" content="node基础(二)">
-<meta property="og:url" content="https://lhj-web.github.io/archives/b9a1e88c.html">
+  <meta name="description" content="人之所以能，是相信能。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="小刘童鞋的博客">
+<meta property="og:url" content="https://lhj-web.github.io/page/2/index.html">
 <meta property="og:site_name" content="小刘童鞋的博客">
-<meta property="og:description" content="核心模块http基本语法​    http核心模块主要用于创建和操作服务器，接受请求时可以传入请求和响应两个参数。 12345678910var http &#x3D; require(&amp;#x27;http&amp;#x27;); &#x2F;&#x2F;导入模块var server &#x3D; http.creatServer(); &#x2F;&#x2F;创建一个服务器&#x2F;&#x2F;对服务器进行事件监听server.on(&amp;#x27;request&amp;#x27;, fu">
+<meta property="og:description" content="人之所以能，是相信能。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-05T12:06:25.000Z">
-<meta property="article:modified_time" content="2020-11-10T06:51:03.141Z">
 <meta property="article:author" content="小刘童鞋">
-<meta property="article:tag" content="node.js笔记">
+<meta property="article:tag" content="前端，js，jQuery，vue，react，angular，node，mongodb，开发者，程序猿，开源，编程，代码，it网站，html，css，html5，css3，用户体验">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://lhj-web.github.io/archives/b9a1e88c.html">
+<link rel="canonical" href="https://lhj-web.github.io/page/2/">
 
 
 <script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
-    isPost : true,
+    isHome : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>node基础(二) | 小刘童鞋的博客</title>
+  <title>小刘童鞋的博客</title>
   
 
 
@@ -206,7 +204,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -219,7 +217,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97http"><span class="nav-number">1.</span> <span class="nav-text">核心模块http</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#url%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%86"><span class="nav-number">1.2.</span> <span class="nav-text">url的基本认识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#url%E6%A8%A1%E5%9D%97"><span class="nav-number">1.3.</span> <span class="nav-text">url模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97fs"><span class="nav-number">2.</span> <span class="nav-text">核心模块fs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-1"><span class="nav-number">2.1.</span> <span class="nav-text">基本语法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9FApache"><span class="nav-number">3.</span> <span class="nav-text">模拟Apache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"><span class="nav-number">4.</span> <span class="nav-text">模板引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E5%85%85"><span class="nav-number">5.</span> <span class="nav-text">补充</span></a></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -580,12 +577,11 @@ if(canvas.getContext){
 </noscript>
 
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner index posts-expand">
       
 
       
-
-  
+    
 
 
 <div class="post-block">
@@ -593,7 +589,7 @@ if(canvas.getContext){
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lhj-web.github.io/archives/b9a1e88c.html">
+    <link itemprop="mainEntityOfPage" href="https://lhj-web.github.io/archives/b4da5a3.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/IMG_3764(20201025-085802).JPG">
@@ -605,9 +601,10 @@ if(canvas.getContext){
       <meta itemprop="name" content="小刘童鞋的博客">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          node基础(二)
-        </h1>
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/b4da5a3.html" class="post-title-link" itemprop="url">node基础(一)</a>
+        </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -617,14 +614,14 @@ if(canvas.getContext){
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-11-05 20:06:25" itemprop="dateCreated datePublished" datetime="2020-11-05T20:06:25+08:00">2020-11-05</time>
+      <time title="创建时间：2020-11-05 13:05:20" itemprop="dateCreated datePublished" datetime="2020-11-05T13:05:20+08:00">2020-11-05</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-10 14:51:03" itemprop="dateModified" datetime="2020-11-10T14:51:03+08:00">2020-11-10</time>
+        <time title="修改时间：2020-11-10 14:50:52" itemprop="dateModified" datetime="2020-11-10T14:50:52+08:00">2020-11-10</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -637,19 +634,12 @@ if(canvas.getContext){
     </span>
 
   
-    <span id="/archives/b9a1e88c.html" class="post-meta-item leancloud_visitors" data-flag-title="node基础(二)" title="阅读次数">
+    <span id="/archives/b4da5a3.html" class="post-meta-item leancloud_visitors" data-flag-title="node基础(一)" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
       <span class="post-meta-item-text">阅读次数：</span>
       <span class="leancloud-visitors-count"></span>
-    </span>
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span id="busuanzi_value_page_pv"></span>
     </span>
   
   <span class="post-meta-item">
@@ -659,8 +649,8 @@ if(canvas.getContext){
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/archives/b9a1e88c.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/b9a1e88c.html" itemprop="commentCount"></span>
+    <a title="valine" href="/archives/b4da5a3.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/b4da5a3.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -672,7 +662,7 @@ if(canvas.getContext){
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.5k</span>
+      <span>1.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -690,116 +680,277 @@ if(canvas.getContext){
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="核心模块http"><a href="#核心模块http" class="headerlink" title="核心模块http"></a>核心模块http</h2><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><p>​    <code>http</code>核心模块主要用于创建和操作服务器，接受请求时可以传入请求和响应两个参数。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>); <span class="comment">//导入模块</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = http.creatServer(); <span class="comment">//创建一个服务器</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对服务器进行事件监听</span></span><br><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123; <span class="comment">//req:request(请求) res: response(响应)</span></span><br><span class="line">    res.setHeader(<span class="string">&#x27;content-type&#x27;</span>, <span class="string">&#x27;text/plain; utf-8&#x27;</span>); <span class="comment">//设置请求头，防止相应界面乱码</span></span><br><span class="line">	res.end(<span class="string">&#x27;hello world&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>如果想要对服务器正常访问，还要对服务器绑定端口号，计算机中每个进程都会对应一个端口号，浏览器的默认端口号为 <strong>80</strong> </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server.listen(<span class="number">80</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Server is running...&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h3 id="url的基本认识"><a href="#url的基本认识" class="headerlink" title="url的基本认识"></a>url的基本认识</h3><p>​    url(统一资源定位符)也就是在浏览器地址栏的内容，在对服务器进行事件监听时当用户输入url请求时可以获取到，并对其进行操作</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> url=req.url;</span><br><span class="line">    <span class="function"><span class="title">if</span>(<span class="params">url===<span class="string">&#x27;/&#x27;</span></span>)</span>&#123;</span><br><span class="line">        res.end(<span class="string">&#x27;hello world&#x27;</span>);</span><br><span class="line">    &#125; </span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="url模块"><a href="#url模块" class="headerlink" title="url模块"></a>url模块</h3><p>node中也有url模块，并且是附带的，<font color="red">无需从npm中下载 </font> </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">&#x27;url&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-<p>url模块可以对用户请求的url数据进行操作，比如将其解析为一个对象，里面存着url里路径、内容等，可以通过输出url.parse(req.url, true)</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</span><br><span class="line">	url.parse(req.url, <span class="literal">true</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<p>然后url.path就是请求路径，url.query是用户通过get方式提交的信息。</p>
-<h2 id="核心模块fs"><a href="#核心模块fs" class="headerlink" title="核心模块fs"></a>核心模块fs</h2><h3 id="基本语法-1"><a href="#基本语法-1" class="headerlink" title="基本语法"></a>基本语法</h3><p>​    fs是node中的 <strong>文件操作系统</strong> ，主要用来读取和写入文件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>); <span class="comment">//导入模块</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//异步读取文件</span></span><br><span class="line">fs.readFile(<span class="string">&#x27;./xxx&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123; <span class="comment">//err 表示读取出错 data表示读取成功的数据</span></span><br><span class="line">    <span class="function"><span class="title">if</span>(<span class="params">err</span>)</span> &#123;</span><br><span class="line">        res.end(<span class="string">&#x27;读取错误&#x27;</span>)；</span><br><span class="line">    &#125;</span><br><span class="line">    res.end(data);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>写入文件：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//异步写入文件</span></span><br><span class="line">fs.writeFile(<span class="string">&#x27;./写入文件路径&#x27;</span>, <span class="string">&#x27;写入内容&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">if</span>(<span class="params">err</span>)</span> &#123;</span><br><span class="line">        res.end(<span class="string">&#x27;erro&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    res.end(<span class="string">&#x27;success&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>同步写入文件的话就是没有回调函数，并在fs.readFile后面加上了 <code>Sync</code> 。</p>
-<h2 id="模拟Apache"><a href="#模拟Apache" class="headerlink" title="模拟Apache"></a>模拟Apache</h2><p>根据以上两种核心模块我们可以模拟出 <font color="red">Apache</font> 服务器的基本行为。</p>
-<p>首先导入两种核心模块,然后创建服务器，通过设定好服务器文件基本路径并将请求的url赋值给filePath以实现灵活读取文件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = http.createServer();</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">&#x27;requeset&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> url = req.url;</span><br><span class="line">    <span class="keyword">var</span> dir = <span class="string">&#x27;服务器文件路径&#x27;</span>;</span><br><span class="line">    <span class="keyword">var</span> filePath = <span class="string">&#x27;&#x27;</span>; <span class="comment">//初始界面的路径</span></span><br><span class="line">    <span class="keyword">if</span> (url !== <span class="string">&#x27;/&#x27;</span>) &#123;</span><br><span class="line">        filePath = url;</span><br><span class="line">    &#125;</span><br><span class="line">    fs.readFile(dir+filePath, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">        <span class="function"><span class="title">if</span>(<span class="params">err</span>)</span> &#123;</span><br><span class="line">            res.end(<span class="number">404</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        res.end(data);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">80</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;Server is running...&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h2><p>模板引擎不单单能在 <code>Ajax</code> 里使用，也可以在node中导入</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> template = <span class="built_in">require</span>(<span class="string">&#x27;art-template&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-<p>将想要的渲染的页面写好后，可以使用 <code>render()</code> 方法进行渲染</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">template.render(<span class="string">&#x27;渲染文件路径&#x27;</span>, &#123;&#125;);</span><br></pre></td></tr></table></figure>
-
-<p> 想要对指定文件进行渲染，可以通过 <strong>fs模块</strong> 读取文件进行渲染</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fs.readFile(<span class="string">&#x27;xxx&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">&#x27;文件读取失败&#x27;</span>)；</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> ret = template.render(data.toString(),&#123;&#125; ); <span class="comment">//读的是html文件时许需要转成字符串</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>创建操作服务器的时候，有简写操作</p>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&#x27;http&#x27;); </span><br><span class="line">http.creat<span class="constructor">Server(<span class="params">funciton</span> (<span class="params">req</span>,<span class="params">res</span>)</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-
+          <h2 id="node介绍"><a href="#node介绍" class="headerlink" title="node介绍"></a>node介绍</h2><p>随着计算机技术的快速发展，谷歌推出了 <strong>V8</strong> 引擎 ，为 <code>node.js</code> 的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的 <strong>运行环境</strong> ，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，完成中小型项目，进而实现全栈。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/b4da5a3.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
     </div>
 
     
     
     
-      
-  <div class="popular-posts-header">相关文章推荐</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\b4da5a3.html" rel="bookmark">node基础(一)</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\c752c8a7.html" rel="bookmark">node基础(三)</a></div>
-    </li>
-  </ul>
-
 
     <footer class="post-footer">
-          <div class="reward-container">
-  <div>谢谢你请我吃糖果</div>
-  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
-    赞赏
-  </button>
-  <div class="post-reward">
-      <div>
-        <img src="/images/IMG_3761.JPG" alt="小刘童鞋 微信">
-        <span>微信</span>
-      </div>
-      <div>
-        <img src="/images/IMG_3762.JPG" alt="小刘童鞋 支付宝">
-        <span>支付宝</span>
-      </div>
-
-  </div>
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 </div>
 
-          <div class="post-tags">
-              <a href="/tags/node-js%E7%AC%94%E8%AE%B0/" rel="tag"># node.js笔记</a>
-          </div>
 
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lhj-web.github.io/archives/5158de64.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/IMG_3764(20201025-085802).JPG">
+      <meta itemprop="name" content="小刘童鞋">
+      <meta itemprop="description" content="人之所以能，是相信能。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小刘童鞋的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/5158de64.html" class="post-title-link" itemprop="url">python图书管理系统</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-24 17:04:03" itemprop="dateCreated datePublished" datetime="2020-10-24T17:04:03+08:00">2020-10-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-08 20:39:37" itemprop="dateModified" datetime="2020-11-08T20:39:37+08:00">2020-11-08</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/archives/5158de64.html" class="post-meta-item leancloud_visitors" data-flag-title="python图书管理系统" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/archives/5158de64.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/5158de64.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="图书管理系统"><a href="#图书管理系统" class="headerlink" title="图书管理系统"></a>图书管理系统</h1><p>本程序是用python语言编写，主要涉及到python中库的调用、对数组和函数的灵活运用等知识，是一个简单的程序设计。功能有用户页面和后台管理员系统。</p>
+<p>代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">books = [&#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;红楼梦&#x27;</span>, <span class="string">&#x27;author&#x27;</span>: <span class="string">&#x27;	曹雪芹&#x27;</span>, <span class="string">&#x27;price&#x27;</span>: <span class="string">&#x27;19.9&#x27;</span>&#125;,</span><br><span class="line">         &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;西游记&#x27;</span>, <span class="string">&#x27;author&#x27;</span>: <span class="string">&#x27;	吴承恩&#x27;</span>, <span class="string">&#x27;price&#x27;</span>: <span class="string">&#x27;29.9&#x27;</span>&#125;,</span><br><span class="line">         &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;三国演义&#x27;</span>, <span class="string">&#x27;author&#x27;</span>: <span class="string">&#x27;罗贯中&#x27;</span>, <span class="string">&#x27;price&#x27;</span>: <span class="string">&#x27;39.9&#x27;</span>&#125;,</span><br><span class="line">         &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;水浒传&#x27;</span>, <span class="string">&#x27;author&#x27;</span>: <span class="string">&#x27;	施耐庵&#x27;</span>, <span class="string">&#x27;price&#x27;</span>: <span class="string">&#x27;49.9&#x27;</span>&#125;,</span><br><span class="line">         ]  <span class="comment"># 图书数据</span></span><br><span class="line"></span><br><span class="line">users = [&#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;admin1&#x27;</span>, <span class="string">&#x27;passwd&#x27;</span>: <span class="string">&#x27;123&#x27;</span>&#125;, &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;admin2&#x27;</span>, <span class="string">&#x27;passwd&#x27;</span>: <span class="string">&#x27;123&#x27;</span>&#125;,</span><br><span class="line">         &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;administrators&#x27;</span>, <span class="string">&#x27;passwd&#x27;</span>: <span class="string">&#x27;123&#x27;</span>&#125;]  <span class="comment"># 默认用户数据</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/5158de64.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
         
+      
+    </div>
 
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/archives/b4da5a3.html" rel="prev" title="node基础(一)">
-                  <i class="fa fa-chevron-left"></i> node基础(一)
-                </a>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lhj-web.github.io/archives/75b91cd4.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/IMG_3764(20201025-085802).JPG">
+      <meta itemprop="name" content="小刘童鞋">
+      <meta itemprop="description" content="人之所以能，是相信能。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小刘童鞋的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/75b91cd4.html" class="post-title-link" itemprop="url">原生JS实现无缝轮播图</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-24 14:21:32" itemprop="dateCreated datePublished" datetime="2020-10-24T14:21:32+08:00">2020-10-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-10 16:51:03" itemprop="dateModified" datetime="2020-11-10T16:51:03+08:00">2020-11-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/archives/75b91cd4.html" class="post-meta-item leancloud_visitors" data-flag-title="原生JS实现无缝轮播图" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/archives/75b91cd4.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/75b91cd4.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="第一部分"><a href="#第一部分" class="headerlink" title="第一部分"></a>第一部分</h1><p>现在不论是pc端还是移动端，里面很重要的一个特效就是<strong>轮播图</strong>，可以说是必不可少的。下面是html和css代码：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/75b91cd4.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
             </div>
-            <div class="post-nav-item">
-                <a href="/archives/c752c8a7.html" rel="next" title="node基础(三)">
-                  node基础(三) <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
     </footer>
   </article>
 </div>
@@ -808,9 +959,14 @@ if(canvas.getContext){
 
 
 
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+
 
       
-    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -934,7 +1090,7 @@ NexT.utils.loadComments('#valine-comments', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
     new Valine(Object.assign({"enable":true,"appId":"sEEmXpAfRITvepsPMAm6Y3lP-gzGzoHsz","appKey":"Krj6XkanXaogUG8yQLp23QWw","serverURLs":"https://seemxpaf.lc-cn-n1-shared.com","placeholder":"说点什么吧~~~","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-cn","visitor":true,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[]}, {
       el: '#valine-comments',
-      path: "/archives/b9a1e88c.html",
+      path: "/page/2/",
       serverURLs: "https://seemxpaf.lc-cn-n1-shared.com"
     }));
   }, window.Valine);
