@@ -6,7 +6,7 @@
   <link href="https://lhj-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://lhj-web.github.io/"/>
-  <updated>2020-11-14T12:20:02.833Z</updated>
+  <updated>2020-11-15T03:53:44.495Z</updated>
   <id>https://lhj-web.github.io/</id>
   
   <author>
@@ -17,51 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>ES6(三)</title>
-    <link href="https://lhj-web.github.io/archives/f53a216.html"/>
-    <id>https://lhj-web.github.io/archives/f53a216.html</id>
-    <published>2020-11-14T08:42:04.000Z</published>
-    <updated>2020-11-14T12:20:02.833Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;迭代器-Iterator&quot;&gt;&lt;a href=&quot;#迭代器-Iterator&quot; class=&quot;headerlink&quot; title=&quot;迭代器(Iterator)&quot;&gt;&lt;/a&gt;迭代器(Iterator)&lt;/h2&gt;&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;迭代器是一种接口，为各种不同的数据结构提供统一的访问机制，任何数据结构只要部署&lt;code&gt;Iterator&lt;/code&gt;,就可以完成遍历操作。&lt;/p&gt;
-&lt;p&gt;ES6创建了一种新的遍历命令&lt;code&gt;for ...of&lt;/code&gt;循环，Iterator接口主要供其消费。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="https://lhj-web.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="ES6笔记" scheme="https://lhj-web.github.io/tags/ES6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ES6(二)</title>
-    <link href="https://lhj-web.github.io/archives/71a0823d.html"/>
-    <id>https://lhj-web.github.io/archives/71a0823d.html</id>
-    <published>2020-11-14T05:59:12.000Z</published>
-    <updated>2020-11-14T12:20:58.826Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;给函数形参赋初始值&quot;&gt;&lt;a href=&quot;#给函数形参赋初始值&quot; class=&quot;headerlink&quot; title=&quot;给函数形参赋初始值&quot;&gt;&lt;/a&gt;给函数形参赋初始值&lt;/h2&gt;&lt;p&gt;ES6可以给函数形参赋初始值：&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;fn&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;a,b,c=&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; a+b+c;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; a = fn(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(a);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 15&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="https://lhj-web.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="ES6笔记" scheme="https://lhj-web.github.io/tags/ES6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ES6(一)</title>
+    <title>ES6基础</title>
     <link href="https://lhj-web.github.io/archives/de91195f.html"/>
     <id>https://lhj-web.github.io/archives/de91195f.html</id>
     <published>2020-11-13T06:35:48.000Z</published>
-    <updated>2020-11-14T12:20:35.064Z</updated>
+    <updated>2020-11-15T03:53:44.495Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;声明变量&quot;&gt;&lt;a href=&quot;#声明变量&quot; class=&quot;headerlink&quot; title=&quot;声明变量&quot;&gt;&lt;/a&gt;声明变量&lt;/h2&gt;&lt;h3 id=&quot;let&quot;&gt;&lt;a href=&quot;#let&quot; class=&quot;headerlink&quot; title=&quot;let&quot;&gt;&lt;/a&gt;let&lt;/h3&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; a;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; a,b,c;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;, b = &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;, c = &lt;span class=&quot;number&quot;&gt;300&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -84,53 +44,11 @@
   </entry>
   
   <entry>
-    <title>mongoose基础</title>
-    <link href="https://lhj-web.github.io/archives/b2ed0d69.html"/>
-    <id>https://lhj-web.github.io/archives/b2ed0d69.html</id>
-    <published>2020-11-10T07:46:40.000Z</published>
-    <updated>2020-11-10T14:18:43.822Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;mongoose基本介绍&quot;&gt;&lt;a href=&quot;#mongoose基本介绍&quot; class=&quot;headerlink&quot; title=&quot;mongoose基本介绍&quot;&gt;&lt;/a&gt;mongoose基本介绍&lt;/h2&gt;&lt;p&gt;mongoose是对node环境下的MongoDB数据库操作的封装，将数据库内的数据转换成js对象以供使用。&lt;/p&gt;
-&lt;h3 id=&quot;下载安装&quot;&gt;&lt;a href=&quot;#下载安装&quot; class=&quot;headerlink&quot; title=&quot;下载安装&quot;&gt;&lt;/a&gt;下载安装&lt;/h3&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i mongoose --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="MongoDB" scheme="https://lhj-web.github.io/categories/MongoDB/"/>
-    
-    
-    <category term="mongoose笔记" scheme="https://lhj-web.github.io/tags/mongoose%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MongoDB(二)</title>
-    <link href="https://lhj-web.github.io/archives/afe7047c.html"/>
-    <id>https://lhj-web.github.io/archives/afe7047c.html</id>
-    <published>2020-11-09T12:39:01.000Z</published>
-    <updated>2020-11-10T06:50:28.816Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;内嵌式文档&quot;&gt;&lt;a href=&quot;#内嵌式文档&quot; class=&quot;headerlink&quot; title=&quot;内嵌式文档&quot;&gt;&lt;/a&gt;内嵌式文档&lt;/h2&gt;&lt;h3 id=&quot;创建内嵌式文档&quot;&gt;&lt;a href=&quot;#创建内嵌式文档&quot; class=&quot;headerlink&quot; title=&quot;创建内嵌式文档&quot;&gt;&lt;/a&gt;创建内嵌式文档&lt;/h3&gt;&lt;p&gt;有时文档一个属性值也可能有多个多个属性，这是该属性值可以是一个文档，也就是文档里内嵌一个文档，则该文档被称为 &lt;strong&gt;内嵌式文档&lt;/strong&gt; ，例如我们先创建一个内嵌式文档：&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;db.&amp;lt;collections&amp;gt;.insert(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	name: &amp;quot;张三&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	gender: &amp;quot;男&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	age: 18,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	hobbies: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		sports: [&amp;quot;打篮球&amp;quot;, &amp;quot;跑步&amp;quot;, &amp;quot;健身&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;此时，该文档里 &lt;code&gt;hobbies&lt;/code&gt; 属性值为一个文档，那么插入的这个文档就是内嵌式文档。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="MongoDB" scheme="https://lhj-web.github.io/categories/MongoDB/"/>
-    
-    
-    <category term="MongoDB笔记" scheme="https://lhj-web.github.io/tags/MongoDB%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MongoDB(一)</title>
+    <title>MongoDB基础</title>
     <link href="https://lhj-web.github.io/archives/d69f1e.html"/>
     <id>https://lhj-web.github.io/archives/d69f1e.html</id>
     <published>2020-11-08T11:24:53.000Z</published>
-    <updated>2020-11-10T06:50:34.232Z</updated>
+    <updated>2020-11-15T03:53:52.990Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;MongoDB基本介绍&quot;&gt;&lt;a href=&quot;#MongoDB基本介绍&quot; class=&quot;headerlink&quot; title=&quot;MongoDB基本介绍&quot;&gt;&lt;/a&gt;MongoDB基本介绍&lt;/h2&gt;&lt;p&gt;MongoDB是一种非关系型数据库，相对关系型数据库来说比较灵活，其实它也可以算是介于关系型数据库和非关系型数据库之间的一种数据库，因为它是最像关系型数据库的非关系数据库，它支持的数据结构十分松散，是类似json的 &lt;code&gt;bson&lt;/code&gt;格式。&lt;/p&gt;
@@ -146,56 +64,11 @@
   </entry>
   
   <entry>
-    <title>node基础(三)</title>
-    <link href="https://lhj-web.github.io/archives/c752c8a7.html"/>
-    <id>https://lhj-web.github.io/archives/c752c8a7.html</id>
-    <published>2020-11-06T05:08:13.000Z</published>
-    <updated>2020-11-10T06:51:25.124Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;Express框架&quot;&gt;&lt;a href=&quot;#Express框架&quot; class=&quot;headerlink&quot; title=&quot;Express框架&quot;&gt;&lt;/a&gt;Express框架&lt;/h1&gt;&lt;h2 id=&quot;express-安装&quot;&gt;&lt;a href=&quot;#express-安装&quot; class=&quot;headerlink&quot; title=&quot;express 安装&quot;&gt;&lt;/a&gt;express 安装&lt;/h2&gt;&lt;p&gt;node也有许多框架，如express、koa等，使用框架可以大大减少我们的代码量，从而提高开发效率，这里只介绍 &lt;strong&gt;express&lt;/strong&gt; 框架&lt;/p&gt;
-&lt;p&gt;首先安装在c/npm中安装express，安装成功后可以在node_moudules文件中查看是否存在&lt;/p&gt;
-&lt;h2 id=&quot;express基本使用&quot;&gt;&lt;a href=&quot;#express基本使用&quot; class=&quot;headerlink&quot; title=&quot;express基本使用&quot;&gt;&lt;/a&gt;express基本使用&lt;/h2&gt;&lt;p&gt;首先我们用express创建一个服务器：&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; express = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;express&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; app = express();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="node.js" scheme="https://lhj-web.github.io/categories/node-js/"/>
-    
-    
-    <category term="node.js笔记" scheme="https://lhj-web.github.io/tags/node-js%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>node基础(二)</title>
-    <link href="https://lhj-web.github.io/archives/b9a1e88c.html"/>
-    <id>https://lhj-web.github.io/archives/b9a1e88c.html</id>
-    <published>2020-11-05T12:06:25.000Z</published>
-    <updated>2020-11-10T06:51:03.141Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;核心模块http&quot;&gt;&lt;a href=&quot;#核心模块http&quot; class=&quot;headerlink&quot; title=&quot;核心模块http&quot;&gt;&lt;/a&gt;核心模块http&lt;/h2&gt;&lt;h3 id=&quot;基本语法&quot;&gt;&lt;a href=&quot;#基本语法&quot; class=&quot;headerlink&quot; title=&quot;基本语法&quot;&gt;&lt;/a&gt;基本语法&lt;/h3&gt;&lt;p&gt;​    &lt;code&gt;http&lt;/code&gt;核心模块主要用于创建和操作服务器，接受请求时可以传入请求和响应两个参数。&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; http = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;http&amp;#x27;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//导入模块&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; server = http.creatServer(); &lt;span class=&quot;comment&quot;&gt;//创建一个服务器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//对服务器进行事件监听&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;server.on(&lt;span class=&quot;string&quot;&gt;&amp;#x27;request&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;req,res&lt;/span&gt;) &lt;/span&gt;&amp;#123; &lt;span class=&quot;comment&quot;&gt;//req:request(请求) res: response(响应)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    res.setHeader(&lt;span class=&quot;string&quot;&gt;&amp;#x27;content-type&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;#x27;text/plain; utf-8&amp;#x27;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//设置请求头，防止相应界面乱码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	res.end(&lt;span class=&quot;string&quot;&gt;&amp;#x27;hello world&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;如果想要对服务器正常访问，还要对服务器绑定端口号，计算机中每个进程都会对应一个端口号，浏览器的默认端口号为 &lt;strong&gt;80&lt;/strong&gt; &lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;server.listen(&lt;span class=&quot;number&quot;&gt;80&lt;/span&gt;,&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&amp;#x27;Server is running...&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="node.js" scheme="https://lhj-web.github.io/categories/node-js/"/>
-    
-    
-    <category term="node.js笔记" scheme="https://lhj-web.github.io/tags/node-js%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>node基础(一)</title>
+    <title>node基础</title>
     <link href="https://lhj-web.github.io/archives/b4da5a3.html"/>
     <id>https://lhj-web.github.io/archives/b4da5a3.html</id>
     <published>2020-11-05T05:05:20.000Z</published>
-    <updated>2020-11-10T06:50:52.807Z</updated>
+    <updated>2020-11-15T03:53:56.952Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;node介绍&quot;&gt;&lt;a href=&quot;#node介绍&quot; class=&quot;headerlink&quot; title=&quot;node介绍&quot;&gt;&lt;/a&gt;node介绍&lt;/h2&gt;&lt;p&gt;随着计算机技术的快速发展，谷歌推出了 &lt;strong&gt;V8&lt;/strong&gt; 引擎 ，为 &lt;code&gt;node.js&lt;/code&gt; 的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的 &lt;strong&gt;运行环境&lt;/strong&gt; ，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，完成中小型项目，进而实现全栈。&lt;/p&gt;</summary>

@@ -26,13 +26,13 @@
 
   <meta name="description" content="node介绍随着计算机技术的快速发展，谷歌推出了 V8 引擎 ，为 node.js 的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的 运行环境 ，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，完成中小型项目，进而实现全栈。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node基础(一)">
+<meta property="og:title" content="node基础">
 <meta property="og:url" content="https://lhj-web.github.io/archives/b4da5a3.html">
 <meta property="og:site_name" content="小刘童鞋的博客">
 <meta property="og:description" content="node介绍随着计算机技术的快速发展，谷歌推出了 V8 引擎 ，为 node.js 的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的 运行环境 ，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，完成中小型项目，进而实现全栈。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-05T05:05:20.000Z">
-<meta property="article:modified_time" content="2020-11-10T06:50:52.807Z">
+<meta property="article:modified_time" content="2020-11-15T03:53:56.952Z">
 <meta property="article:author" content="小刘童鞋">
 <meta property="article:tag" content="node.js笔记">
 <meta name="twitter:card" content="summary">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>node基础(一) | 小刘童鞋的博客</title>
+  <title>node基础 | 小刘童鞋的博客</title>
   
 
 
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">6</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">5</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -154,7 +154,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">11</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">5</span></a>
 
   </li>
         <li class="menu-item menu-item-commonweal">
@@ -219,7 +219,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#node%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">node介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">node基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#node%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.</span> <span class="nav-text">node安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BAhello-world"><span class="nav-number">2.2.</span> <span class="nav-text">输出hello world</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.3.</span> <span class="nav-text">npm介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#package-json%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.3.1.</span> <span class="nav-text">package.json介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cnpm%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.3.2.</span> <span class="nav-text">cnpm介绍</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.4.</span> <span class="nav-text">模块化系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97"><span class="nav-number">2.4.1.</span> <span class="nav-text">核心模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9D%97"><span class="nav-number">2.4.2.</span> <span class="nav-text">导入模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97"><span class="nav-number">2.4.3.</span> <span class="nav-text">自定义模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%87%E4%BB%B6%E7%9A%84%E6%9A%B4%E9%9C%B2%E9%97%AE%E9%A2%98"><span class="nav-number">2.4.4.</span> <span class="nav-text">关于自定义文件的暴露问题</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#node%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">node介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">node基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#node%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.</span> <span class="nav-text">node安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BAhello-world"><span class="nav-number">2.2.</span> <span class="nav-text">输出hello world</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.3.</span> <span class="nav-text">npm介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#package-json%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.3.1.</span> <span class="nav-text">package.json介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cnpm%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.3.2.</span> <span class="nav-text">cnpm介绍</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.4.</span> <span class="nav-text">模块化系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97"><span class="nav-number">2.4.1.</span> <span class="nav-text">核心模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9D%97"><span class="nav-number">2.4.2.</span> <span class="nav-text">导入模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97"><span class="nav-number">2.4.3.</span> <span class="nav-text">自定义模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%87%E4%BB%B6%E7%9A%84%E6%9A%B4%E9%9C%B2%E9%97%AE%E9%A2%98"><span class="nav-number">2.4.4.</span> <span class="nav-text">关于自定义文件的暴露问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97http"><span class="nav-number">3.</span> <span class="nav-text">核心模块http</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#url%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%86"><span class="nav-number">3.2.</span> <span class="nav-text">url的基本认识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#url%E6%A8%A1%E5%9D%97"><span class="nav-number">3.3.</span> <span class="nav-text">url模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97fs"><span class="nav-number">4.</span> <span class="nav-text">核心模块fs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-1"><span class="nav-number">4.1.</span> <span class="nav-text">基本语法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9FApache"><span class="nav-number">5.</span> <span class="nav-text">模拟Apache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"><span class="nav-number">6.</span> <span class="nav-text">模板引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E5%85%85"><span class="nav-number">7.</span> <span class="nav-text">补充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#express-%E5%AE%89%E8%A3%85"><span class="nav-number">8.</span> <span class="nav-text">express 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#express%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">9.</span> <span class="nav-text">express基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BE%9B%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90"><span class="nav-number">9.1.</span> <span class="nav-text">提供静态资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#express%E4%BD%BF%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"><span class="nav-number">9.2.</span> <span class="nav-text">express使用模板引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Eget%E5%92%8Cpost%E8%AF%B7%E6%B1%82"><span class="nav-number">9.3.</span> <span class="nav-text">关于get和post请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#get%E8%AF%B7%E6%B1%82"><span class="nav-number">9.3.1.</span> <span class="nav-text">get请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#post%E8%AF%B7%E6%B1%82"><span class="nav-number">9.3.2.</span> <span class="nav-text">post请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#express%E8%B7%AF%E7%94%B1"><span class="nav-number">9.3.3.</span> <span class="nav-text">express路由</span></a></li></ol></li></ol></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -235,7 +235,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -248,7 +248,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -535,23 +535,23 @@ if(canvas.getContext){
             
             
           <li>
-            <a href="/archives/f53a216.html" title="ES6(三)" target="_blank">ES6(三)</a>
+            <a href="/archives/de91195f.html" title="ES6基础" target="_blank">ES6基础</a>
           </li>
         
           <li>
-            <a href="/archives/71a0823d.html" title="ES6(二)" target="_blank">ES6(二)</a>
+            <a href="/archives/d69f1e.html" title="MongoDB基础" target="_blank">MongoDB基础</a>
           </li>
         
           <li>
-            <a href="/archives/de91195f.html" title="ES6(一)" target="_blank">ES6(一)</a>
+            <a href="/archives/b4da5a3.html" title="node基础" target="_blank">node基础</a>
           </li>
         
           <li>
-            <a href="/archives/b2ed0d69.html" title="mongoose基础" target="_blank">mongoose基础</a>
+            <a href="/archives/5158de64.html" title="python图书管理系统" target="_blank">python图书管理系统</a>
           </li>
         
           <li>
-            <a href="/archives/afe7047c.html" title="MongoDB(二)" target="_blank">MongoDB(二)</a>
+            <a href="/archives/75b91cd4.html" title="原生JS实现无缝轮播图" target="_blank">原生JS实现无缝轮播图</a>
           </li>
         
       </ul>
@@ -606,7 +606,7 @@ if(canvas.getContext){
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          node基础(一)
+          node基础
         </h1>
 
         <div class="post-meta-container">
@@ -624,7 +624,7 @@ if(canvas.getContext){
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-10 14:50:52" itemprop="dateModified" datetime="2020-11-10T14:50:52+08:00">2020-11-10</time>
+        <time title="修改时间：2020-11-15 11:53:56" itemprop="dateModified" datetime="2020-11-15T11:53:56+08:00">2020-11-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -637,7 +637,7 @@ if(canvas.getContext){
     </span>
 
   
-    <span id="/archives/b4da5a3.html" class="post-meta-item leancloud_visitors" data-flag-title="node基础(一)" title="阅读次数">
+    <span id="/archives/b4da5a3.html" class="post-meta-item leancloud_visitors" data-flag-title="node基础" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -672,14 +672,14 @@ if(canvas.getContext){
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.7k</span>
+      <span>5.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -742,6 +742,105 @@ if(canvas.getContext){
 
 
 <h4 id="关于自定义文件的暴露问题"><a href="#关于自定义文件的暴露问题" class="headerlink" title="关于自定义文件的暴露问题"></a>关于自定义文件的暴露问题</h4><p>有两种方式，一种是 <code>exports.变量名</code> ，另一种是 <code>moudule.exports = &#123;&#125;</code> ,前者其实是后者的一个方法，他们俩都存储了相同的地址值，指向同一个对象。只是为了方便快捷，后者导出的是整个模块函数对象，而前者只是将对应的模块函数导出。</p>
+<h2 id="核心模块http"><a href="#核心模块http" class="headerlink" title="核心模块http"></a>核心模块http</h2><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><p>​    <code>http</code>核心模块主要用于创建和操作服务器，接受请求时可以传入请求和响应两个参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>); <span class="comment">//导入模块</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = http.creatServer(); <span class="comment">//创建一个服务器</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对服务器进行事件监听</span></span><br><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123; <span class="comment">//req:request(请求) res: response(响应)</span></span><br><span class="line">    res.setHeader(<span class="string">&#x27;content-type&#x27;</span>, <span class="string">&#x27;text/plain; utf-8&#x27;</span>); <span class="comment">//设置请求头，防止相应界面乱码</span></span><br><span class="line">	res.end(<span class="string">&#x27;hello world&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果想要对服务器正常访问，还要对服务器绑定端口号，计算机中每个进程都会对应一个端口号，浏览器的默认端口号为 <strong>80</strong> </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server.listen(<span class="number">80</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Server is running...&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="url的基本认识"><a href="#url的基本认识" class="headerlink" title="url的基本认识"></a>url的基本认识</h3><p>​    url(统一资源定位符)也就是在浏览器地址栏的内容，在对服务器进行事件监听时当用户输入url请求时可以获取到，并对其进行操作</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> url=req.url;</span><br><span class="line">    <span class="function"><span class="title">if</span>(<span class="params">url===<span class="string">&#x27;/&#x27;</span></span>)</span>&#123;</span><br><span class="line">        res.end(<span class="string">&#x27;hello world&#x27;</span>);</span><br><span class="line">    &#125; </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="url模块"><a href="#url模块" class="headerlink" title="url模块"></a>url模块</h3><p>node中也有url模块，并且是附带的，<font color="red">无需从npm中下载 </font> </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">&#x27;url&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>url模块可以对用户请求的url数据进行操作，比如将其解析为一个对象，里面存着url里路径、内容等，可以通过输出url.parse(req.url, true)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</span><br><span class="line">	url.parse(req.url, <span class="literal">true</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>然后url.path就是请求路径，url.query是用户通过get方式提交的信息。</p>
+<h2 id="核心模块fs"><a href="#核心模块fs" class="headerlink" title="核心模块fs"></a>核心模块fs</h2><h3 id="基本语法-1"><a href="#基本语法-1" class="headerlink" title="基本语法"></a>基本语法</h3><p>​    fs是node中的 <strong>文件操作系统</strong> ，主要用来读取和写入文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>); <span class="comment">//导入模块</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//异步读取文件</span></span><br><span class="line">fs.readFile(<span class="string">&#x27;./xxx&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123; <span class="comment">//err 表示读取出错 data表示读取成功的数据</span></span><br><span class="line">    <span class="function"><span class="title">if</span>(<span class="params">err</span>)</span> &#123;</span><br><span class="line">        res.end(<span class="string">&#x27;读取错误&#x27;</span>)；</span><br><span class="line">    &#125;</span><br><span class="line">    res.end(data);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>写入文件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//异步写入文件</span></span><br><span class="line">fs.writeFile(<span class="string">&#x27;./写入文件路径&#x27;</span>, <span class="string">&#x27;写入内容&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">if</span>(<span class="params">err</span>)</span> &#123;</span><br><span class="line">        res.end(<span class="string">&#x27;erro&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    res.end(<span class="string">&#x27;success&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>同步写入文件的话就是没有回调函数，并在fs.readFile后面加上了 <code>Sync</code> 。</p>
+<h2 id="模拟Apache"><a href="#模拟Apache" class="headerlink" title="模拟Apache"></a>模拟Apache</h2><p>根据以上两种核心模块我们可以模拟出 <font color="red">Apache</font> 服务器的基本行为。</p>
+<p>首先导入两种核心模块,然后创建服务器，通过设定好服务器文件基本路径并将请求的url赋值给filePath以实现灵活读取文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = http.createServer();</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">&#x27;requeset&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> url = req.url;</span><br><span class="line">    <span class="keyword">var</span> dir = <span class="string">&#x27;服务器文件路径&#x27;</span>;</span><br><span class="line">    <span class="keyword">var</span> filePath = <span class="string">&#x27;&#x27;</span>; <span class="comment">//初始界面的路径</span></span><br><span class="line">    <span class="keyword">if</span> (url !== <span class="string">&#x27;/&#x27;</span>) &#123;</span><br><span class="line">        filePath = url;</span><br><span class="line">    &#125;</span><br><span class="line">    fs.readFile(dir+filePath, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">        <span class="function"><span class="title">if</span>(<span class="params">err</span>)</span> &#123;</span><br><span class="line">            res.end(<span class="number">404</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        res.end(data);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">80</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;Server is running...&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h2><p>模板引擎不单单能在 <code>Ajax</code> 里使用，也可以在node中导入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> template = <span class="built_in">require</span>(<span class="string">&#x27;art-template&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>将想要的渲染的页面写好后，可以使用 <code>render()</code> 方法进行渲染</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">template.render(<span class="string">&#x27;渲染文件路径&#x27;</span>, &#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p> 想要对指定文件进行渲染，可以通过 <strong>fs模块</strong> 读取文件进行渲染</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fs.readFile(<span class="string">&#x27;xxx&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">&#x27;文件读取失败&#x27;</span>)；</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> ret = template.render(data.toString(),&#123;&#125; ); <span class="comment">//读的是html文件时许需要转成字符串</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>创建操作服务器的时候，有简写操作</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&#x27;http&#x27;); </span><br><span class="line">http.creat<span class="constructor">Server(<span class="params">funciton</span> (<span class="params">req</span>,<span class="params">res</span>)</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="express-安装"><a href="#express-安装" class="headerlink" title="express 安装"></a>express 安装</h2><p>node也有许多框架，如express、koa等，使用框架可以大大减少我们的代码量，从而提高开发效率，这里只介绍 <strong>express</strong> 框架</p>
+<p>首先安装在c/npm中安装express，安装成功后可以在node_moudules文件中查看是否存在</p>
+<h2 id="express基本使用"><a href="#express基本使用" class="headerlink" title="express基本使用"></a>express基本使用</h2><p>首先我们用express创建一个服务器：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="提供静态资源"><a href="#提供静态资源" class="headerlink" title="提供静态资源"></a>提供静态资源</h3><p>express提供了一种方法，可以让你的静态资源得以访问，使用express.static内置中间件函数可以设置提供静态资源的路径</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="string">&#x27;设置请求的url地址&#x27;</span>, express.static(<span class="string">&#x27;./静态资源路径&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+
+
+<p>并且在想要渲染的文件中所引入的文件路径可以直接写入，例如我想要渲染的html文件引入了public文件夹中的css文件夹的main.css文件，那么此时我就可以在 <code>link</code> 标签中的href写入 <code>/public/css/main.css</code>，不论你想要渲染的文件在你的包中哪个文件夹里，都可以直接引入。</p>
+<h3 id="express使用模板引擎"><a href="#express使用模板引擎" class="headerlink" title="express使用模板引擎"></a>express使用模板引擎</h3><p>express想要使用模板引擎需要用npm下载两个包：<em>art-template</em>和<em>express-art-template</em>。</p>
+<p>通过<code>app.engine()</code>可以实现被渲染文件的后缀，比如</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.engine(<span class="string">&#x27;html&#x27;</span>, <span class="built_in">require</span>(<span class="string">&#x27;express-art-template&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+<p>此时，渲染文件类型将被指定为.html文件。</p>
+<h3 id="关于get和post请求"><a href="#关于get和post请求" class="headerlink" title="关于get和post请求"></a>关于get和post请求</h3><p><strong>get</strong> 和 <strong>post</strong>请求区别在与get请求中传递的参数值会显示在地址栏中，而且长度有限，post请求则不会在地址栏中显示，并且长度不受限制，相对来讲更加安全，但get请求能减少web服务器的负担，因此两者都不可或缺。</p>
+<h4 id="get请求"><a href="#get请求" class="headerlink" title="get请求"></a>get请求</h4><p>get请求在express的语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">express().get(<span class="string">&#x27;./请求地址&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="post请求"><a href="#post请求" class="headerlink" title="post请求"></a>post请求</h4><p>post请求需要中间件才能完成：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i body-parser -s</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>然后在js文件中引入：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">&#x27;body-parser&#x27;</span>);</span><br><span class="line">app.use(bodyParser, urlencoded(&#123;<span class="attr">extend</span>: <span class="literal">false</span>&#125;));</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="express路由"><a href="#express路由" class="headerlink" title="express路由"></a>express路由</h4><p>express也为路由提供了方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> router = express.Router();</span><br></pre></td></tr></table></figure>
+
+
+
+<p>此时对get/post请求处理时直接：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">router.get();</span><br><span class="line">router.post();</span><br></pre></td></tr></table></figure>
+
+
+
 
     </div>
 
@@ -749,15 +848,6 @@ if(canvas.getContext){
     
     
       
-  <div class="popular-posts-header">相关文章推荐</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\b9a1e88c.html" rel="bookmark">node基础(二)</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\c752c8a7.html" rel="bookmark">node基础(三)</a></div>
-    </li>
-  </ul>
 
 
     <footer class="post-footer">
@@ -792,8 +882,8 @@ if(canvas.getContext){
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/archives/b9a1e88c.html" rel="next" title="node基础(二)">
-                  node基础(二) <i class="fa fa-chevron-right"></i>
+                <a href="/archives/d69f1e.html" rel="next" title="MongoDB基础">
+                  MongoDB基础 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -854,13 +944,13 @@ if(canvas.getContext){
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">30k</span>
+    <span title="站点总字数">31k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">27 分钟</span>
+    <span title="站点阅读时长">28 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">
