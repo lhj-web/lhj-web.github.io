@@ -184,7 +184,7 @@
   <entry>
     <title>MongoDB基础</title>
     <url>/archives/d69f1e.html</url>
-    <content><![CDATA[<h2 id="MongoDB基本介绍"><a href="#MongoDB基本介绍" class="headerlink" title="MongoDB基本介绍"></a>MongoDB基本介绍</h2><h2 id="一、MongoDB基本介绍"><a href="#一、MongoDB基本介绍" class="headerlink" title="一、MongoDB基本介绍"></a>一、MongoDB基本介绍</h2><p>MongoDB是一种非关系型数据库，相对关系型数据库来说比较灵活，其实它也可以算是介于关系型数据库和非关系型数据库之间的一种数据库，因为它是最像关系型数据库的非关系数据库，它支持的数据结构十分松散，是类似json的 <code>bson</code>格式。</p>
+    <content><![CDATA[<h2 id="一、MongoDB基本介绍"><a href="#一、MongoDB基本介绍" class="headerlink" title="一、MongoDB基本介绍"></a>一、MongoDB基本介绍</h2><p>MongoDB是一种非关系型数据库，相对关系型数据库来说比较灵活，其实它也可以算是介于关系型数据库和非关系型数据库之间的一种数据库，因为它是最像关系型数据库的非关系数据库，它支持的数据结构十分松散，是类似json的 <code>bson</code>格式。</p>
 <h3 id="1-下载安装"><a href="#1-下载安装" class="headerlink" title="1. 下载安装"></a>1. 下载安装</h3><p>在 <a href="https://www.mongodb.com/try">官网</a> 导航栏上找到software，选择第一个免费的社区版下载安装，安装完成后要配置环境变量，路径是在其文件的<code>Bin</code> 目录。</p>
 <a id="more"></a>
 
@@ -315,7 +315,7 @@
   <entry>
     <title>node基础</title>
     <url>/archives/b4da5a3.html</url>
-    <content><![CDATA[<h2 id="node介绍"><a href="#node介绍" class="headerlink" title="node介绍"></a>node介绍</h2><h2 id="一、node介绍"><a href="#一、node介绍" class="headerlink" title="一、node介绍"></a>一、node介绍</h2><p>随着计算机技术的快速发展，谷歌推出了 <strong>V8</strong> 引擎 ，为 <code>node.js</code> 的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的 <strong>运行环境</strong> ，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，完成中小型项目，进而实现全栈。</p>
+    <content><![CDATA[<h2 id="一、node介绍"><a href="#一、node介绍" class="headerlink" title="一、node介绍"></a>一、node介绍</h2><p>随着计算机技术的快速发展，谷歌推出了 <strong>V8</strong> 引擎 ，为 <code>node.js</code> 的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的 <strong>运行环境</strong> ，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，完成中小型项目，进而实现全栈。</p>
 <a id="more"></a>
 
 <h2 id="二、node基础语法"><a href="#二、node基础语法" class="headerlink" title="二、node基础语法"></a>二、node基础语法</h2><h3 id="1-node安装"><a href="#1-node安装" class="headerlink" title="1. node安装"></a>1. node安装</h3><p>首先在官网进行下载 <a href="https://nodejs.org/en/">node</a> ,官网提供了两种版本，分别为奇数版和偶数版，建议下载偶数版，因为 <strong>偶数版</strong> 是稳定版，也就是长期支持维护的版本，使用起来更加安全。下载完成后，安装一路默认即可，因为新版node在安装的时候会默认添加到 <strong>环境变量</strong> 中，所以不需要重新配置。打开cmd后输入：</p>
