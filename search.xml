@@ -3,7 +3,7 @@
   <entry>
     <title>ES6基础</title>
     <url>/archives/de91195f.html</url>
-    <content><![CDATA[<h2 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h2><h2 id="一、声明变量"><a href="#一、声明变量" class="headerlink" title="一、声明变量"></a>一、声明变量</h2><h3 id="1-let"><a href="#1-let" class="headerlink" title="1. let"></a>1. let</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a;</span><br><span class="line"><span class="keyword">let</span> a,b,c;</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">100</span>, b = <span class="number">200</span>, c = <span class="number">300</span>;</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h2 id="一、声明变量"><a href="#一、声明变量" class="headerlink" title="一、声明变量"></a>一、声明变量</h2><h3 id="1-let"><a href="#1-let" class="headerlink" title="1. let"></a>1. let</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a;</span><br><span class="line"><span class="keyword">let</span> a,b,c;</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">100</span>, b = <span class="number">200</span>, c = <span class="number">300</span>;</span><br></pre></td></tr></table></figure>
 
 <p>let与var的区别：</p>
 <ol>
