@@ -236,6 +236,76 @@
       </tags>
   </entry>
   <entry>
+    <title>ES7-11基础</title>
+    <url>/archives/1db2e0b9.html</url>
+    <content><![CDATA[<h2 id="一、ES7新特性"><a href="#一、ES7新特性" class="headerlink" title="一、ES7新特性"></a>一、ES7新特性</h2><h3 id="1-检测数组"><a href="#1-检测数组" class="headerlink" title="1. 检测数组"></a>1. 检测数组</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> students = [<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>];</span><br><span class="line"><span class="built_in">console</span>.log(students.includes(<span class="string">&#x27;张三&#x27;</span>))  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h3 id="2"><a href="#2" class="headerlink" title="2. **"></a>2. **</h3><p>通过<code>**</code>来计算指数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span> ** <span class="number">10</span>) <span class="comment">//1024</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="二、ES8新特性"><a href="#二、ES8新特性" class="headerlink" title="二、ES8新特性"></a>二、ES8新特性</h2><h3 id="1-async函数"><a href="#1-async函数" class="headerlink" title="1. async函数"></a>1. async函数</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello world&#x27;</span>; </span><br><span class="line">    <span class="comment">//如果返回值不是Promise类型的对象，那么函数返回结果就是一个成功的Promise</span></span><br><span class="line">    <span class="comment">// throw new Error(&#x27;出错了&#x27;) 此时返回的是一个失败的Promise</span></span><br><span class="line">    <span class="comment">//return new Promise((res, rej) =&gt; &#123;</span></span><br><span class="line">    <span class="comment">//	res(&#x27;data&#x27;) //返还成功的Promise</span></span><br><span class="line">    <span class="comment">//	rej(&#x27;err&#x27;) //返还失败的Promise</span></span><br><span class="line">	<span class="comment">//&#125;)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> result = fn();</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="1-1-await与async结合"><a href="#1-1-await与async结合" class="headerlink" title="1.1 await与async结合"></a>1.1 await与async结合</h4><p>await返回的是promise成功的值</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res, rej</span>) =&gt;</span> &#123;</span><br><span class="line">    	 res(data);   </span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">await</span>必须在<span class="keyword">async</span>函数中使用</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">await</span> p; <span class="comment">//如果失败可以通过try..catch来捕获错误</span></span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="1-2-实践"><a href="#1-2-实践" class="headerlink" title="1.2 实践"></a>1.2 实践</h4><p>读取文件并将数据输出</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res, rej</span>) =&gt;</span> &#123;</span><br><span class="line">        fs.readFile(path, <span class="string">&#x27;utf8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> (err) rej(err);</span><br><span class="line">            res(data);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">main</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">await</span> fn();</span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main();</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-对象方法扩展"><a href="#2-对象方法扩展" class="headerlink" title="2. 对象方法扩展"></a>2. 对象方法扩展</h3><p><code>Object.keys(object)</code>获取对象的键</p>
+<p><code>Object.values(object)</code> 获取对象的值</p>
+<p><code>Object.entries()</code>返回一个数组，数组里的元素也是数组，每个数组元素里存着键和值。</p>
+<h2 id="三、ES9新特性"><a href="#三、ES9新特性" class="headerlink" title="三、ES9新特性"></a>三、ES9新特性</h2><h3 id="1-rest参数"><a href="#1-rest参数" class="headerlink" title="1. rest参数"></a>1. rest参数</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//rest参数</span></span><br><span class="line">funciton connect (&#123;host, post, ...user&#125;) &#123; <span class="comment">//多出来的参数都存到user中</span></span><br><span class="line">    <span class="built_in">console</span>.log(hoset);</span><br><span class="line">    <span class="built_in">console</span>.log(post);</span><br><span class="line">    <span class="built_in">console</span>.log(user);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">connect(&#123;</span><br><span class="line">    host: <span class="string">&#x27;127.0.0.1&#x27;</span>,</span><br><span class="line">    port: <span class="number">80</span>,</span><br><span class="line">    uesrname: <span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">    password: <span class="string">&#x27;root&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-扩展运算符"><a href="#2-扩展运算符" class="headerlink" title="2. 扩展运算符"></a>2. 扩展运算符</h3><p>ES9的扩展运算符可以合并对象：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> object = &#123;...object1, ...object2, ...object3&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-正则扩展"><a href="#3-正则扩展" class="headerlink" title="3. 正则扩展"></a>3. 正则扩展</h3><p>命名捕获分组：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">&#x27;&lt;a href=&quot;http://baidu.com&quot;&gt;百度&lt;/a&gt;&#x27;</span></span><br><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/&lt;a href=&quot;(?&lt;url&gt;.*)&quot;&gt;(?&lt;text&gt;.*)&lt;\/a&gt;/</span>;</span><br><span class="line">onst result = reg.exec(a);</span><br><span class="line"><span class="built_in">console</span>.log(result.groups.url); <span class="comment">//http://baidu.com</span></span><br><span class="line"><span class="built_in">console</span>.log(result.groups.text); <span class="comment">//百度</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="四、ES10新特性"><a href="#四、ES10新特性" class="headerlink" title="四、ES10新特性"></a>四、ES10新特性</h2><h3 id="1-对象扩展"><a href="#1-对象扩展" class="headerlink" title="1. 对象扩展"></a>1. 对象扩展</h3><p><code>Object.fromEntries()</code>将一个二维数组转变成一个对象</p>
+<h3 id="2-字符串扩展"><a href="#2-字符串扩展" class="headerlink" title="2. 字符串扩展"></a>2. 字符串扩展</h3><p><code>str.trimStart()</code>:清除字符串左侧的空格</p>
+<p><code>str.trimEnd()</code>:清除字符串右侧的空格</p>
+<h3 id="3-数组扩展"><a href="#3-数组扩展" class="headerlink" title="3. 数组扩展"></a>3. 数组扩展</h3><p><code>arr.flat()</code>:将一个多维数组转换成低维数组，若想将三维数组转换成一维，需要传一个深度参数，如2</p>
+<h3 id="4-Symbol扩展"><a href="#4-Symbol扩展" class="headerlink" title="4.Symbol扩展"></a>4.Symbol扩展</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="built_in">Symbol</span>(<span class="string">&#x27;hello&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(s.description);</span><br><span class="line"><span class="comment">//hello</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="五、ES11新特性"><a href="#五、ES11新特性" class="headerlink" title="五、ES11新特性"></a>五、ES11新特性</h2><h3 id="1-私有属性"><a href="#1-私有属性" class="headerlink" title="1. 私有属性"></a>1. 私有属性</h3><p>有些属性不想被获取到时就可以用到私有属性：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">fn</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.#age = age;</span><br><span class="line">        <span class="built_in">this</span>.#weight = weight;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> student = <span class="keyword">new</span> fn(<span class="string">&#x27;zhangsan&#x27;</span>, <span class="number">18</span>, <span class="string">&#x27;50kg&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(student.#age); <span class="comment">//报错</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>私有属性只能在class内部进行获取输出。</p>
+<h3 id="2-动态import"><a href="#2-动态import" class="headerlink" title="2. 动态import"></a>2. 动态import</h3><p>有些模块在特定条件下才使用，ES11提供了动态导入：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span>(path).then(<span class="function"><span class="params">module</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="built_in">module</span>); 暴露的模块</span><br><span class="line">&#125;) <span class="comment">//import返回的是一个promise</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>ES7-11笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MongoDB基础</title>
     <url>/archives/d69f1e.html</url>
     <content><![CDATA[<h2 id="一、MongoDB基本介绍"><a href="#一、MongoDB基本介绍" class="headerlink" title="一、MongoDB基本介绍"></a>一、MongoDB基本介绍</h2><p>MongoDB是一种非关系型数据库，相对关系型数据库来说比较灵活，其实它也可以算是介于关系型数据库和非关系型数据库之间的一种数据库，因为它是最像关系型数据库的非关系数据库，它支持的数据结构十分松散，是类似json的 <code>bson</code>格式。</p>

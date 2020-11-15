@@ -6,7 +6,7 @@
   <link href="https://lhj-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://lhj-web.github.io/"/>
-  <updated>2020-11-15T08:19:33.135Z</updated>
+  <updated>2020-11-15T13:38:44.643Z</updated>
   <id>https://lhj-web.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ES7-11基础</title>
+    <link href="https://lhj-web.github.io/archives/1db2e0b9.html"/>
+    <id>https://lhj-web.github.io/archives/1db2e0b9.html</id>
+    <published>2020-11-15T08:20:44.000Z</published>
+    <updated>2020-11-15T13:38:44.643Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;一、ES7新特性&quot;&gt;&lt;a href=&quot;#一、ES7新特性&quot; class=&quot;headerlink&quot; title=&quot;一、ES7新特性&quot;&gt;&lt;/a&gt;一、ES7新特性&lt;/h2&gt;&lt;h3 id=&quot;1-检测数组&quot;&gt;&lt;a href=&quot;#1-检测数组&quot; class=&quot;headerlink&quot; title=&quot;1. 检测数组&quot;&gt;&lt;/a&gt;1. 检测数组&lt;/h3&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; students = [&lt;span class=&quot;string&quot;&gt;&amp;#x27;张三&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;#x27;李四&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;#x27;王五&amp;#x27;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(students.includes(&lt;span class=&quot;string&quot;&gt;&amp;#x27;张三&amp;#x27;&lt;/span&gt;))  &lt;span class=&quot;comment&quot;&gt;//true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://lhj-web.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="ES7-11笔记" scheme="https://lhj-web.github.io/tags/ES7-11%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>ES6基础</title>
