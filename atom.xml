@@ -6,7 +6,7 @@
   <link href="https://lhj-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://lhj-web.github.io/"/>
-  <updated>2020-11-15T13:38:44.643Z</updated>
+  <updated>2020-11-17T12:14:32.800Z</updated>
   <id>https://lhj-web.github.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Ajax基础</title>
+    <link href="https://lhj-web.github.io/archives/9606d18.html"/>
+    <id>https://lhj-web.github.io/archives/9606d18.html</id>
+    <published>2020-11-16T04:17:18.000Z</published>
+    <updated>2020-11-17T12:14:32.800Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;一、请求报文和响应报文结构&quot;&gt;&lt;a href=&quot;#一、请求报文和响应报文结构&quot; class=&quot;headerlink&quot; title=&quot;一、请求报文和响应报文结构&quot;&gt;&lt;/a&gt;一、请求报文和响应报文结构&lt;/h2&gt;&lt;h3 id=&quot;1-请求报文&quot;&gt;&lt;a href=&quot;#1-请求报文&quot; class=&quot;headerlink&quot; title=&quot;1. 请求报文&quot;&gt;&lt;/a&gt;1. 请求报文&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;请求行：GET(Post)    /url参数    HTTP/1.1(协议版本)&lt;/li&gt;
+&lt;li&gt;请求头：&lt;/li&gt;
+&lt;li&gt;&lt;ul&gt;
+&lt;li&gt;Host: 参数&lt;ul&gt;
+&lt;li&gt;Cookie: 参数&lt;/li&gt;
+&lt;li&gt;Content-type: &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;空行&lt;/li&gt;
+&lt;li&gt;请求体   get请求为空&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://lhj-web.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="Ajax笔记" scheme="https://lhj-web.github.io/tags/Ajax%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ES7-11基础</title>
     <link href="https://lhj-web.github.io/archives/1db2e0b9.html"/>
     <id>https://lhj-web.github.io/archives/1db2e0b9.html</id>
     <published>2020-11-15T08:20:44.000Z</published>
-    <updated>2020-11-15T13:38:44.643Z</updated>
+    <updated>2020-11-15T13:39:00.961Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;一、ES7新特性&quot;&gt;&lt;a href=&quot;#一、ES7新特性&quot; class=&quot;headerlink&quot; title=&quot;一、ES7新特性&quot;&gt;&lt;/a&gt;一、ES7新特性&lt;/h2&gt;&lt;h3 id=&quot;1-检测数组&quot;&gt;&lt;a href=&quot;#1-检测数组&quot; class=&quot;headerlink&quot; title=&quot;1. 检测数组&quot;&gt;&lt;/a&gt;1. 检测数组&lt;/h3&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; students = [&lt;span class=&quot;string&quot;&gt;&amp;#x27;张三&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;#x27;李四&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;#x27;王五&amp;#x27;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(students.includes(&lt;span class=&quot;string&quot;&gt;&amp;#x27;张三&amp;#x27;&lt;/span&gt;))  &lt;span class=&quot;comment&quot;&gt;//true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
@@ -63,6 +95,23 @@
   </entry>
   
   <entry>
+    <title>mongoose基础</title>
+    <link href="https://lhj-web.github.io/archives/b2ed0d69.html"/>
+    <id>https://lhj-web.github.io/archives/b2ed0d69.html</id>
+    <published>2020-11-10T07:46:40.000Z</published>
+    <updated>2020-11-15T03:53:09.067Z</updated>
+    
+    
+    
+    
+    <category term="MongoDB" scheme="https://lhj-web.github.io/categories/MongoDB/"/>
+    
+    
+    <category term="mongoose笔记" scheme="https://lhj-web.github.io/tags/mongoose%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MongoDB基础</title>
     <link href="https://lhj-web.github.io/archives/d69f1e.html"/>
     <id>https://lhj-web.github.io/archives/d69f1e.html</id>
@@ -87,7 +136,7 @@
     <link href="https://lhj-web.github.io/archives/b4da5a3.html"/>
     <id>https://lhj-web.github.io/archives/b4da5a3.html</id>
     <published>2020-11-05T05:05:20.000Z</published>
-    <updated>2020-11-15T04:16:02.878Z</updated>
+    <updated>2020-11-16T12:06:27.713Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;一、node介绍&quot;&gt;&lt;a href=&quot;#一、node介绍&quot; class=&quot;headerlink&quot; title=&quot;一、node介绍&quot;&gt;&lt;/a&gt;一、node介绍&lt;/h2&gt;&lt;p&gt;随着计算机技术的快速发展，谷歌推出了 &lt;strong&gt;V8&lt;/strong&gt; 引擎 ，为 &lt;code&gt;node.js&lt;/code&gt; 的诞生奠定了基础，而node在后端的应用则是让前端工程师开始走向全栈，那么node到底是什么？node.js既不是一种语言，也不是一种基于JS的框架，而是一种由C++搭建的 &lt;strong&gt;运行环境&lt;/strong&gt; ，只不过在这种环境下可以运行JavaScript代码，从而让从事前端的程序员也能写后端代码，完成中小型项目，进而实现全栈。&lt;/p&gt;</summary>
