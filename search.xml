@@ -36,6 +36,8 @@
 
 
 
+
+
 <h2 id="四、解决IE缓存"><a href="#四、解决IE缓存" class="headerlink" title="四、解决IE缓存"></a>四、解决IE缓存</h2><p>在使用IE浏览器时发送Ajax获取数据时，由于该浏览器会使用本地缓存，所以当服务器文件发生变动时，不会更新数据，解决方法：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">xhr.open(<span class="string">&#x27;POST&#x27;</span>, <span class="string">&#x27;http://127.0.0.1/server&#x27;</span> + <span class="built_in">Date</span>.now());</span><br></pre></td></tr></table></figure>
 
@@ -79,207 +81,6 @@
       </categories>
       <tags>
         <tag>Ajax笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ES7-11基础</title>
-    <url>/archives/1db2e0b9.html</url>
-    <content><![CDATA[<h2 id="一、ES7新特性"><a href="#一、ES7新特性" class="headerlink" title="一、ES7新特性"></a>一、ES7新特性</h2><h3 id="1-检测数组"><a href="#1-检测数组" class="headerlink" title="1. 检测数组"></a>1. 检测数组</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> students = [<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>];</span><br><span class="line"><span class="built_in">console</span>.log(students.includes(<span class="string">&#x27;张三&#x27;</span>))  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h3 id="2"><a href="#2" class="headerlink" title="2. **"></a>2. **</h3><p>通过<code>**</code>来计算指数：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span> ** <span class="number">10</span>) <span class="comment">//1024</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="二、ES8新特性"><a href="#二、ES8新特性" class="headerlink" title="二、ES8新特性"></a>二、ES8新特性</h2><h3 id="1-async函数"><a href="#1-async函数" class="headerlink" title="1. async函数"></a>1. async函数</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello world&#x27;</span>; </span><br><span class="line">    <span class="comment">//如果返回值不是Promise类型的对象，那么函数返回结果就是一个成功的Promise</span></span><br><span class="line">    <span class="comment">// throw new Error(&#x27;出错了&#x27;) 此时返回的是一个失败的Promise</span></span><br><span class="line">    <span class="comment">//return new Promise((res, rej) =&gt; &#123;</span></span><br><span class="line">    <span class="comment">//	res(&#x27;data&#x27;) //返还成功的Promise</span></span><br><span class="line">    <span class="comment">//	rej(&#x27;err&#x27;) //返还失败的Promise</span></span><br><span class="line">	<span class="comment">//&#125;)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> result = fn();</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="1-1-await与async结合"><a href="#1-1-await与async结合" class="headerlink" title="1.1 await与async结合"></a>1.1 await与async结合</h4><p>await返回的是promise成功的值</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res, rej</span>) =&gt;</span> &#123;</span><br><span class="line">    	 res(data);   </span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">await</span>必须在<span class="keyword">async</span>函数中使用</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">await</span> p; <span class="comment">//如果失败可以通过try..catch来捕获错误</span></span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="1-2-实践"><a href="#1-2-实践" class="headerlink" title="1.2 实践"></a>1.2 实践</h4><p>读取文件并将数据输出</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res, rej</span>) =&gt;</span> &#123;</span><br><span class="line">        fs.readFile(path, <span class="string">&#x27;utf8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> (err) rej(err);</span><br><span class="line">            res(data);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">main</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">await</span> fn();</span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main();</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-对象方法扩展"><a href="#2-对象方法扩展" class="headerlink" title="2. 对象方法扩展"></a>2. 对象方法扩展</h3><p><code>Object.keys(object)</code>获取对象的键</p>
-<p><code>Object.values(object)</code> 获取对象的值</p>
-<p><code>Object.entries()</code>返回一个数组，数组里的元素也是数组，每个数组元素里存着键和值。</p>
-<h2 id="三、ES9新特性"><a href="#三、ES9新特性" class="headerlink" title="三、ES9新特性"></a>三、ES9新特性</h2><h3 id="1-rest参数"><a href="#1-rest参数" class="headerlink" title="1. rest参数"></a>1. rest参数</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//rest参数</span></span><br><span class="line">funciton connect (&#123;host, post, ...user&#125;) &#123; <span class="comment">//多出来的参数都存到user中</span></span><br><span class="line">    <span class="built_in">console</span>.log(hoset);</span><br><span class="line">    <span class="built_in">console</span>.log(post);</span><br><span class="line">    <span class="built_in">console</span>.log(user);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">connect(&#123;</span><br><span class="line">    host: <span class="string">&#x27;127.0.0.1&#x27;</span>,</span><br><span class="line">    port: <span class="number">80</span>,</span><br><span class="line">    uesrname: <span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">    password: <span class="string">&#x27;root&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-扩展运算符"><a href="#2-扩展运算符" class="headerlink" title="2. 扩展运算符"></a>2. 扩展运算符</h3><p>ES9的扩展运算符可以合并对象：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> object = &#123;...object1, ...object2, ...object3&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-正则扩展"><a href="#3-正则扩展" class="headerlink" title="3. 正则扩展"></a>3. 正则扩展</h3><p>命名捕获分组：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">&#x27;&lt;a href=&quot;http://baidu.com&quot;&gt;百度&lt;/a&gt;&#x27;</span></span><br><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/&lt;a href=&quot;(?&lt;url&gt;.*)&quot;&gt;(?&lt;text&gt;.*)&lt;\/a&gt;/</span>;</span><br><span class="line">onst result = reg.exec(a);</span><br><span class="line"><span class="built_in">console</span>.log(result.groups.url); <span class="comment">//http://baidu.com</span></span><br><span class="line"><span class="built_in">console</span>.log(result.groups.text); <span class="comment">//百度</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="四、ES10新特性"><a href="#四、ES10新特性" class="headerlink" title="四、ES10新特性"></a>四、ES10新特性</h2><h3 id="1-对象扩展"><a href="#1-对象扩展" class="headerlink" title="1. 对象扩展"></a>1. 对象扩展</h3><p><code>Object.fromEntries()</code>将一个二维数组转变成一个对象</p>
-<h3 id="2-字符串扩展"><a href="#2-字符串扩展" class="headerlink" title="2. 字符串扩展"></a>2. 字符串扩展</h3><p><code>str.trimStart()</code>:清除字符串左侧的空格</p>
-<p><code>str.trimEnd()</code>:清除字符串右侧的空格</p>
-<h3 id="3-数组扩展"><a href="#3-数组扩展" class="headerlink" title="3. 数组扩展"></a>3. 数组扩展</h3><p><code>arr.flat()</code>:将一个多维数组转换成低维数组，若想将三维数组转换成一维，需要传一个深度参数，如2</p>
-<h3 id="4-Symbol扩展"><a href="#4-Symbol扩展" class="headerlink" title="4.Symbol扩展"></a>4.Symbol扩展</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="built_in">Symbol</span>(<span class="string">&#x27;hello&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(s.description);</span><br><span class="line"><span class="comment">//hello</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="五、ES11新特性"><a href="#五、ES11新特性" class="headerlink" title="五、ES11新特性"></a>五、ES11新特性</h2><h3 id="1-私有属性"><a href="#1-私有属性" class="headerlink" title="1. 私有属性"></a>1. 私有属性</h3><p>有些属性不想被获取到时就可以用到私有属性：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">fn</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.#age = age;</span><br><span class="line">        <span class="built_in">this</span>.#weight = weight;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> student = <span class="keyword">new</span> fn(<span class="string">&#x27;zhangsan&#x27;</span>, <span class="number">18</span>, <span class="string">&#x27;50kg&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(student.#age); <span class="comment">//报错</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>私有属性只能在class内部进行获取输出。</p>
-<h3 id="2-动态import"><a href="#2-动态import" class="headerlink" title="2. 动态import"></a>2. 动态import</h3><p>有些模块在特定条件下才使用，ES11提供了动态导入：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span>(path).then(<span class="function"><span class="params">module</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="built_in">module</span>); 暴露的模块</span><br><span class="line">&#125;) <span class="comment">//import返回的是一个promise</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>ES7-11笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MongoDB基础</title>
-    <url>/archives/d69f1e.html</url>
-    <content><![CDATA[<h2 id="一、MongoDB基本介绍"><a href="#一、MongoDB基本介绍" class="headerlink" title="一、MongoDB基本介绍"></a>一、MongoDB基本介绍</h2><p>MongoDB是一种非关系型数据库，相对关系型数据库来说比较灵活，其实它也可以算是介于关系型数据库和非关系型数据库之间的一种数据库，因为它是最像关系型数据库的非关系数据库，它支持的数据结构十分松散，是类似json的 <code>bson</code>格式。</p>
-<h3 id="1-下载安装"><a href="#1-下载安装" class="headerlink" title="1. 下载安装"></a>1. 下载安装</h3><p>在 <a href="https://www.mongodb.com/try">官网</a> 导航栏上找到software，选择第一个免费的社区版下载安装，安装完成后要配置环境变量，路径是在其文件的<code>Bin</code> 目录。</p>
-<a id="more"></a>
-
-<h3 id="2-启动数据库"><a href="#2-启动数据库" class="headerlink" title="2. 启动数据库"></a>2. 启动数据库</h3><p>要启动数据库，必须要在安装其盘符的根目录下打开cmd，输入 <code>mongod</code> 即可，最后有<code>Waiting for </code></p>
-<p><code>connections</code>出现就证明数据库已启动，然后连接该数据库只需打开任意路径下的cmd输入 <code>mongo</code> 就可以连接成功。</p>
-<h2 id="二、MongoDB基本语法"><a href="#二、MongoDB基本语法" class="headerlink" title="二、MongoDB基本语法"></a>二、MongoDB基本语法</h2><p>首先介绍下该数据库的基本组成，每个数据库由 <code>集合</code> 组成，而集合里又放着<code>文档</code>，示意图如下：</p>
- <img src="/images/shiyitu.png">
-
-
-
-<h3 id="1-常用shell指令"><a href="#1-常用shell指令" class="headerlink" title="1. 常用shell指令"></a>1. 常用shell指令</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">show dbs //显示所有数据库</span><br><span class="line"></span><br><span class="line">use 数据库名 //进入指定的数据库 注意：即使没有该数据库，由于MongoDB的灵活性，依然可以进入但不会创建</span><br><span class="line"></span><br><span class="line">db //显示当前所处的数据库</span><br><span class="line"></span><br><span class="line">show collections //显示当前数据库的所有集合</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-CRUD-增删改查"><a href="#2-CRUD-增删改查" class="headerlink" title="2. CRUD(增删改查)"></a>2. CRUD(增删改查)</h3><h4 id="2-1-增加文档"><a href="#2-1-增加文档" class="headerlink" title="2.1 增加文档"></a>2.1 增加文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.insert(doc) // 中间是集合名称 集合会隐式创建</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.insertOne(doc) //插入单个文档</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.insertMany([]) //插入多个文档</span><br></pre></td></tr></table></figure>
-
-<p>其中 <code>insert()</code>里如果传的是一个对象，那么功能与insertOne是一致的，同理，传一个数组，数组里存储着多个对象，那么就与insertMany相同，因为inset()方法是较早版本所出，所以兼容性较好。 </p>
-<h4 id="2-2-查询文档"><a href="#2-2-查询文档" class="headerlink" title="2.2 查询文档"></a>2.2 查询文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find() //查询所有文档，返回类型为数组</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.find().limit(number) //查询指定数量的文档</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.find().count() //统计文档数量</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.findOne() //查询符合条件的单个文档，返回类型为对象</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.findMany() //查询符合条件的多个文档</span><br></pre></td></tr></table></figure>
-
-
-
-<p><code>find()</code> 方法和上面用法一致，既可以查询单个也可以查询多个文档，若没有参数传入，则直接查询该集合内的</p>
-<p>所有文档。</p>
-<h4 id="2-3-修改文档"><a href="#2-3-修改文档" class="headerlink" title="2.3 修改文档"></a>2.3 修改文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.update(&#123;目标文档&#125;, &#123;更改内容&#125;) //该方法修改后的文档会覆盖修改前</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.update(&#123;目标文档&#125;, &#123;$set: &#123;更改内容&#125;&#125;) //该方法只会修改指定的文档属性,没有的属性会自动添加</span><br><span class="line">db.&lt;collections&gt;.update(&#123;目标文档&#125;, &#123;$unset: &#123;更改内容&#125;) //删除指定属性的文档</span><br><span class="line"></span><br><span class="line">//update()默认修改单个文档，若想修改多个，只需在后面加入一个对象</span><br><span class="line">(&#123;目标文档&#125;, &#123;$set: &#123;更改内容&#125;, &#123;multi: true&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<p>与之前一样，也存在<code>updateOne()</code>和<code>updateMany()</code> 。</p>
-<h4 id="2-4-删除文档"><a href="#2-4-删除文档" class="headerlink" title="2.4 删除文档"></a>2.4 删除文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.remove(&#123;&#125;) //默认删除所有符合条件的文档 删除单个需传递第二个参数true</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.drop() //remove方法性能较差，删除速度较慢，而drop直接清空</span><br><span class="line">db.&lt;collections&gt;.deleteOne()</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.deleteMany()</span><br></pre></td></tr></table></figure>
-
-
-
-<p>remove({})里必须 <font color="red">传参</font>，否则报错。</p>
-<h4 id="2-5-补充"><a href="#2-5-补充" class="headerlink" title="2.5 补充"></a>2.5 补充</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.replace(&#123;旧&#125;, &#123;新&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="三、可视化工具"><a href="#三、可视化工具" class="headerlink" title="三、可视化工具"></a>三、可视化工具</h2><p>MongoDB的可视化工具有很多，如NoSql、自带的Compass等，里面只是样式发生改变，功能大致相同，需要的话可以自行下载安装。</p>
-<h2 id="四、内嵌式文档"><a href="#四、内嵌式文档" class="headerlink" title="四、内嵌式文档"></a>四、内嵌式文档</h2><h3 id="1-创建内嵌式文档"><a href="#1-创建内嵌式文档" class="headerlink" title="1. 创建内嵌式文档"></a>1. 创建内嵌式文档</h3><p>有时文档一个属性值也可能有多个多个属性，这是该属性值可以是一个文档，也就是文档里内嵌一个文档，则该文档被称为 <strong>内嵌式文档</strong> ，例如我们先创建一个内嵌式文档：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.insert(&#123;</span><br><span class="line">	name: &quot;张三&quot;,</span><br><span class="line">	gender: &quot;男&quot;,</span><br><span class="line">	age: 18,</span><br><span class="line">	hobbies: &#123;</span><br><span class="line">		sports: [&quot;打篮球&quot;, &quot;跑步&quot;, &quot;健身&quot;]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>此时，该文档里 <code>hobbies</code> 属性值为一个文档，那么插入的这个文档就是内嵌式文档。</p>
-<h3 id="2-查找内嵌式文档"><a href="#2-查找内嵌式文档" class="headerlink" title="2. 查找内嵌式文档"></a>2. 查找内嵌式文档</h3><p>根据内嵌的文档来查找该文档：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find(&#123;&quot;hobbies.sports&quot;: &quot;打篮球&quot;&#125;) //hobbies.sports必须加引号</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-向内嵌式文档数组添加新的值"><a href="#3-向内嵌式文档数组添加新的值" class="headerlink" title="3. 向内嵌式文档数组添加新的值"></a>3. 向内嵌式文档数组添加新的值</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.update(&#123;name: &quot;张三&quot;&#125;, &#123;$push: &#123;&quot;hobbies.sports&quot;: &quot;打篮球&quot;&#125;&#125;)</span><br><span class="line">//push添加的值在原数组中可以存在</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.update(&#123;name: &quot;张三&quot;&#125;, &#123;$addToSet:&#123;&quot;hobbies.sports&quot;: &quot;踢足球&quot;&#125;&#125;)</span><br><span class="line">//adToSet只能添加原数组不存在的值</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="五、操作大数额的集合"><a href="#五、操作大数额的集合" class="headerlink" title="五、操作大数额的集合"></a>五、操作大数额的集合</h2><p>通常数据库存储的数据都是成千上万的，面对庞大的数据，操作就不能局限于单个数据的方法。</p>
-<h3 id="1-添加文档"><a href="#1-添加文档" class="headerlink" title="1. 添加文档"></a>1. 添加文档</h3><p>在往集合添加文档的时候，有时添加的数额很大，此时为了提高效率，就要用到<strong>for循环</strong>。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">var arr = []</span><br><span class="line">for (var i = 0; i&lt;20000; i++) &#123;</span><br><span class="line">	arr.push(&#123;number: i&#125;)</span><br><span class="line">&#125;</span><br><span class="line">db.&lt;collections&gt;.insert(arr)</span><br></pre></td></tr></table></figure>
-
-<p>不要在for循环里进行插入操作，那样效率会很低。</p>
-<h3 id="2-查找文档"><a href="#2-查找文档" class="headerlink" title="2. 查找文档"></a>2. 查找文档</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find(&#123;number: 5000&#125;) </span><br><span class="line">db.&lt;collections&gt;.find(&#123;number: &#123;$gt: 5000&#125;&#125;) //gt: greater than 查找数额大于5000的文档</span><br><span class="line">db.&lt;collections&gt;.find(&#123;number: &#123;$gte: 5000&#125;&#125;) // &gt;=5000</span><br><span class="line">db.&lt;collections&gt;.find(&#123;number: &#123;$lt: 5000&#125;&#125;) // &lt;5000  lt: less than</span><br><span class="line">db.&lt;collections&gt;.find(&#123;number: &#123;$gt: 5000, $lt: 8000&#125;&#125;) //  5000&lt;num&lt;8000</span><br><span class="line">//查找小于5000或大于8000</span><br><span class="line">db.&lt;collections&gt;.find(&#123;$or:[&#123;number:&#123;$lt: 5000&#125;&#125;,&#123;number: &#123;$gt: 8000&#125;&#125;]&#125;)</span><br><span class="line">db.&lt;collections&gt;.find(&#123;&#125;).limit(10) //查询前10条</span><br><span class="line">db.&lt;collections&gt;.find(&#123;&#125;).skip(10).limit(10) // 查询前11-20条 skip：跳过 </span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-更改文档"><a href="#3-更改文档" class="headerlink" title="3. 更改文档"></a>3. 更改文档</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">//将小于5000的文档number属性值在原来的基础上增加400</span><br><span class="line">db.&lt;collections&gt;.updateMany(&#123;number:&#123;$lt:5000&#125;&#125;, &#123;$inc:&#123;number: 400&#125;&#125;)</span><br><span class="line">//减400为-400</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="4-排序"><a href="#4-排序" class="headerlink" title="4. 排序"></a>4. 排序</h3><p>默认的数据库排序是按照_id升序排列，有时候我们想按照自己的方式进行排序，比如我想按照number的大小进行排序：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find(&#123;&#125;).sort(&#123;number: 1&#125;) //-1便是降序</span><br><span class="line">db.&lt;collections&gt;.find(&#123;&#125;).sort(&#123;number: 1, num1: 1&#125;) //可以通过多个属性进行排序，但前提是第一个属性排序过程中如果有相同的，才会按照第二个属性决定谁在前谁在后</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="5-投影"><a href="#5-投影" class="headerlink" title="5. 投影"></a>5. 投影</h3><p>在查找文档式，想要只显示指定的某一或某些属性，就需要用到投影：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find(&#123;&#125;, &#123;number:1&#125;) //此时所有文档只会显示number属性</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="六、文档之间的关系"><a href="#六、文档之间的关系" class="headerlink" title="六、文档之间的关系"></a>六、文档之间的关系</h2><p>文档之间点的关系可以是一对一、一对多、多对一或者多对多，一对一用的比较少，最主要的是一对多，即把一个文档的id值作为另外一个集合内多个文档的属性值，在查寻时可以根据id查找符合条件的文档。</p>
-<p>多对多即一个集合内多个文档的id可以作为另一个集合的某个文档的属性值，此时用数组存储。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections1&gt;.insert(&#123;name: &quot;张三&quot;&#125;)</span><br><span class="line"></span><br><span class="line">db.&lt;collections2&gt;.insert([&#123;name: &quot;李四&quot;, user_id: 张三的id&#125;, &#123;name: &quot;王五&quot;, user_id: 张三的id&#125;])</span><br><span class="line">//查询</span><br><span class="line">var id = db.&lt;collections1&gt;.findOne(&#123;name: &quot;张三&quot;&#125;)._id </span><br><span class="line">db.&lt;collections2&gt;.find(&#123;user_id: id&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="七、mongoose基本介绍"><a href="#七、mongoose基本介绍" class="headerlink" title="七、mongoose基本介绍"></a>七、mongoose基本介绍</h2><p>mongoose是对node环境下的MongoDB数据库操作的封装，将数据库内的数据转换成js对象以供使用。</p>
-<h3 id="1-下载安装-1"><a href="#1-下载安装-1" class="headerlink" title="1. 下载安装"></a>1. 下载安装</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i mongoose --save</span><br></pre></td></tr></table></figure>
-
-<!-- more -->
-
-<h3 id="2-连接数据库"><a href="#2-连接数据库" class="headerlink" title="2. 连接数据库"></a>2. 连接数据库</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">&#x27;mongoose&#x27;</span>);</span><br><span class="line">mongoose.connect(<span class="string">&#x27;mongodb://localhost/test&#x27;</span>, &#123;<span class="attr">useNewUrlParser</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">mongoose.connection.once(<span class="string">&#x27;open&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//连接状态监听</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;数据库已连接&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="八、Model方法CRUD"><a href="#八、Model方法CRUD" class="headerlink" title="八、Model方法CRUD"></a>八、Model方法CRUD</h2><h3 id="1-插入文档"><a href="#1-插入文档" class="headerlink" title="1. 插入文档"></a>1. 插入文档</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Schema = mongoose.Schema;</span><br><span class="line"><span class="comment">//创建schema对象</span></span><br><span class="line"><span class="keyword">var</span> stuSchema = <span class="keyword">new</span> Schema(&#123;</span><br><span class="line">    name: <span class="built_in">String</span>,</span><br><span class="line">    age: <span class="built_in">Number</span>,</span><br><span class="line">    gender: &#123;</span><br><span class="line">        type: <span class="built_in">String</span>,</span><br><span class="line">        <span class="keyword">default</span>: <span class="string">&quot;female&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    address: <span class="built_in">String</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//通过schema创建model</span></span><br><span class="line"><span class="keyword">var</span> stuModel = mongoose.model(<span class="string">&#x27;students&#x27;</span>, stuSchema);</span><br><span class="line"><span class="comment">//向数据库插入文档</span></span><br><span class="line">stuModel.create(&#123; <span class="comment">//插入多个传个数组</span></span><br><span class="line">    name: <span class="string">&quot;张三&quot;</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    gender: <span class="string">&quot;male&quot;</span>,</span><br><span class="line">    address: <span class="string">&quot;一班&quot;</span></span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;插入成功&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-查找文档-1"><a href="#2-查找文档-1" class="headerlink" title="2. 查找文档"></a>2. 查找文档</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.find(&#123;<span class="attr">name</span>:<span class="string">&quot;张三&quot;</span>&#125;, <span class="string">&#x27;投影&#x27;</span>, &#123;查询条件(skip、limit)&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(doc);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>在mongoose还提供了通过id查找文档的方法: <code>stuModel.findById()</code></p>
-<h3 id="3-修改文档"><a href="#3-修改文档" class="headerlink" title="3. 修改文档"></a>3. 修改文档</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.update(&#123;<span class="attr">name</span>: <span class="string">&quot;张三&quot;</span>&#125;, &#123;<span class="attr">$set</span>:&#123;<span class="attr">age</span>: <span class="number">20</span>&#125;&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="4-删除文档"><a href="#4-删除文档" class="headerlink" title="4. 删除文档"></a>4. 删除文档</h3><p>删除文档也与在MongoDB中的操作几乎一致只不过最后一个参数为会回调函数。</p>
-<h3 id="5-统计文档数量"><a href="#5-统计文档数量" class="headerlink" title="5. 统计文档数量"></a>5. 统计文档数量</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.count(&#123;&#125;, [callback])</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="九、Document对象方法CRUD"><a href="#九、Document对象方法CRUD" class="headerlink" title="九、Document对象方法CRUD"></a>九、Document对象方法CRUD</h2><h3 id="1-创建document"><a href="#1-创建document" class="headerlink" title="1. 创建document"></a>1. 创建document</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> stu = <span class="keyword">new</span> stuModel(&#123;&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-保存"><a href="#2-保存" class="headerlink" title="2. 保存"></a>2. 保存</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stu.save([callback])</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-修改"><a href="#3-修改" class="headerlink" title="3. 修改"></a>3. 修改</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.findOne(&#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">    doc.age = <span class="number">20</span>;</span><br><span class="line">    doc.save();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="4-删除与转换"><a href="#4-删除与转换" class="headerlink" title="4. 删除与转换"></a>4. 删除与转换</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.findOne(&#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">   doc.remove(&#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">&#x27;删除成功~&#x27;</span>)</span><br><span class="line">       &#125;</span><br><span class="line">   <span class="keyword">var</span> doc = doc.toJSON(); </span><br><span class="line">   <span class="keyword">var</span> doc1 = doc.toObject();</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>MongoDB</category>
-      </categories>
-      <tags>
-        <tag>MongoDB笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -518,14 +319,654 @@
       </tags>
   </entry>
   <entry>
-    <title>mongoose基础</title>
-    <url>/archives/b2ed0d69.html</url>
-    <content><![CDATA[]]></content>
+    <title>JS易错点</title>
+    <url>/archives/a40aa438.html</url>
+    <content><![CDATA[<h2 id="一、关于this"><a href="#一、关于this" class="headerlink" title="一、关于this"></a>一、关于this</h2><p><code>this</code> 其实是一个参数，是解析器在调用函数的时候向函数内部传递的一个隐含参数，当以函数的形式调用的时候this指向的就是 <code>window</code>，当以方法的方式调用的时候，this指向的是调用者，谁调this就指向谁。</p>
+<a id="more"></a>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name) </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;zhangsan&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以函数形式调用</span></span><br><span class="line">fn(); <span class="comment">// &#x27;zhangsan&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//以方法形式调用</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    name: <span class="string">&#x27;lisi&#x27;</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    sayname: fn</span><br><span class="line">&#125;</span><br><span class="line">obj.sayname();<span class="comment">//lisi</span></span><br></pre></td></tr></table></figure>
+
+<p>在使用 <code>箭头函数</code> 的时候，该this是静态的，永远指向函数声明时的作用域下的this。</p>
+<p>创建一个<code>构造函数</code>的实例对象时，构造函数中的this指向了实例对象，</p>
+<h2 id="二、创建对象的几种方式"><a href="#二、创建对象的几种方式" class="headerlink" title="二、创建对象的几种方式"></a>二、创建对象的几种方式</h2><h3 id="1-工厂模式"><a href="#1-工厂模式" class="headerlink" title="1. 工厂模式"></a>1. 工厂模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params">name, age, gender</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">    obj.name = name;</span><br><span class="line">    obj.age = age;</span><br><span class="line">    obj.gender = gender;</span><br><span class="line">    obj.say = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;hello&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj1 = fn(<span class="string">&#x27;lisi&#x27;</span>, <span class="number">18</span>, <span class="string">&#x27;male&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(obj1)</span><br><span class="line">obj1.say(); <span class="comment">//hello</span></span><br></pre></td></tr></table></figure>
+
+<p>通过工厂模式可以大批量的创建相应的对象，但是由于都是通过Object创建的对象，所以对象的类型都是object，所以需要构造函数法。</p>
+<h3 id="2-构造函数法"><a href="#2-构造函数法" class="headerlink" title="2.构造函数法"></a>2.构造函数法</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Students</span> (<span class="params">name, age, gender</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">    <span class="built_in">this</span>.gender = gender;</span><br><span class="line">    <span class="built_in">this</span>.say = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;hello&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> stu1 = <span class="keyword">new</span> Students(<span class="string">&#x27;zhangsan&#x27;</span>, <span class="number">18</span>, <span class="string">&#x27;male&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(stu1)</span><br></pre></td></tr></table></figure>
+
+<p>构造函数法通过创建实例对象来创建新的对象，this指向新创建的对象，其实构造函数就相当于一个 <code>类</code> ，通过这个类创建的实例对象都是同属于这一个类的，所以容易区分。</p>
+<p>但是在创建实例对象时都会添加一个新的say方法，而多个实例对象的say方法都是相同的，所以需要在全局下定义一个say函数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后将构造函数内的say方法改为：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.say = fn();</span><br></pre></td></tr></table></figure>
+
+<p>虽然这种方法可以解决该问题，但是在全局作用域下定义一个新的函数，会污染全局作用域的命名空间，所以仍然不推荐该方法创建对象。</p>
+<h3 id="3-原型对象"><a href="#3-原型对象" class="headerlink" title="3. 原型对象"></a>3. 原型对象</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Students</span> (<span class="params">name, age, gender</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">    <span class="built_in">this</span>.gender = gender;</span><br><span class="line">&#125;</span><br><span class="line">Students.prototype.say = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在调用函数的时候，如果该方法在函数内没有找到，就会到<code>原型对象</code>中查找返回，所以将定义的方法保存到原型对象中是最合适的方法。</p>
+<h2 id="三、数组去重"><a href="#三、数组去重" class="headerlink" title="三、数组去重"></a>三、数组去重</h2><h3 id="1-ES5"><a href="#1-ES5" class="headerlink" title="1. ES5"></a>1. ES5</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//定义一个数组</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">5</span>,<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过类似冒泡排序的方法进行查重</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; arr.length; j++)&#123;</span><br><span class="line">        <span class="function"><span class="title">if</span>(<span class="params">arr[i] === arr[j]</span>)</span>&#123;</span><br><span class="line">            arr.splice(j,<span class="number">1</span>);</span><br><span class="line">            j--;<span class="comment">//因为删除一个元素后，后面元素会顶替前一个位置，有时会出错，所以删除后需要减索引值</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//反向查找</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = arr.length - <span class="number">1</span>; j &gt; i; j--)&#123; <span class="comment">//从数组末尾查重也可以避免</span></span><br><span class="line">        <span class="function"><span class="title">if</span>(<span class="params">arr[i] === arr[j]</span>)</span>&#123;</span><br><span class="line">            arr.splice(j,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-ES6"><a href="#2-ES6" class="headerlink" title="2.ES6"></a>2.ES6</h3><p>ES6提供了更简便的方法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log([...new <span class="built_in">Set</span>(arr)]); <span class="comment">//通过Set集合去重和扩展符拆解并放入到数组里实现</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="四、call-与apply"><a href="#四、call-与apply" class="headerlink" title="四、call()与apply()"></a>四、call()与apply()</h2><p>call和apply方法都是改变函数对象的this指向：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params">a,b</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">    <span class="built_in">console</span>.log(b);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj1 = &#123;</span><br><span class="line">    name: <span class="string">&#x27;lisi&#x27;</span>,</span><br><span class="line">    age: <span class="number">28</span>,</span><br><span class="line">    say: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;</span><br><span class="line">    name: <span class="string">&#x27;zhangsan&#x27;</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    say: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">fn.call(obj1, <span class="number">2</span>, <span class="number">3</span>) <span class="comment">//lisi 2 3</span></span><br><span class="line">fn.apply(obj2, [<span class="number">2</span>,<span class="number">3</span>]) <span class="comment">//zhangsan 2 3 </span></span><br><span class="line">obj1.say.call(obj2) <span class="comment">//zhangsan</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>apply方法不能直接传实参，封装到一个数组即可。</p>
+<h2 id="五、正则表达式"><a href="#五、正则表达式" class="headerlink" title="五、正则表达式"></a>五、正则表达式</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//匹配ip地址</span></span><br><span class="line"><span class="keyword">var</span> ip=<span class="string">&#x27;255.53.32.211&#x27;</span>    </span><br><span class="line">    <span class="keyword">var</span> result5=ip.match(<span class="regexp">/^(((\d|[1-9]\d|1\d&#123;2&#125;|2[0-4]\d|25[0-5])\.)&#123;3&#125;(\d|[1-				9]\d|1\d&#123;2&#125;|2[0-4]\d|25[0-5]))$/</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(result5);</span><br><span class="line"></span><br><span class="line"><span class="comment">//匹配网址</span></span><br><span class="line"><span class="keyword">var</span> str3=<span class="string">&#x27;http://www.baidu.com&#x27;</span></span><br><span class="line">    <span class="keyword">var</span> zz2=<span class="regexp">/[a-z]+:\/\/([0-9a-z]+(-[0-9a-z]+)?\.)+(net|cn|org|com|xyz)/i</span></span><br><span class="line">    <span class="built_in">console</span>.log(str3.match(zz2))</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="六、基本类型"><a href="#六、基本类型" class="headerlink" title="六、基本类型"></a>六、基本类型</h2><p>js的基本类型有值类型和引用类型，值类型包含字符串、布尔值、数值、undefined和null，引用类型包含对象、函数和数组，函数和数组是特殊的对象，es6又新增了symbol数据类型。</p>
+<p>判断基本类型</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//typeof:返回数据类型的字符串，并且为小写。可以判断undefined 布尔值 字符串 数值</span></span><br><span class="line"><span class="comment">//不能判断 null与object object与array 返回的都是object</span></span><br><span class="line"><span class="keyword">let</span> a;</span><br><span class="line"><span class="keyword">let</span> b = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a) <span class="comment">//&#x27;undefined&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a === <span class="string">&#x27;undefined&#x27;</span>) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> b === <span class="string">&#x27;string&#x27;</span>) <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//全等：=== 可以判断undefined和null</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// instanceof: 判断是否是一个实例对象(判断对象的具体类型)</span></span><br><span class="line"><span class="keyword">let</span> c = &#123;<span class="attr">name</span>: <span class="string">&#x27;lisi&#x27;</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(c <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="七、原型对象"><a href="#七、原型对象" class="headerlink" title="七、原型对象"></a>七、原型对象</h2><h3 id="1-显式原型与隐式原型"><a href="#1-显式原型与隐式原型" class="headerlink" title="1. 显式原型与隐式原型"></a>1. 显式原型与隐式原型</h3><p>每个函数都有一个显式原型<code>prototype</code>，而每个实例对象都有一个隐式原型<code>__prototype__</code>，实例对象的隐式原型的值为其对应构造函数显式原型的值<code>Fn.prototype === fn.__prototype__</code>，结果为true。</p>
+<p>其中的关系可以用一幅图来表示</p>
+<img src = "/images/yuanxing.png">
+
+
+
+<h3 id="2-原型链-隐式原型链"><a href="#2-原型链-隐式原型链" class="headerlink" title="2.原型链(隐式原型链)"></a>2.原型链(隐式原型链)</h3><p>构造函数对象中有一个prototype属性，里面存着一个object空对象，由于这个对象是Object函数对象的一个实例对象，所以含有<code>__prototype__</code>属性，地址值指向Object函数对象的显式原型对象，里面存放了tostring等方法。</p>
+<img src = "/images/yxfx.png">
+
+<p>原型链的尽头是Object函数对象的原型对象的隐式原型对象<code>Object.prototype.__prototype__</code>,值为null</p>
+<p>然后我们再加上constructor属性：constructor指向函数自身</p>
+<img src = "/images/yuanxinglian.png">
+
+<p>一般属性都存在对象里，而方法都存在原型对象中，通过原型链主要是查找对象的方法。</p>
+<h3 id="3-变量提升与函数提升"><a href="#3-变量提升与函数提升" class="headerlink" title="3.变量提升与函数提升"></a>3.变量提升与函数提升</h3><p>在声明前打印输出，结果不会报错，而是<code>undefined</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="comment">//es6中的let、const不存在变量提升</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//函数提升</span></span><br><span class="line">foo()<span class="comment">//foo()</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;foo()&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果将函数赋值给一个变量，就变成了变量提升，在调用时为undefined</p>
+<h3 id="4-执行上下文"><a href="#4-执行上下文" class="headerlink" title="4.执行上下文"></a>4.执行上下文</h3><p>在全局作用下，有一个window对象，对全局变量进行预处理，window对象为全局作用下的执行上下文对象，在函数中也会产生执行上下文对象进行预处理，但必须在调用的时候才会起效，在函数作用下，该空间是封闭的，里面的变量与全局作用域下的变量互不冲突，由于执行上下文的存在，才会出现变量提升。</p>
+<p>每调用函数会产生n+1个执行上下文对象，1指默认的全局执行上下文对象window。</p>
+<p><strong>执行上下文栈</strong>：</p>
+<ol>
+<li>在全局代码执行前，js引擎就会创建一个栈来存储管理所有的执行上下文对象。</li>
+<li>在全局执行上下文对象（window）确认后，将其添加到栈中（压栈）</li>
+<li>在函数执行上下文对象确认后，将其添加到栈中。</li>
+<li>在当前函数执行完毕后，将其移出（出栈）</li>
+<li>所有代码执行完毕后，只剩下window</li>
+</ol>
+<h2 id="八、闭包"><a href="#八、闭包" class="headerlink" title="八、闭包"></a>八、闭包</h2><p>闭包可以理解为函数对象的内部函数，也就是在一个函数内在创建一个函数，而内部的那个函数就可以理解为闭包，闭包是在内部函数引用外部函数的变量时产生。</p>
+<p>常见的闭包：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//将函数作为一个函数的返回值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> a = <span class="number">2</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">fn2</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">		a++;</span><br><span class="line">		<span class="built_in">console</span>.log(a);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> fn2</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> f = fn1();</span><br><span class="line">f(); <span class="comment">//3</span></span><br><span class="line">f(); <span class="comment">//4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//将函数作为实参传递给另一个函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showDlay</span> (<span class="params">msg, time</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(()==&gt;&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(msg);</span><br><span class="line">    &#125;, time);</span><br><span class="line">&#125;</span><br><span class="line">showDlay(<span class="string">&#x27;hello world&#x27;</span>, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>闭包的作用：</p>
+<ol>
+<li>是函数内部的变量在函数执行完后，仍然存活在内存中（延长了局部变量的生命周期）</li>
+<li>让函数外部可以操作（读写）到函数内部的数据（变量/函数）</li>
+<li>定义js模块</li>
+</ol>
+<p>闭包的缺点：</p>
+<ol>
+<li>函数执行后，函数内部的变量没有释放，占用内存时间变长</li>
+<li>容易造成内存泄漏</li>
+</ol>
+<p>解决：</p>
+<ol>
+<li>能不用闭包就不用</li>
+<li>及时释放</li>
+</ol>
+<h2 id="九、继承"><a href="#九、继承" class="headerlink" title="九、继承"></a>九、继承</h2><h3 id="1-原型继承"><a href="#1-原型继承" class="headerlink" title="1. 原型继承"></a>1. 原型继承</h3><p>两个构造函数，为第一个构造函数的原型对象中添加方法，如果第二个构造函数的实例对象想要访问第一个构造函数的原型中的方法，需要将第二个构造函数变成第一个构造函数的实例对象。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="string">&#x27;fn1&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">fn1.prototype.name = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="string">&#x27;fn2&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">fn2.prototype.constructor = fn2;</span><br><span class="line">fn2 = <span class="keyword">new</span> fn1();</span><br><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> fn2();</span><br><span class="line">a.name();</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-组合继承"><a href="#2-组合继承" class="headerlink" title="2. 组合继承"></a>2. 组合继承</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.show = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span> (<span class="params">name, age, gender</span>) </span>&#123;</span><br><span class="line">    Person.call(<span class="built_in">this</span>, name, age); <span class="comment">//相当于 this.Person(name, age) 为了得到属性</span></span><br><span class="line">    <span class="built_in">this</span>.gender = gender;</span><br><span class="line">&#125;</span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person; <span class="comment">//为了得到方法</span></span><br><span class="line">Student.prototype.constructor = Student;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JS笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES7-11基础</title>
+    <url>/archives/1db2e0b9.html</url>
+    <content><![CDATA[<h2 id="一、ES7新特性"><a href="#一、ES7新特性" class="headerlink" title="一、ES7新特性"></a>一、ES7新特性</h2><h3 id="1-检测数组"><a href="#1-检测数组" class="headerlink" title="1. 检测数组"></a>1. 检测数组</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> students = [<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>];</span><br><span class="line"><span class="built_in">console</span>.log(students.includes(<span class="string">&#x27;张三&#x27;</span>))  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h3 id="2"><a href="#2" class="headerlink" title="2. **"></a>2. **</h3><p>通过<code>**</code>来计算指数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span> ** <span class="number">10</span>) <span class="comment">//1024</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="二、ES8新特性"><a href="#二、ES8新特性" class="headerlink" title="二、ES8新特性"></a>二、ES8新特性</h2><h3 id="1-async函数"><a href="#1-async函数" class="headerlink" title="1. async函数"></a>1. async函数</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello world&#x27;</span>; </span><br><span class="line">    <span class="comment">//如果返回值不是Promise类型的对象，那么函数返回结果就是一个成功的Promise</span></span><br><span class="line">    <span class="comment">// throw new Error(&#x27;出错了&#x27;) 此时返回的是一个失败的Promise</span></span><br><span class="line">    <span class="comment">//return new Promise((res, rej) =&gt; &#123;</span></span><br><span class="line">    <span class="comment">//	res(&#x27;data&#x27;) //返还成功的Promise</span></span><br><span class="line">    <span class="comment">//	rej(&#x27;err&#x27;) //返还失败的Promise</span></span><br><span class="line">	<span class="comment">//&#125;)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> result = fn();</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="1-1-await与async结合"><a href="#1-1-await与async结合" class="headerlink" title="1.1 await与async结合"></a>1.1 await与async结合</h4><p>await返回的是promise成功的值</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res, rej</span>) =&gt;</span> &#123;</span><br><span class="line">    	 res(data);   </span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">await</span>必须在<span class="keyword">async</span>函数中使用</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">await</span> p; <span class="comment">//如果失败可以通过try..catch来捕获错误</span></span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="1-2-实践"><a href="#1-2-实践" class="headerlink" title="1.2 实践"></a>1.2 实践</h4><p>读取文件并将数据输出</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res, rej</span>) =&gt;</span> &#123;</span><br><span class="line">        fs.readFile(path, <span class="string">&#x27;utf8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> (err) rej(err);</span><br><span class="line">            res(data);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">main</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">await</span> fn();</span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main();</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-对象方法扩展"><a href="#2-对象方法扩展" class="headerlink" title="2. 对象方法扩展"></a>2. 对象方法扩展</h3><p><code>Object.keys(object)</code>获取对象的键</p>
+<p><code>Object.values(object)</code> 获取对象的值</p>
+<p><code>Object.entries()</code>返回一个数组，数组里的元素也是数组，每个数组元素里存着键和值。</p>
+<h2 id="三、ES9新特性"><a href="#三、ES9新特性" class="headerlink" title="三、ES9新特性"></a>三、ES9新特性</h2><h3 id="1-rest参数"><a href="#1-rest参数" class="headerlink" title="1. rest参数"></a>1. rest参数</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//rest参数</span></span><br><span class="line">funciton connect (&#123;host, post, ...user&#125;) &#123; <span class="comment">//多出来的参数都存到user中</span></span><br><span class="line">    <span class="built_in">console</span>.log(hoset);</span><br><span class="line">    <span class="built_in">console</span>.log(post);</span><br><span class="line">    <span class="built_in">console</span>.log(user);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">connect(&#123;</span><br><span class="line">    host: <span class="string">&#x27;127.0.0.1&#x27;</span>,</span><br><span class="line">    port: <span class="number">80</span>,</span><br><span class="line">    uesrname: <span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">    password: <span class="string">&#x27;root&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-扩展运算符"><a href="#2-扩展运算符" class="headerlink" title="2. 扩展运算符"></a>2. 扩展运算符</h3><p>ES9的扩展运算符可以合并对象：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> object = &#123;...object1, ...object2, ...object3&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-正则扩展"><a href="#3-正则扩展" class="headerlink" title="3. 正则扩展"></a>3. 正则扩展</h3><p>命名捕获分组：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">&#x27;&lt;a href=&quot;http://baidu.com&quot;&gt;百度&lt;/a&gt;&#x27;</span></span><br><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/&lt;a href=&quot;(?&lt;url&gt;.*)&quot;&gt;(?&lt;text&gt;.*)&lt;\/a&gt;/</span>;</span><br><span class="line">onst result = reg.exec(a);</span><br><span class="line"><span class="built_in">console</span>.log(result.groups.url); <span class="comment">//http://baidu.com</span></span><br><span class="line"><span class="built_in">console</span>.log(result.groups.text); <span class="comment">//百度</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="四、ES10新特性"><a href="#四、ES10新特性" class="headerlink" title="四、ES10新特性"></a>四、ES10新特性</h2><h3 id="1-对象扩展"><a href="#1-对象扩展" class="headerlink" title="1. 对象扩展"></a>1. 对象扩展</h3><p><code>Object.fromEntries()</code>将一个二维数组转变成一个对象</p>
+<h3 id="2-字符串扩展"><a href="#2-字符串扩展" class="headerlink" title="2. 字符串扩展"></a>2. 字符串扩展</h3><p><code>str.trimStart()</code>:清除字符串左侧的空格</p>
+<p><code>str.trimEnd()</code>:清除字符串右侧的空格</p>
+<h3 id="3-数组扩展"><a href="#3-数组扩展" class="headerlink" title="3. 数组扩展"></a>3. 数组扩展</h3><p><code>arr.flat()</code>:将一个多维数组转换成低维数组，若想将三维数组转换成一维，需要传一个深度参数，如2</p>
+<h3 id="4-Symbol扩展"><a href="#4-Symbol扩展" class="headerlink" title="4.Symbol扩展"></a>4.Symbol扩展</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="built_in">Symbol</span>(<span class="string">&#x27;hello&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(s.description);</span><br><span class="line"><span class="comment">//hello</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="五、ES11新特性"><a href="#五、ES11新特性" class="headerlink" title="五、ES11新特性"></a>五、ES11新特性</h2><h3 id="1-私有属性"><a href="#1-私有属性" class="headerlink" title="1. 私有属性"></a>1. 私有属性</h3><p>有些属性不想被获取到时就可以用到私有属性：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">fn</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.#age = age;</span><br><span class="line">        <span class="built_in">this</span>.#weight = weight;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> student = <span class="keyword">new</span> fn(<span class="string">&#x27;zhangsan&#x27;</span>, <span class="number">18</span>, <span class="string">&#x27;50kg&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(student.#age); <span class="comment">//报错</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>私有属性只能在class内部进行获取输出。</p>
+<h3 id="2-动态import"><a href="#2-动态import" class="headerlink" title="2. 动态import"></a>2. 动态import</h3><p>有些模块在特定条件下才使用，ES11提供了动态导入：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span>(path).then(<span class="function"><span class="params">module</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="built_in">module</span>); 暴露的模块</span><br><span class="line">&#125;) <span class="comment">//import返回的是一个promise</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>ES7-11笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MongoDB基础</title>
+    <url>/archives/d69f1e.html</url>
+    <content><![CDATA[<h2 id="一、MongoDB基本介绍"><a href="#一、MongoDB基本介绍" class="headerlink" title="一、MongoDB基本介绍"></a>一、MongoDB基本介绍</h2><p>MongoDB是一种非关系型数据库，相对关系型数据库来说比较灵活，其实它也可以算是介于关系型数据库和非关系型数据库之间的一种数据库，因为它是最像关系型数据库的非关系数据库，它支持的数据结构十分松散，是类似json的 <code>bson</code>格式。</p>
+<h3 id="1-下载安装"><a href="#1-下载安装" class="headerlink" title="1. 下载安装"></a>1. 下载安装</h3><p>在 <a href="https://www.mongodb.com/try">官网</a> 导航栏上找到software，选择第一个免费的社区版下载安装，安装完成后要配置环境变量，路径是在其文件的<code>Bin</code> 目录。</p>
+<a id="more"></a>
+
+<h3 id="2-启动数据库"><a href="#2-启动数据库" class="headerlink" title="2. 启动数据库"></a>2. 启动数据库</h3><p>要启动数据库，必须要在安装其盘符的根目录下打开cmd，输入 <code>mongod</code> 即可，最后有<code>Waiting for </code></p>
+<p><code>connections</code>出现就证明数据库已启动，然后连接该数据库只需打开任意路径下的cmd输入 <code>mongo</code> 就可以连接成功。</p>
+<h2 id="二、MongoDB基本语法"><a href="#二、MongoDB基本语法" class="headerlink" title="二、MongoDB基本语法"></a>二、MongoDB基本语法</h2><p>首先介绍下该数据库的基本组成，每个数据库由 <code>集合</code> 组成，而集合里又放着<code>文档</code>，示意图如下：</p>
+ <img src="/images/shiyitu.png">
+
+
+
+<h3 id="1-常用shell指令"><a href="#1-常用shell指令" class="headerlink" title="1. 常用shell指令"></a>1. 常用shell指令</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">show dbs //显示所有数据库</span><br><span class="line"></span><br><span class="line">use 数据库名 //进入指定的数据库 注意：即使没有该数据库，由于MongoDB的灵活性，依然可以进入但不会创建</span><br><span class="line"></span><br><span class="line">db //显示当前所处的数据库</span><br><span class="line"></span><br><span class="line">show collections //显示当前数据库的所有集合</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-CRUD-增删改查"><a href="#2-CRUD-增删改查" class="headerlink" title="2. CRUD(增删改查)"></a>2. CRUD(增删改查)</h3><h4 id="2-1-增加文档"><a href="#2-1-增加文档" class="headerlink" title="2.1 增加文档"></a>2.1 增加文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.insert(doc) // 中间是集合名称 集合会隐式创建</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.insertOne(doc) //插入单个文档</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.insertMany([]) //插入多个文档</span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>insert()</code>里如果传的是一个对象，那么功能与insertOne是一致的，同理，传一个数组，数组里存储着多个对象，那么就与insertMany相同，因为inset()方法是较早版本所出，所以兼容性较好。 </p>
+<h4 id="2-2-查询文档"><a href="#2-2-查询文档" class="headerlink" title="2.2 查询文档"></a>2.2 查询文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find() //查询所有文档，返回类型为数组</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.find().limit(number) //查询指定数量的文档</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.find().count() //统计文档数量</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.findOne() //查询符合条件的单个文档，返回类型为对象</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.findMany() //查询符合条件的多个文档</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>find()</code> 方法和上面用法一致，既可以查询单个也可以查询多个文档，若没有参数传入，则直接查询该集合内的</p>
+<p>所有文档。</p>
+<h4 id="2-3-修改文档"><a href="#2-3-修改文档" class="headerlink" title="2.3 修改文档"></a>2.3 修改文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.update(&#123;目标文档&#125;, &#123;更改内容&#125;) //该方法修改后的文档会覆盖修改前</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.update(&#123;目标文档&#125;, &#123;$set: &#123;更改内容&#125;&#125;) //该方法只会修改指定的文档属性,没有的属性会自动添加</span><br><span class="line">db.&lt;collections&gt;.update(&#123;目标文档&#125;, &#123;$unset: &#123;更改内容&#125;) //删除指定属性的文档</span><br><span class="line"></span><br><span class="line">//update()默认修改单个文档，若想修改多个，只需在后面加入一个对象</span><br><span class="line">(&#123;目标文档&#125;, &#123;$set: &#123;更改内容&#125;, &#123;multi: true&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>与之前一样，也存在<code>updateOne()</code>和<code>updateMany()</code> 。</p>
+<h4 id="2-4-删除文档"><a href="#2-4-删除文档" class="headerlink" title="2.4 删除文档"></a>2.4 删除文档</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.remove(&#123;&#125;) //默认删除所有符合条件的文档 删除单个需传递第二个参数true</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.drop() //remove方法性能较差，删除速度较慢，而drop直接清空</span><br><span class="line">db.&lt;collections&gt;.deleteOne()</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.deleteMany()</span><br></pre></td></tr></table></figure>
+
+
+
+<p>remove({})里必须 <font color="red">传参</font>，否则报错。</p>
+<h4 id="2-5-补充"><a href="#2-5-补充" class="headerlink" title="2.5 补充"></a>2.5 补充</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.replace(&#123;旧&#125;, &#123;新&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="三、可视化工具"><a href="#三、可视化工具" class="headerlink" title="三、可视化工具"></a>三、可视化工具</h2><p>MongoDB的可视化工具有很多，如NoSql、自带的Compass等，里面只是样式发生改变，功能大致相同，需要的话可以自行下载安装。</p>
+<h2 id="四、内嵌式文档"><a href="#四、内嵌式文档" class="headerlink" title="四、内嵌式文档"></a>四、内嵌式文档</h2><h3 id="1-创建内嵌式文档"><a href="#1-创建内嵌式文档" class="headerlink" title="1. 创建内嵌式文档"></a>1. 创建内嵌式文档</h3><p>有时文档一个属性值也可能有多个多个属性，这是该属性值可以是一个文档，也就是文档里内嵌一个文档，则该文档被称为 <strong>内嵌式文档</strong> ，例如我们先创建一个内嵌式文档：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.insert(&#123;</span><br><span class="line">	name: &quot;张三&quot;,</span><br><span class="line">	gender: &quot;男&quot;,</span><br><span class="line">	age: 18,</span><br><span class="line">	hobbies: &#123;</span><br><span class="line">		sports: [&quot;打篮球&quot;, &quot;跑步&quot;, &quot;健身&quot;]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>此时，该文档里 <code>hobbies</code> 属性值为一个文档，那么插入的这个文档就是内嵌式文档。</p>
+<h3 id="2-查找内嵌式文档"><a href="#2-查找内嵌式文档" class="headerlink" title="2. 查找内嵌式文档"></a>2. 查找内嵌式文档</h3><p>根据内嵌的文档来查找该文档：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find(&#123;&quot;hobbies.sports&quot;: &quot;打篮球&quot;&#125;) //hobbies.sports必须加引号</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-向内嵌式文档数组添加新的值"><a href="#3-向内嵌式文档数组添加新的值" class="headerlink" title="3. 向内嵌式文档数组添加新的值"></a>3. 向内嵌式文档数组添加新的值</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.update(&#123;name: &quot;张三&quot;&#125;, &#123;$push: &#123;&quot;hobbies.sports&quot;: &quot;打篮球&quot;&#125;&#125;)</span><br><span class="line">//push添加的值在原数组中可以存在</span><br><span class="line"></span><br><span class="line">db.&lt;collections&gt;.update(&#123;name: &quot;张三&quot;&#125;, &#123;$addToSet:&#123;&quot;hobbies.sports&quot;: &quot;踢足球&quot;&#125;&#125;)</span><br><span class="line">//adToSet只能添加原数组不存在的值</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="五、操作大数额的集合"><a href="#五、操作大数额的集合" class="headerlink" title="五、操作大数额的集合"></a>五、操作大数额的集合</h2><p>通常数据库存储的数据都是成千上万的，面对庞大的数据，操作就不能局限于单个数据的方法。</p>
+<h3 id="1-添加文档"><a href="#1-添加文档" class="headerlink" title="1. 添加文档"></a>1. 添加文档</h3><p>在往集合添加文档的时候，有时添加的数额很大，此时为了提高效率，就要用到<strong>for循环</strong>。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">var arr = []</span><br><span class="line">for (var i = 0; i&lt;20000; i++) &#123;</span><br><span class="line">	arr.push(&#123;number: i&#125;)</span><br><span class="line">&#125;</span><br><span class="line">db.&lt;collections&gt;.insert(arr)</span><br></pre></td></tr></table></figure>
+
+<p>不要在for循环里进行插入操作，那样效率会很低。</p>
+<h3 id="2-查找文档"><a href="#2-查找文档" class="headerlink" title="2. 查找文档"></a>2. 查找文档</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find(&#123;number: 5000&#125;) </span><br><span class="line">db.&lt;collections&gt;.find(&#123;number: &#123;$gt: 5000&#125;&#125;) //gt: greater than 查找数额大于5000的文档</span><br><span class="line">db.&lt;collections&gt;.find(&#123;number: &#123;$gte: 5000&#125;&#125;) // &gt;=5000</span><br><span class="line">db.&lt;collections&gt;.find(&#123;number: &#123;$lt: 5000&#125;&#125;) // &lt;5000  lt: less than</span><br><span class="line">db.&lt;collections&gt;.find(&#123;number: &#123;$gt: 5000, $lt: 8000&#125;&#125;) //  5000&lt;num&lt;8000</span><br><span class="line">//查找小于5000或大于8000</span><br><span class="line">db.&lt;collections&gt;.find(&#123;$or:[&#123;number:&#123;$lt: 5000&#125;&#125;,&#123;number: &#123;$gt: 8000&#125;&#125;]&#125;)</span><br><span class="line">db.&lt;collections&gt;.find(&#123;&#125;).limit(10) //查询前10条</span><br><span class="line">db.&lt;collections&gt;.find(&#123;&#125;).skip(10).limit(10) // 查询前11-20条 skip：跳过 </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-更改文档"><a href="#3-更改文档" class="headerlink" title="3. 更改文档"></a>3. 更改文档</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">//将小于5000的文档number属性值在原来的基础上增加400</span><br><span class="line">db.&lt;collections&gt;.updateMany(&#123;number:&#123;$lt:5000&#125;&#125;, &#123;$inc:&#123;number: 400&#125;&#125;)</span><br><span class="line">//减400为-400</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-排序"><a href="#4-排序" class="headerlink" title="4. 排序"></a>4. 排序</h3><p>默认的数据库排序是按照_id升序排列，有时候我们想按照自己的方式进行排序，比如我想按照number的大小进行排序：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find(&#123;&#125;).sort(&#123;number: 1&#125;) //-1便是降序</span><br><span class="line">db.&lt;collections&gt;.find(&#123;&#125;).sort(&#123;number: 1, num1: 1&#125;) //可以通过多个属性进行排序，但前提是第一个属性排序过程中如果有相同的，才会按照第二个属性决定谁在前谁在后</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-投影"><a href="#5-投影" class="headerlink" title="5. 投影"></a>5. 投影</h3><p>在查找文档式，想要只显示指定的某一或某些属性，就需要用到投影：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections&gt;.find(&#123;&#125;, &#123;number:1&#125;) //此时所有文档只会显示number属性</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="六、文档之间的关系"><a href="#六、文档之间的关系" class="headerlink" title="六、文档之间的关系"></a>六、文档之间的关系</h2><p>文档之间点的关系可以是一对一、一对多、多对一或者多对多，一对一用的比较少，最主要的是一对多，即把一个文档的id值作为另外一个集合内多个文档的属性值，在查寻时可以根据id查找符合条件的文档。</p>
+<p>多对多即一个集合内多个文档的id可以作为另一个集合的某个文档的属性值，此时用数组存储。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.&lt;collections1&gt;.insert(&#123;name: &quot;张三&quot;&#125;)</span><br><span class="line"></span><br><span class="line">db.&lt;collections2&gt;.insert([&#123;name: &quot;李四&quot;, user_id: 张三的id&#125;, &#123;name: &quot;王五&quot;, user_id: 张三的id&#125;])</span><br><span class="line">//查询</span><br><span class="line">var id = db.&lt;collections1&gt;.findOne(&#123;name: &quot;张三&quot;&#125;)._id </span><br><span class="line">db.&lt;collections2&gt;.find(&#123;user_id: id&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="七、mongoose基本介绍"><a href="#七、mongoose基本介绍" class="headerlink" title="七、mongoose基本介绍"></a>七、mongoose基本介绍</h2><p>mongoose是对node环境下的MongoDB数据库操作的封装，将数据库内的数据转换成js对象以供使用。</p>
+<h3 id="1-下载安装-1"><a href="#1-下载安装-1" class="headerlink" title="1. 下载安装"></a>1. 下载安装</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i mongoose --save</span><br></pre></td></tr></table></figure>
+
+<!-- more -->
+
+<h3 id="2-连接数据库"><a href="#2-连接数据库" class="headerlink" title="2. 连接数据库"></a>2. 连接数据库</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">&#x27;mongoose&#x27;</span>);</span><br><span class="line">mongoose.connect(<span class="string">&#x27;mongodb://localhost/test&#x27;</span>, &#123;<span class="attr">useNewUrlParser</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">mongoose.connection.once(<span class="string">&#x27;open&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//连接状态监听</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;数据库已连接&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="八、Model方法CRUD"><a href="#八、Model方法CRUD" class="headerlink" title="八、Model方法CRUD"></a>八、Model方法CRUD</h2><h3 id="1-插入文档"><a href="#1-插入文档" class="headerlink" title="1. 插入文档"></a>1. 插入文档</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Schema = mongoose.Schema;</span><br><span class="line"><span class="comment">//创建schema对象</span></span><br><span class="line"><span class="keyword">var</span> stuSchema = <span class="keyword">new</span> Schema(&#123;</span><br><span class="line">    name: <span class="built_in">String</span>,</span><br><span class="line">    age: <span class="built_in">Number</span>,</span><br><span class="line">    gender: &#123;</span><br><span class="line">        type: <span class="built_in">String</span>,</span><br><span class="line">        <span class="keyword">default</span>: <span class="string">&quot;female&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    address: <span class="built_in">String</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//通过schema创建model</span></span><br><span class="line"><span class="keyword">var</span> stuModel = mongoose.model(<span class="string">&#x27;students&#x27;</span>, stuSchema);</span><br><span class="line"><span class="comment">//向数据库插入文档</span></span><br><span class="line">stuModel.create(&#123; <span class="comment">//插入多个传个数组</span></span><br><span class="line">    name: <span class="string">&quot;张三&quot;</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    gender: <span class="string">&quot;male&quot;</span>,</span><br><span class="line">    address: <span class="string">&quot;一班&quot;</span></span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;插入成功&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-查找文档-1"><a href="#2-查找文档-1" class="headerlink" title="2. 查找文档"></a>2. 查找文档</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.find(&#123;<span class="attr">name</span>:<span class="string">&quot;张三&quot;</span>&#125;, <span class="string">&#x27;投影&#x27;</span>, &#123;查询条件(skip、limit)&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(doc);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在mongoose还提供了通过id查找文档的方法: <code>stuModel.findById()</code></p>
+<h3 id="3-修改文档"><a href="#3-修改文档" class="headerlink" title="3. 修改文档"></a>3. 修改文档</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.update(&#123;<span class="attr">name</span>: <span class="string">&quot;张三&quot;</span>&#125;, &#123;<span class="attr">$set</span>:&#123;<span class="attr">age</span>: <span class="number">20</span>&#125;&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-删除文档"><a href="#4-删除文档" class="headerlink" title="4. 删除文档"></a>4. 删除文档</h3><p>删除文档也与在MongoDB中的操作几乎一致只不过最后一个参数为会回调函数。</p>
+<h3 id="5-统计文档数量"><a href="#5-统计文档数量" class="headerlink" title="5. 统计文档数量"></a>5. 统计文档数量</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.count(&#123;&#125;, [callback])</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="九、Document对象方法CRUD"><a href="#九、Document对象方法CRUD" class="headerlink" title="九、Document对象方法CRUD"></a>九、Document对象方法CRUD</h2><h3 id="1-创建document"><a href="#1-创建document" class="headerlink" title="1. 创建document"></a>1. 创建document</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> stu = <span class="keyword">new</span> stuModel(&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-保存"><a href="#2-保存" class="headerlink" title="2. 保存"></a>2. 保存</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stu.save([callback])</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-修改"><a href="#3-修改" class="headerlink" title="3. 修改"></a>3. 修改</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.findOne(&#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">    doc.age = <span class="number">20</span>;</span><br><span class="line">    doc.save();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-删除与转换"><a href="#4-删除与转换" class="headerlink" title="4. 删除与转换"></a>4. 删除与转换</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stuModel.findOne(&#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">   doc.remove(&#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">&#x27;删除成功~&#x27;</span>)</span><br><span class="line">       &#125;</span><br><span class="line">   <span class="keyword">var</span> doc = doc.toJSON(); </span><br><span class="line">   <span class="keyword">var</span> doc1 = doc.toObject();</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>MongoDB</category>
       </categories>
       <tags>
-        <tag>mongoose笔记</tag>
+        <tag>MongoDB笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git操作</title>
+    <url>/archives/46390b34.html</url>
+    <content><![CDATA[<h2 id="一、底层命令"><a href="#一、底层命令" class="headerlink" title="一、底层命令"></a>一、底层命令</h2><h3 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git init</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config --global user.name</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config --global user.email </span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h3 id="2-linux基本指令"><a href="#2-linux基本指令" class="headerlink" title="2. linux基本指令"></a>2. linux基本指令</h3><p>1.查找当前目录下的所有文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ll</span></span><br></pre></td></tr></table></figure>
+
+<p>2.查找当前目录所有文件目录和文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> find ./</span></span><br></pre></td></tr></table></figure>
+
+<p>后面加上<code>-type f</code>，可以查找该文件目录下的所有文件</p>
+<p>3.创建并写入文件内容</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> 写入内容&gt;文件名</span></span><br></pre></td></tr></table></figure>
+
+<p>4.删除文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> rm file</span></span><br></pre></td></tr></table></figure>
+
+<p>5.更改文件名</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mv file</span></span><br></pre></td></tr></table></figure>
+
+<p>6.查看指定文件的内容</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat file</span></span><br></pre></td></tr></table></figure>
+
+<p>7.vim编辑器</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vim file</span></span><br><span class="line">i 插入模式：经i选哪个编辑</span><br><span class="line">esc 命令执行：q！强制退出 wq保存退出 set nu设置行号</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="二、对象"><a href="#二、对象" class="headerlink" title="二、对象"></a>二、对象</h2><h3 id="1-git对象-数据对象"><a href="#1-git对象-数据对象" class="headerlink" title="1. git对象(数据对象)"></a>1. git对象(数据对象)</h3><p>git核心部分是一个简单的键值对数据库，你可以向该数据库插入任意类型的内容，它会返回一个键值，git对象是由<code>key: val</code>键值对组成，而key是val对应的<strong>hash</strong>，键值对在git内部是<strong>blob</strong>类型。</p>
+<p>操作：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> “<span class="built_in">test</span> content” | git hash-object -w --stdin</span></span><br></pre></td></tr></table></figure>
+
+<p>-w是存储数据对象，若不输入仅返回对应的键值</p>
+<p>-stdin是从标准读取内容，若不输入必须在结尾输入待存储文件的路径</p>
+<p>根据键值拉取数据：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git cat-file -p key</span></span><br></pre></td></tr></table></figure>
+
+<p>-t则为查看类型(blob)</p>
+<h3 id="2-树对象"><a href="#2-树对象" class="headerlink" title="2. 树对象"></a>2. 树对象</h3><p>一个树对象包含了一条或多条记录，每条记录含有一个指向git对象或者子树对象的指针，以及相应的模式、类型和文件名信息，一个树对象也可以含有另一个树对象。</p>
+<p>查看缓存区：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git ls-files -s</span></span><br></pre></td></tr></table></figure>
+
+<p>为文件首个版本创建一个暂存区</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git update-index --add-cacheinfo 100644 key 文件名</span></span><br></pre></td></tr></table></figure>
+
+<p>文件模式：100644，普通文件</p>
+<p>​                    100755，可执行文件</p>
+<p>​                    120000，表示一个符号链接</p>
+<p>–add：该文件不在暂存区，首次需要</p>
+<p>-cacheinfo：git数据库中获取要添加的文件</p>
+<p>生成树对象：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git write-tree</span></span><br></pre></td></tr></table></figure>
+
+<p>git对象代表<strong>文件</strong>的一次版本，树对象代表<strong>项目</strong>的一次版本</p>
+<h3 id="3-提交对象"><a href="#3-提交对象" class="headerlink" title="3. 提交对象"></a>3. 提交对象</h3><p>为每次版本改动添加备注信息：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> “first commit” | git commit-tree 添加备注对象的key //创建提交对象</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git cat-file -p 提交对象的key  //查看备注</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="三、高级命令"><a href="#三、高级命令" class="headerlink" title="三、高级命令"></a>三、高级命令</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git add ./</span></span><br></pre></td></tr></table></figure>
+
+<p>此命令将修改的文件添加到版本库，在添加到暂存区</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git commit -m “备注内容”</span></span><br></pre></td></tr></table></figure>
+
+<p>生成树对象和提交对象</p>
+<p>删除文件：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git rm 文件名</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>重命名：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git mv 文件名 新文件名</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>检查当前文件状态：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git status</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>git status</code>显示的比较简单，仅仅列出了已修改过的文件，如果要查看具体修改了什么地方还不能满足。</p>
+<p>比如当前有哪些更新还没有暂存，有哪些更新暂存起来准备好了下次提交</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git diff //哪些更新没有暂存</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> git diff --cached //哪些暂存起来准备提交</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git diff --staged （1.6.1以上）</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>跳过暂存区直接提交</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git commit -a -m <span class="string">&quot;&quot;</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git commit //较长注释直接在vim编辑 较短加-m直接编辑</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>查看历史记录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">log</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">log</span> --pretty=online //一行显示</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">log</span> --online  //缩短<span class="built_in">hash</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git reflog //只要HEAD改动过，就会记录</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="四、分支操作"><a href="#四、分支操作" class="headerlink" title="四、分支操作"></a>四、分支操作</h2><p>创建分支</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git branch 分支名</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>切换分支</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git checkout 分支</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>新建分支并切换</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git checkout -b 分支名</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>查看项目分叉历史</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">log</span> --oneline --decorate --graph --all</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>分支合并</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git merge 分支名</span></span><br></pre></td></tr></table></figure>
+
+<p>给命令配别名</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git config --global <span class="built_in">alias</span>.别名 “命令”</span></span><br></pre></td></tr></table></figure>
+
+<p>想要更换的命令如果是多个单词，必须加引号</p>
+<p>删除分支</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git branch -d 分支名 //合并</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git branch -D 分支名 //未合并进行强制删除</span></span><br></pre></td></tr></table></figure>
+
+<p>删除分支要先回到主分支，不能自己删自己</p>
+<p>查看每一个分支的最后一次提交</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git branch -v</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>查看合并到当前分支的分支列表</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git branch --merged //出现在此列表的要删除</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git branch --nomerged //查看没有合并到当前分支的分支列表</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>新建一个分支并使分支指向对应的提交对象</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git branch 分支名 commitHash(提交对象的<span class="built_in">hash</span>) //数据恢复</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>注意： 在切换分支时必须确保原分支已提交</p>
+<p>在切换分支的时候，如果原分支的工作没有完成，可以通过git存储下来</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git stash //将未完成的修改保存到一个栈上</span><br><span class="line">git stash list //查看存储</span><br><span class="line">git stash apply //重新应用保存的修改</span><br><span class="line">git stash drop stash@&#123;0&#125; //删除栈里的文件</span><br><span class="line">git stash pop //应用存储文件并从栈中删除</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="五、撤回还原"><a href="#五、撤回还原" class="headerlink" title="五、撤回还原"></a>五、撤回还原</h2><h3 id="1-撤回工作区修改"><a href="#1-撤回工作区修改" class="headerlink" title="1. 撤回工作区修改"></a>1. 撤回工作区修改</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git checkout -- filename</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git restore filename</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-撤回暂存"><a href="#2-撤回暂存" class="headerlink" title="2. 撤回暂存"></a>2. 撤回暂存</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git reset HEAD filename</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git restore --staged filename</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-撤回提交"><a href="#3-撤回提交" class="headerlink" title="3. 撤回提交"></a>3. 撤回提交</h3><p>当提交时如果注释有误可以使用</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git commit --amend //将暂存区文件重新提交</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果在提交后忘记了暂存修改</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git commit -m <span class="string">&quot;&quot;</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git add ./</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git commit --amend</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-reset三部曲"><a href="#4-reset三部曲" class="headerlink" title="4. reset三部曲"></a>4. reset三部曲</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git reset --soft HEAD~</span></span><br></pre></td></tr></table></figure>
+
+<p>该命令本质上是撤销了上一次<code>git commit</code>命令，等价于<code>git commit --amend</code>，移动了HEAD和分支，暂存区和工作区不变。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git reset --mixed HEAD~ //会改变暂存区</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git reset --hard HEAD~ //会改变暂存区和工作区</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git reset [--mixed] HEAD filename (git reset filename) //可以对指定文件进行撤销，只改变暂存区</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>checkout</strong>与**–hard**区别：</p>
+<ol>
+<li>checkout只改变HEAD，而–hard改变HEAD并带着分支一起走</li>
+<li>checkout对工作目录安全，而–hard是强制覆盖工作目录</li>
+</ol>
+<h2 id="六、打tag"><a href="#六、打tag" class="headerlink" title="六、打tag"></a>六、打tag</h2><p>标记发布结点是打tag的一个重要应用</p>
+<p>列出标签</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git tag</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>创建标签</p>
+<p>标签分为<strong>轻量标签</strong>和<strong>辅助标签</strong>，轻量标签很像一个不会改变的分支，它只是一个特定提交的引用，</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git tag v1.0</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>指定打tag</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git tag <span class="built_in">hash</span> v1.0</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>显示标签信息</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git show v1.0</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>删除标签</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git tag -d v1.0</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>检出标签</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git checkout -b v1.0</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git checkout v1.0</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="七、eslint"><a href="#七、eslint" class="headerlink" title="七、eslint"></a>七、eslint</h2><p>1.初始化并安装：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm init -y</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i eslint -D</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>2.在package.json中配置：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,</span><br><span class="line">    &quot;lint&quot;: &quot;eslint ./src&quot;,</span><br><span class="line">    &quot;lint:create&quot;: &quot;eslint --init&quot;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3.初始化git仓库</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git init</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>4.安装husky</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install husky --save-dev</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>5.配置packag.json文件</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;husky&quot;: &#123;</span><br><span class="line">    &quot;pre-commit&quot;: &quot;npm run lint&quot;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>6.运行并按要求选择</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm run lint:create</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="八、远程仓库"><a href="#八、远程仓库" class="headerlink" title="八、远程仓库"></a>八、远程仓库</h2><p>创建远程仓库</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git remote add &lt;name&gt; &lt;url&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>创建别名和配置用户信息：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git config user.name <span class="string">&quot;lhj1024&quot;</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config user.email <span class="string">&quot;yufengjisuo@gmail.com&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>显示配置列表</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git config --list</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>显示远程仓库使用的git别名和其对应的url</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git remote -v</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>查看一个远程仓库的更多信息</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git remote show [remote-name]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>推送分支</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git push &lt;name&gt; &lt;branch name&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>克隆仓库</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> &lt;https url&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>取消配置的用户名和邮箱</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git config --global --<span class="built_in">unset</span> user.name</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config --global --<span class="built_in">unset</span> user.email</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>从远程仓库拉取更新</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git fetch 别名</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git merge 远程分支</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>克隆仓库的主分支与远程跟踪分支默认同步，而在主分支下新建的分支想要同步需要设置</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">新建分支时</span><br><span class="line"><span class="meta">$</span><span class="bash"> git checkout -b 本地分支名 远程跟踪分支名</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git checkout --track 远程跟踪分支名	</span></span><br><span class="line">建完分支后</span><br><span class="line"><span class="meta">$</span><span class="bash"> git branch -u origin/&lt;branch name&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>拉取推送远程仓库</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git pull</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git push</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>删除远程分支</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git push origin --delete &lt;branch name&gt;</span></span><br><span class="line"></span><br><span class="line">//列出远程分支已被删除的跟踪分支列表</span><br><span class="line"><span class="meta">$</span><span class="bash"> git remote prune origin --dry-run</span></span><br><span class="line"></span><br><span class="line">//清除列表的无用分支</span><br><span class="line"><span class="meta">$</span><span class="bash"> git remote prune origin</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>进入当前用户的根目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span>~</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>删除ssh目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> rm -rvf .ssh</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>运行命令生成ssh密钥目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh-keygen -t rsa -C &lt;email&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>进入.ssh目录查看文件列表</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> .ssh</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ls -IF</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>查看id_rsa.pub文件内容</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat id_rsa.pub</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Git&amp;Github</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -691,6 +1132,36 @@
       </tags>
   </entry>
   <entry>
+    <title>mongoose基础</title>
+    <url>/archives/b2ed0d69.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>MongoDB</category>
+      </categories>
+      <tags>
+        <tag>mongoose笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python图书管理系统</title>
+    <url>/archives/5158de64.html</url>
+    <content><![CDATA[<h1 id="图书管理系统"><a href="#图书管理系统" class="headerlink" title="图书管理系统"></a>图书管理系统</h1><p>本程序是用python语言编写，主要涉及到python中库的调用、对数组和函数的灵活运用等知识，是一个简单的程序设计。功能有用户页面和后台管理员系统。</p>
+<p>代码如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">books = [&#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;红楼梦&#x27;</span>, <span class="string">&#x27;author&#x27;</span>: <span class="string">&#x27;	曹雪芹&#x27;</span>, <span class="string">&#x27;price&#x27;</span>: <span class="string">&#x27;19.9&#x27;</span>&#125;,</span><br><span class="line">         &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;西游记&#x27;</span>, <span class="string">&#x27;author&#x27;</span>: <span class="string">&#x27;	吴承恩&#x27;</span>, <span class="string">&#x27;price&#x27;</span>: <span class="string">&#x27;29.9&#x27;</span>&#125;,</span><br><span class="line">         &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;三国演义&#x27;</span>, <span class="string">&#x27;author&#x27;</span>: <span class="string">&#x27;罗贯中&#x27;</span>, <span class="string">&#x27;price&#x27;</span>: <span class="string">&#x27;39.9&#x27;</span>&#125;,</span><br><span class="line">         &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;水浒传&#x27;</span>, <span class="string">&#x27;author&#x27;</span>: <span class="string">&#x27;	施耐庵&#x27;</span>, <span class="string">&#x27;price&#x27;</span>: <span class="string">&#x27;49.9&#x27;</span>&#125;,</span><br><span class="line">         ]  <span class="comment"># 图书数据</span></span><br><span class="line"></span><br><span class="line">users = [&#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;admin1&#x27;</span>, <span class="string">&#x27;passwd&#x27;</span>: <span class="string">&#x27;123&#x27;</span>&#125;, &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;admin2&#x27;</span>, <span class="string">&#x27;passwd&#x27;</span>: <span class="string">&#x27;123&#x27;</span>&#125;,</span><br><span class="line">         &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;administrators&#x27;</span>, <span class="string">&#x27;passwd&#x27;</span>: <span class="string">&#x27;123&#x27;</span>&#125;]  <span class="comment"># 默认用户数据</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 主菜单</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">menu</span>():</span></span><br><span class="line">    print(<span class="string">&#x27;*&#x27;</span> * <span class="number">40</span>)</span><br><span class="line">    print(<span class="string">&#x27;    *****欢迎来到图书管理系统***** &#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;*&#x27;</span> * <span class="number">40</span>)</span><br><span class="line">    print(<span class="string">&#x27;    请输入你想要进行的操作：&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    1: 注册新用户：&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    2. 使用已注册的账号进行登陆：&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    3. 退出本系统&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 注册页面</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sign_up</span>():</span></span><br><span class="line">    user_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入您的用户名：&#x27;</span>)</span><br><span class="line">    user_passwd = <span class="built_in">input</span>(<span class="string">&#x27;请输入您的密码：&#x27;</span>)</span><br><span class="line">    user_passwd2 = <span class="built_in">input</span>(<span class="string">&#x27;请确认您的密码：&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> user_passwd == user_passwd2:</span><br><span class="line">        user = &#123;<span class="string">&#x27;name&#x27;</span>: user_name, <span class="string">&#x27;passwd&#x27;</span>: user_passwd&#125;</span><br><span class="line">        users.append(user)</span><br><span class="line">        print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">        print(<span class="string">f&#x27;恭喜用户<span class="subst">&#123;user_name&#125;</span>,您已注册成功！&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">&#x27;两次密码不一致，请重新输入&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 登陆页面</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span>():</span></span><br><span class="line">    user_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入您的用户名：&#x27;</span>)</span><br><span class="line">    user_passwd = <span class="built_in">input</span>(<span class="string">&#x27;请输入您的密码：&#x27;</span>)</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> users:</span><br><span class="line">        <span class="keyword">if</span> user_name == i[<span class="string">&#x27;name&#x27;</span>]:</span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> user_passwd == i[<span class="string">&#x27;passwd&#x27;</span>]:</span><br><span class="line">                print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">                time.sleep(<span class="number">1</span>)</span><br><span class="line">                print(<span class="string">&#x27;登陆成功！&#x27;</span>)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> user_name</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                print(<span class="string">&#x27;密码输入错误！&#x27;</span>)</span><br><span class="line">                login()</span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&#x27;未查到该用户的信息！&#x27;</span>)</span><br><span class="line">        print(<span class="string">&#x27;请重试。&#x27;</span>)</span><br><span class="line">        login()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对用户与管理者的判断</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">while_user</span>(<span class="params">name</span>):</span></span><br><span class="line">    <span class="keyword">while</span> name:</span><br><span class="line">        <span class="keyword">if</span> name == <span class="string">&#x27;administrators&#x27;</span>:  <span class="comment"># 判断是否为管理者</span></span><br><span class="line">            manger()  <span class="comment"># 管理者页面</span></span><br><span class="line">            manger_n = <span class="built_in">input</span>()</span><br><span class="line">            <span class="keyword">if</span> manger_n == <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">                del_user()</span><br><span class="line">            <span class="keyword">elif</span> manger_n == <span class="string">&#x27;2&#x27;</span>:</span><br><span class="line">                edit_user()</span><br><span class="line">            <span class="keyword">elif</span> manger_n == <span class="string">&#x27;3&#x27;</span>:</span><br><span class="line">                look_user()</span><br><span class="line">            <span class="keyword">elif</span> manger_n == <span class="string">&#x27;4&#x27;</span>:</span><br><span class="line">                look_users()</span><br><span class="line">            <span class="keyword">elif</span> manger_n == <span class="string">&#x27;5&#x27;</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                print(<span class="string">&#x27;您的输入有误！&#x27;</span>)</span><br><span class="line">                print(<span class="string">&#x27;请再次输入：&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            user_menu(name)  <span class="comment"># 普通用户页面</span></span><br><span class="line">            user_n = <span class="built_in">input</span>()</span><br><span class="line">            <span class="keyword">if</span> user_n == <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">                add_book()</span><br><span class="line">            <span class="keyword">elif</span> user_n == <span class="string">&#x27;2&#x27;</span>:</span><br><span class="line">                del_book()</span><br><span class="line">            <span class="keyword">elif</span> user_n == <span class="string">&#x27;3&#x27;</span>:</span><br><span class="line">                edit_book()</span><br><span class="line">            <span class="keyword">elif</span> user_n == <span class="string">&#x27;4&#x27;</span>:</span><br><span class="line">                look_book()</span><br><span class="line">            <span class="keyword">elif</span> user_n == <span class="string">&#x27;5&#x27;</span>:</span><br><span class="line">                look_books()</span><br><span class="line">            <span class="keyword">elif</span> user_n == <span class="string">&#x27;6&#x27;</span>:</span><br><span class="line">                print(<span class="string">&#x27;您已退出系统！&#x27;</span>)</span><br><span class="line">                sys.exit(<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                print(<span class="string">&#x27;您的输入有误！&#x27;</span>)</span><br><span class="line">                print(<span class="string">&#x27;请再次输入：&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 管理者界面</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">manger</span>():</span></span><br><span class="line">    print(<span class="string">&#x27;*&#x27;</span> * <span class="number">40</span>)</span><br><span class="line">    print(<span class="string">&#x27;    ***** 欢迎来到系统后台 ***** &#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;*&#x27;</span> * <span class="number">40</span>)</span><br><span class="line">    print(<span class="string">&#x27;请输入你想要进行的操作：&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;1. 删除一个用户&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;2. 修改用户密码&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;3. 查看一个用户信息&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;4. 查看全部用户信息&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;5. 退出后台系统&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">del_user</span>():</span></span><br><span class="line">    user_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入要删除的用户名：&#x27;</span>)</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> users:</span><br><span class="line">        <span class="keyword">if</span> user_name == i[<span class="string">&#x27;name&#x27;</span>]:</span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            <span class="keyword">del</span> users[index]</span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            print(<span class="string">f&#x27;<span class="subst">&#123;user_name&#125;</span>的用户信息已被删除！&#x27;</span>)</span><br><span class="line">        index += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&#x27;未查到该用户的信息！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户密码</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">edit_user</span>():</span></span><br><span class="line">    user_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入要修改密码的用户名：&#x27;</span>)</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> users:</span><br><span class="line">        <span class="keyword">if</span> user_name == i[<span class="string">&#x27;name&#x27;</span>]:</span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            new_user_passwd = <span class="built_in">input</span>(<span class="string">&#x27;请输入修改后的密码：&#x27;</span>)</span><br><span class="line">            i[<span class="string">&#x27;passwd&#x27;</span>]=new_user_passwd</span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            print(<span class="string">f&#x27;已对用户<span class="subst">&#123;user_name&#125;</span>重新修改了密码！&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&#x27;未查到该用户的信息！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看一个用户</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">look_user</span>():</span></span><br><span class="line">    user_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入要查看的用户名：&#x27;</span>)</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> users:</span><br><span class="line">        <span class="keyword">if</span> user_name == i[<span class="string">&#x27;name&#x27;</span>]:</span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            print(<span class="string">&#x27;用户名\t密码\t&#x27;</span>)</span><br><span class="line">            print(<span class="string">&#x27;&#123;&#125;\t\t&#123;&#125;\t&#x27;</span> .<span class="built_in">format</span>(i[<span class="string">&#x27;name&#x27;</span>], i[<span class="string">&#x27;passwd&#x27;</span>]))</span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&#x27;未查到该用户的信息！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看全部用户</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">look_users</span>():</span></span><br><span class="line">    print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    print(<span class="string">&#x27;用户名\t密码\t&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> users:</span><br><span class="line">        print(<span class="string">&#x27;&#123;&#125;\t\t&#123;&#125;\t&#x27;</span> .<span class="built_in">format</span>(i[<span class="string">&#x27;name&#x27;</span>], i[<span class="string">&#x27;passwd&#x27;</span>]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用户界面</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">user_menu</span>(<span class="params">self</span>):</span></span><br><span class="line">    print(<span class="string">&#x27;*&#x27;</span> * <span class="number">40</span>)</span><br><span class="line">    print(<span class="string">&#x27;    请输入你想要进行的操作：&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    1. 添加书籍&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    2. 删除书籍&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    3. 修改书籍信息&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    4. 查询单本书籍信息&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    5. 查询所有书籍信息&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    6. 退出&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加书籍</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_book</span>():</span></span><br><span class="line">    book_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入要添加书籍的名字：&#x27;</span>)</span><br><span class="line">    book_author = <span class="built_in">input</span>(<span class="string">&#x27;请输入要添加书籍的作者：&#x27;</span>)</span><br><span class="line">    book_price = <span class="built_in">input</span>(<span class="string">&#x27;请输入要添加书籍的价格：&#x27;</span>)</span><br><span class="line">    book = &#123;<span class="string">&#x27;name&#x27;</span>: book_name, <span class="string">&#x27;author&#x27;</span>: book_author, <span class="string">&#x27;price&#x27;</span>: book_price&#125;</span><br><span class="line">    books.append(book)</span><br><span class="line">    print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    print(<span class="string">f&#x27;<span class="subst">&#123;book_name&#125;</span>的书籍信息已成功添加！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除书籍</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">del_book</span>():</span></span><br><span class="line">    book_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入要删除书籍的名字：&#x27;</span>)</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> books:</span><br><span class="line">        <span class="keyword">if</span> book_name == i[<span class="string">&#x27;name&#x27;</span>]:</span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            <span class="keyword">del</span> books[index]</span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            print(<span class="string">f&#x27;<span class="subst">&#123;book_name&#125;</span>的书籍信息已成功删除！&#x27;</span>)</span><br><span class="line">        index += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&#x27;未查到该书籍的信息！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改书籍</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">edit_book</span>():</span></span><br><span class="line">    book_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入要修改书籍的名字：&#x27;</span>)</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> books:</span><br><span class="line">        <span class="keyword">if</span> book_name == i[<span class="string">&#x27;name&#x27;</span>]:</span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            new_book_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入修改后书籍的名字：&#x27;</span>)</span><br><span class="line">            new_book_author = <span class="built_in">input</span>(<span class="string">&#x27;请输入修改后书籍的作者：&#x27;</span>)</span><br><span class="line">            new_book_price = <span class="built_in">input</span>(<span class="string">&#x27;请输入修改后书籍的价格：&#x27;</span>)</span><br><span class="line">            i[<span class="string">&#x27;name&#x27;</span>]=new_book_name</span><br><span class="line">            i[<span class="string">&#x27;author&#x27;</span>]=new_book_author</span><br><span class="line">            i[<span class="string">&#x27;price&#x27;</span>]=new_book_price</span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            print(<span class="string">f&#x27;<span class="subst">&#123;book_name&#125;</span>的书籍信息已完成修改！&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&#x27;未查到该书籍的信息！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看一本书籍</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">look_book</span>():</span></span><br><span class="line">    book_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入要查看书籍的名字：&#x27;</span>)</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> books:</span><br><span class="line">        <span class="keyword">if</span> book_name == i[<span class="string">&#x27;name&#x27;</span>]:</span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            print(<span class="string">&#x27;书名\t\t作者\t价格\t&#x27;</span>)</span><br><span class="line">            print(<span class="string">&#x27;[&#123;&#125;]\t&#123;&#125;\t&#123;&#125;\t&#x27;</span>.<span class="built_in">format</span>(i[<span class="string">&#x27;name&#x27;</span>], i[<span class="string">&#x27;author&#x27;</span>], i[<span class="string">&#x27;price&#x27;</span>]))</span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&#x27;未查到该书籍的信息！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看全部书籍</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">look_books</span>():</span></span><br><span class="line">    print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    print(<span class="string">&#x27;书名\t\t作者\t价格\t&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> books:</span><br><span class="line">        print(<span class="string">&#x27;[&#123;&#125;]\t&#123;&#125;\t&#123;&#125;\t&#x27;</span>.<span class="built_in">format</span>(i[<span class="string">&#x27;name&#x27;</span>], i[<span class="string">&#x27;author&#x27;</span>], i[<span class="string">&#x27;price&#x27;</span>]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 主函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="comment"># 循环菜单主页面</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        menu()  <span class="comment"># 主菜单页面</span></span><br><span class="line">        menu_n = <span class="built_in">input</span>()</span><br><span class="line">        <span class="keyword">if</span> menu_n == <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            sign_up()</span><br><span class="line">        <span class="keyword">elif</span> menu_n == <span class="string">&#x27;2&#x27;</span>:</span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            name = login()  <span class="comment"># 用户登陆后返回值name</span></span><br><span class="line"></span><br><span class="line">            while_user(name)  <span class="comment"># 用户与管理者判断</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">elif</span> menu_n == <span class="string">&#x27;3&#x27;</span>:</span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            print(<span class="string">&#x27;您已退出管理者功能！&#x27;</span>)</span><br><span class="line">            sys.exit(<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">&#x27;您的输入有误！&#x27;</span>)</span><br><span class="line">            print(<span class="string">&#x27;请再次输入：&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用主函数</span></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>程序设计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>原生JS实现无缝轮播图</title>
     <url>/archives/75b91cd4.html</url>
     <content><![CDATA[<h1 id="第一部分"><a href="#第一部分" class="headerlink" title="第一部分"></a>第一部分</h1><p>现在不论是pc端还是移动端，里面很重要的一个特效就是<strong>轮播图</strong>，可以说是必不可少的。下面是html和css代码：</p>
@@ -716,25 +1187,6 @@
       </categories>
       <tags>
         <tag>轮播图</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python图书管理系统</title>
-    <url>/archives/5158de64.html</url>
-    <content><![CDATA[<h1 id="图书管理系统"><a href="#图书管理系统" class="headerlink" title="图书管理系统"></a>图书管理系统</h1><p>本程序是用python语言编写，主要涉及到python中库的调用、对数组和函数的灵活运用等知识，是一个简单的程序设计。功能有用户页面和后台管理员系统。</p>
-<p>代码如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">books = [&#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;红楼梦&#x27;</span>, <span class="string">&#x27;author&#x27;</span>: <span class="string">&#x27;	曹雪芹&#x27;</span>, <span class="string">&#x27;price&#x27;</span>: <span class="string">&#x27;19.9&#x27;</span>&#125;,</span><br><span class="line">         &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;西游记&#x27;</span>, <span class="string">&#x27;author&#x27;</span>: <span class="string">&#x27;	吴承恩&#x27;</span>, <span class="string">&#x27;price&#x27;</span>: <span class="string">&#x27;29.9&#x27;</span>&#125;,</span><br><span class="line">         &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;三国演义&#x27;</span>, <span class="string">&#x27;author&#x27;</span>: <span class="string">&#x27;罗贯中&#x27;</span>, <span class="string">&#x27;price&#x27;</span>: <span class="string">&#x27;39.9&#x27;</span>&#125;,</span><br><span class="line">         &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;水浒传&#x27;</span>, <span class="string">&#x27;author&#x27;</span>: <span class="string">&#x27;	施耐庵&#x27;</span>, <span class="string">&#x27;price&#x27;</span>: <span class="string">&#x27;49.9&#x27;</span>&#125;,</span><br><span class="line">         ]  <span class="comment"># 图书数据</span></span><br><span class="line"></span><br><span class="line">users = [&#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;admin1&#x27;</span>, <span class="string">&#x27;passwd&#x27;</span>: <span class="string">&#x27;123&#x27;</span>&#125;, &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;admin2&#x27;</span>, <span class="string">&#x27;passwd&#x27;</span>: <span class="string">&#x27;123&#x27;</span>&#125;,</span><br><span class="line">         &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;administrators&#x27;</span>, <span class="string">&#x27;passwd&#x27;</span>: <span class="string">&#x27;123&#x27;</span>&#125;]  <span class="comment"># 默认用户数据</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 主菜单</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">menu</span>():</span></span><br><span class="line">    print(<span class="string">&#x27;*&#x27;</span> * <span class="number">40</span>)</span><br><span class="line">    print(<span class="string">&#x27;    *****欢迎来到图书管理系统***** &#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;*&#x27;</span> * <span class="number">40</span>)</span><br><span class="line">    print(<span class="string">&#x27;    请输入你想要进行的操作：&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    1: 注册新用户：&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    2. 使用已注册的账号进行登陆：&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    3. 退出本系统&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 注册页面</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sign_up</span>():</span></span><br><span class="line">    user_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入您的用户名：&#x27;</span>)</span><br><span class="line">    user_passwd = <span class="built_in">input</span>(<span class="string">&#x27;请输入您的密码：&#x27;</span>)</span><br><span class="line">    user_passwd2 = <span class="built_in">input</span>(<span class="string">&#x27;请确认您的密码：&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> user_passwd == user_passwd2:</span><br><span class="line">        user = &#123;<span class="string">&#x27;name&#x27;</span>: user_name, <span class="string">&#x27;passwd&#x27;</span>: user_passwd&#125;</span><br><span class="line">        users.append(user)</span><br><span class="line">        print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">        print(<span class="string">f&#x27;恭喜用户<span class="subst">&#123;user_name&#125;</span>,您已注册成功！&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">&#x27;两次密码不一致，请重新输入&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 登陆页面</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span>():</span></span><br><span class="line">    user_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入您的用户名：&#x27;</span>)</span><br><span class="line">    user_passwd = <span class="built_in">input</span>(<span class="string">&#x27;请输入您的密码：&#x27;</span>)</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> users:</span><br><span class="line">        <span class="keyword">if</span> user_name == i[<span class="string">&#x27;name&#x27;</span>]:</span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> user_passwd == i[<span class="string">&#x27;passwd&#x27;</span>]:</span><br><span class="line">                print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">                time.sleep(<span class="number">1</span>)</span><br><span class="line">                print(<span class="string">&#x27;登陆成功！&#x27;</span>)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> user_name</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                print(<span class="string">&#x27;密码输入错误！&#x27;</span>)</span><br><span class="line">                login()</span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&#x27;未查到该用户的信息！&#x27;</span>)</span><br><span class="line">        print(<span class="string">&#x27;请重试。&#x27;</span>)</span><br><span class="line">        login()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对用户与管理者的判断</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">while_user</span>(<span class="params">name</span>):</span></span><br><span class="line">    <span class="keyword">while</span> name:</span><br><span class="line">        <span class="keyword">if</span> name == <span class="string">&#x27;administrators&#x27;</span>:  <span class="comment"># 判断是否为管理者</span></span><br><span class="line">            manger()  <span class="comment"># 管理者页面</span></span><br><span class="line">            manger_n = <span class="built_in">input</span>()</span><br><span class="line">            <span class="keyword">if</span> manger_n == <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">                del_user()</span><br><span class="line">            <span class="keyword">elif</span> manger_n == <span class="string">&#x27;2&#x27;</span>:</span><br><span class="line">                edit_user()</span><br><span class="line">            <span class="keyword">elif</span> manger_n == <span class="string">&#x27;3&#x27;</span>:</span><br><span class="line">                look_user()</span><br><span class="line">            <span class="keyword">elif</span> manger_n == <span class="string">&#x27;4&#x27;</span>:</span><br><span class="line">                look_users()</span><br><span class="line">            <span class="keyword">elif</span> manger_n == <span class="string">&#x27;5&#x27;</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                print(<span class="string">&#x27;您的输入有误！&#x27;</span>)</span><br><span class="line">                print(<span class="string">&#x27;请再次输入：&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            user_menu(name)  <span class="comment"># 普通用户页面</span></span><br><span class="line">            user_n = <span class="built_in">input</span>()</span><br><span class="line">            <span class="keyword">if</span> user_n == <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">                add_book()</span><br><span class="line">            <span class="keyword">elif</span> user_n == <span class="string">&#x27;2&#x27;</span>:</span><br><span class="line">                del_book()</span><br><span class="line">            <span class="keyword">elif</span> user_n == <span class="string">&#x27;3&#x27;</span>:</span><br><span class="line">                edit_book()</span><br><span class="line">            <span class="keyword">elif</span> user_n == <span class="string">&#x27;4&#x27;</span>:</span><br><span class="line">                look_book()</span><br><span class="line">            <span class="keyword">elif</span> user_n == <span class="string">&#x27;5&#x27;</span>:</span><br><span class="line">                look_books()</span><br><span class="line">            <span class="keyword">elif</span> user_n == <span class="string">&#x27;6&#x27;</span>:</span><br><span class="line">                print(<span class="string">&#x27;您已退出系统！&#x27;</span>)</span><br><span class="line">                sys.exit(<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                print(<span class="string">&#x27;您的输入有误！&#x27;</span>)</span><br><span class="line">                print(<span class="string">&#x27;请再次输入：&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 管理者界面</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">manger</span>():</span></span><br><span class="line">    print(<span class="string">&#x27;*&#x27;</span> * <span class="number">40</span>)</span><br><span class="line">    print(<span class="string">&#x27;    ***** 欢迎来到系统后台 ***** &#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;*&#x27;</span> * <span class="number">40</span>)</span><br><span class="line">    print(<span class="string">&#x27;请输入你想要进行的操作：&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;1. 删除一个用户&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;2. 修改用户密码&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;3. 查看一个用户信息&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;4. 查看全部用户信息&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;5. 退出后台系统&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">del_user</span>():</span></span><br><span class="line">    user_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入要删除的用户名：&#x27;</span>)</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> users:</span><br><span class="line">        <span class="keyword">if</span> user_name == i[<span class="string">&#x27;name&#x27;</span>]:</span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            <span class="keyword">del</span> users[index]</span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            print(<span class="string">f&#x27;<span class="subst">&#123;user_name&#125;</span>的用户信息已被删除！&#x27;</span>)</span><br><span class="line">        index += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&#x27;未查到该用户的信息！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户密码</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">edit_user</span>():</span></span><br><span class="line">    user_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入要修改密码的用户名：&#x27;</span>)</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> users:</span><br><span class="line">        <span class="keyword">if</span> user_name == i[<span class="string">&#x27;name&#x27;</span>]:</span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            new_user_passwd = <span class="built_in">input</span>(<span class="string">&#x27;请输入修改后的密码：&#x27;</span>)</span><br><span class="line">            i[<span class="string">&#x27;passwd&#x27;</span>]=new_user_passwd</span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            print(<span class="string">f&#x27;已对用户<span class="subst">&#123;user_name&#125;</span>重新修改了密码！&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&#x27;未查到该用户的信息！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看一个用户</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">look_user</span>():</span></span><br><span class="line">    user_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入要查看的用户名：&#x27;</span>)</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> users:</span><br><span class="line">        <span class="keyword">if</span> user_name == i[<span class="string">&#x27;name&#x27;</span>]:</span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            print(<span class="string">&#x27;用户名\t密码\t&#x27;</span>)</span><br><span class="line">            print(<span class="string">&#x27;&#123;&#125;\t\t&#123;&#125;\t&#x27;</span> .<span class="built_in">format</span>(i[<span class="string">&#x27;name&#x27;</span>], i[<span class="string">&#x27;passwd&#x27;</span>]))</span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&#x27;未查到该用户的信息！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看全部用户</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">look_users</span>():</span></span><br><span class="line">    print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    print(<span class="string">&#x27;用户名\t密码\t&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> users:</span><br><span class="line">        print(<span class="string">&#x27;&#123;&#125;\t\t&#123;&#125;\t&#x27;</span> .<span class="built_in">format</span>(i[<span class="string">&#x27;name&#x27;</span>], i[<span class="string">&#x27;passwd&#x27;</span>]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用户界面</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">user_menu</span>(<span class="params">self</span>):</span></span><br><span class="line">    print(<span class="string">&#x27;*&#x27;</span> * <span class="number">40</span>)</span><br><span class="line">    print(<span class="string">&#x27;    请输入你想要进行的操作：&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    1. 添加书籍&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    2. 删除书籍&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    3. 修改书籍信息&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    4. 查询单本书籍信息&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    5. 查询所有书籍信息&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;    6. 退出&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加书籍</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_book</span>():</span></span><br><span class="line">    book_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入要添加书籍的名字：&#x27;</span>)</span><br><span class="line">    book_author = <span class="built_in">input</span>(<span class="string">&#x27;请输入要添加书籍的作者：&#x27;</span>)</span><br><span class="line">    book_price = <span class="built_in">input</span>(<span class="string">&#x27;请输入要添加书籍的价格：&#x27;</span>)</span><br><span class="line">    book = &#123;<span class="string">&#x27;name&#x27;</span>: book_name, <span class="string">&#x27;author&#x27;</span>: book_author, <span class="string">&#x27;price&#x27;</span>: book_price&#125;</span><br><span class="line">    books.append(book)</span><br><span class="line">    print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    print(<span class="string">f&#x27;<span class="subst">&#123;book_name&#125;</span>的书籍信息已成功添加！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除书籍</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">del_book</span>():</span></span><br><span class="line">    book_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入要删除书籍的名字：&#x27;</span>)</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> books:</span><br><span class="line">        <span class="keyword">if</span> book_name == i[<span class="string">&#x27;name&#x27;</span>]:</span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            <span class="keyword">del</span> books[index]</span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            print(<span class="string">f&#x27;<span class="subst">&#123;book_name&#125;</span>的书籍信息已成功删除！&#x27;</span>)</span><br><span class="line">        index += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&#x27;未查到该书籍的信息！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改书籍</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">edit_book</span>():</span></span><br><span class="line">    book_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入要修改书籍的名字：&#x27;</span>)</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> books:</span><br><span class="line">        <span class="keyword">if</span> book_name == i[<span class="string">&#x27;name&#x27;</span>]:</span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            new_book_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入修改后书籍的名字：&#x27;</span>)</span><br><span class="line">            new_book_author = <span class="built_in">input</span>(<span class="string">&#x27;请输入修改后书籍的作者：&#x27;</span>)</span><br><span class="line">            new_book_price = <span class="built_in">input</span>(<span class="string">&#x27;请输入修改后书籍的价格：&#x27;</span>)</span><br><span class="line">            i[<span class="string">&#x27;name&#x27;</span>]=new_book_name</span><br><span class="line">            i[<span class="string">&#x27;author&#x27;</span>]=new_book_author</span><br><span class="line">            i[<span class="string">&#x27;price&#x27;</span>]=new_book_price</span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            print(<span class="string">f&#x27;<span class="subst">&#123;book_name&#125;</span>的书籍信息已完成修改！&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&#x27;未查到该书籍的信息！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看一本书籍</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">look_book</span>():</span></span><br><span class="line">    book_name = <span class="built_in">input</span>(<span class="string">&#x27;请输入要查看书籍的名字：&#x27;</span>)</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> books:</span><br><span class="line">        <span class="keyword">if</span> book_name == i[<span class="string">&#x27;name&#x27;</span>]:</span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            print(<span class="string">&#x27;书名\t\t作者\t价格\t&#x27;</span>)</span><br><span class="line">            print(<span class="string">&#x27;[&#123;&#125;]\t&#123;&#125;\t&#123;&#125;\t&#x27;</span>.<span class="built_in">format</span>(i[<span class="string">&#x27;name&#x27;</span>], i[<span class="string">&#x27;author&#x27;</span>], i[<span class="string">&#x27;price&#x27;</span>]))</span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&#x27;未查到该书籍的信息！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看全部书籍</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">look_books</span>():</span></span><br><span class="line">    print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    print(<span class="string">&#x27;书名\t\t作者\t价格\t&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> books:</span><br><span class="line">        print(<span class="string">&#x27;[&#123;&#125;]\t&#123;&#125;\t&#123;&#125;\t&#x27;</span>.<span class="built_in">format</span>(i[<span class="string">&#x27;name&#x27;</span>], i[<span class="string">&#x27;author&#x27;</span>], i[<span class="string">&#x27;price&#x27;</span>]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 主函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="comment"># 循环菜单主页面</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        menu()  <span class="comment"># 主菜单页面</span></span><br><span class="line">        menu_n = <span class="built_in">input</span>()</span><br><span class="line">        <span class="keyword">if</span> menu_n == <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            sign_up()</span><br><span class="line">        <span class="keyword">elif</span> menu_n == <span class="string">&#x27;2&#x27;</span>:</span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            name = login()  <span class="comment"># 用户登陆后返回值name</span></span><br><span class="line"></span><br><span class="line">            while_user(name)  <span class="comment"># 用户与管理者判断</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">elif</span> menu_n == <span class="string">&#x27;3&#x27;</span>:</span><br><span class="line">            print(<span class="string">&#x27;请稍等。。。&#x27;</span>)</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            print(<span class="string">&#x27;您已退出管理者功能！&#x27;</span>)</span><br><span class="line">            sys.exit(<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">&#x27;您的输入有误！&#x27;</span>)</span><br><span class="line">            print(<span class="string">&#x27;请再次输入：&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用主函数</span></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>程序设计</tag>
       </tags>
   </entry>
 </search>

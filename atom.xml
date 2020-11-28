@@ -1,27 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>小刘童鞋的博客</title>
+  <title>WaterSix的博客</title>
   <icon>https://lhj-web.github.io/icon.png</icon>
   <subtitle>已是人海孤鸿，你是清晨朝暮</subtitle>
   <link href="https://lhj-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://lhj-web.github.io/"/>
-  <updated>2020-11-18T08:50:07.721Z</updated>
+  <updated>2020-11-26T12:20:59.844Z</updated>
   <id>https://lhj-web.github.io/</id>
   
   <author>
-    <name>小刘童鞋</name>
+    <name>WaterSix</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>git操作</title>
+    <link href="https://lhj-web.github.io/archives/46390b34.html"/>
+    <id>https://lhj-web.github.io/archives/46390b34.html</id>
+    <published>2020-11-21T04:34:30.000Z</published>
+    <updated>2020-11-26T12:20:59.844Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;一、底层命令&quot;&gt;&lt;a href=&quot;#一、底层命令&quot; class=&quot;headerlink&quot; title=&quot;一、底层命令&quot;&gt;&lt;/a&gt;一、底层命令&lt;/h2&gt;&lt;h3 id=&quot;1-初始化&quot;&gt;&lt;a href=&quot;#1-初始化&quot; class=&quot;headerlink&quot; title=&quot;1. 初始化&quot;&gt;&lt;/a&gt;1. 初始化&lt;/h3&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt; git init&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt; git config --global user.name&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt; git config --global user.email &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="Git&amp;Github" scheme="https://lhj-web.github.io/categories/Git-Github/"/>
+    
+    
+    <category term="Git" scheme="https://lhj-web.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS易错点</title>
+    <link href="https://lhj-web.github.io/archives/a40aa438.html"/>
+    <id>https://lhj-web.github.io/archives/a40aa438.html</id>
+    <published>2020-11-18T12:13:44.000Z</published>
+    <updated>2020-11-28T10:50:17.520Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;一、关于this&quot;&gt;&lt;a href=&quot;#一、关于this&quot; class=&quot;headerlink&quot; title=&quot;一、关于this&quot;&gt;&lt;/a&gt;一、关于this&lt;/h2&gt;&lt;p&gt;&lt;code&gt;this&lt;/code&gt; 其实是一个参数，是解析器在调用函数的时候向函数内部传递的一个隐含参数，当以函数的形式调用的时候this指向的就是 &lt;code&gt;window&lt;/code&gt;，当以方法的方式调用的时候，this指向的是调用者，谁调this就指向谁。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://lhj-web.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="JS笔记" scheme="https://lhj-web.github.io/tags/JS%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Ajax基础</title>
     <link href="https://lhj-web.github.io/archives/9606d18.html"/>
     <id>https://lhj-web.github.io/archives/9606d18.html</id>
     <published>2020-11-16T04:17:18.000Z</published>
-    <updated>2020-11-18T08:50:07.721Z</updated>
+    <updated>2020-11-18T09:23:27.899Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;一、请求报文和响应报文结构&quot;&gt;&lt;a href=&quot;#一、请求报文和响应报文结构&quot; class=&quot;headerlink&quot; title=&quot;一、请求报文和响应报文结构&quot;&gt;&lt;/a&gt;一、请求报文和响应报文结构&lt;/h2&gt;&lt;h3 id=&quot;1-请求报文&quot;&gt;&lt;a href=&quot;#1-请求报文&quot; class=&quot;headerlink&quot; title=&quot;1. 请求报文&quot;&gt;&lt;/a&gt;1. 请求报文&lt;/h3&gt;&lt;ul&gt;
@@ -69,7 +107,7 @@
     <link href="https://lhj-web.github.io/archives/de91195f.html"/>
     <id>https://lhj-web.github.io/archives/de91195f.html</id>
     <published>2020-11-13T06:35:48.000Z</published>
-    <updated>2020-11-17T13:06:02.360Z</updated>
+    <updated>2020-11-26T12:21:28.420Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;一、声明变量&quot;&gt;&lt;a href=&quot;#一、声明变量&quot; class=&quot;headerlink&quot; title=&quot;一、声明变量&quot;&gt;&lt;/a&gt;一、声明变量&lt;/h2&gt;&lt;h3 id=&quot;1-let&quot;&gt;&lt;a href=&quot;#1-let&quot; class=&quot;headerlink&quot; title=&quot;1. let&quot;&gt;&lt;/a&gt;1. let&lt;/h3&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; a;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; a,b,c;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;, b = &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;, c = &lt;span class=&quot;number&quot;&gt;300&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
